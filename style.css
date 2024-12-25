@@ -17,22 +17,28 @@ nav {
     width: 100%;
     min-width: 100%;
     padding: 10px 30px;
+    position: fixed;
 }
 nav img, nav a {
     align-self: center;
 }
 .nav_links--left {
     display: flex;
-    gap: 15px;
+    gap: 1.875rem;
     margin-top: auto;
-    margin-left: 15px;
+    margin-left: 1.875rem;
     height: min-content;
     padding-bottom: 15px;
+    font-size: 1.125rem;
 }
 .nav_links--left a {
     color: #D4AF37;
     text-decoration: none;
     font-family: "Montserrat", sans-serif;
+}
+.nav_links--left a:hover {
+    text-decoration: underline;
+    text-decoration-color: #F4C7C3;
 }
 .nav_links--right {
     margin-left: auto;
