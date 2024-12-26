@@ -35,10 +35,11 @@ nav img, nav a {
     color: #D4AF37;
     text-decoration: none;
     font-family: "Montserrat", sans-serif;
+    border-bottom: none;
+    transition: border-bottom 0.05s ease;
 }
 .nav_links--left a:hover {
-    text-decoration: underline;
-    text-decoration-color: #F4C7C3;
+    border-bottom: 2px solid #FFC1C6;
 }
 .nav_links--right {
     margin-left: auto;
@@ -46,18 +47,21 @@ nav img, nav a {
     padding-bottom: 15px;
 }
 nav button {
-    font-size: 1.25rem;
+    font-size: 1.35rem;
+    font-weight: 500;
     border-radius: 3px;
-    border: none;
+    border: 2px solid white;
     padding: 10px 20px;
-    background-color: #50C878;
-    color: #333333;
+    background: white;
+    color: #B19025;
     box-shadow: none;
-    transition: font-size 0.3s ease;
     cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 nav button:hover {
-    font-size: 1.4rem;
+    background-color: #B19025;
+    color: white;
+    border-color: #B19025;
 }
 /* NAV STYLING END */
 
@@ -68,8 +72,34 @@ footer {
     top: 100%;
     width: 100%;
     min-width: 100%;
-    height: 6.25rem;
     background-color: #242424;
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 30px;
 }
-
+footer p {
+    margin: 0;
+}
+.footer_contact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.footer_contact h2, .footer_location h2 {
+    text-align: center;
+    margin: 0;
+}
+.footer_contact_inner {
+    display: flex;
+    gap: 10px;
+}
+.footer_contact_inner_numbers {
+    display: flex;
+    flex-direction: column;
+}
+.footer_location {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
 /* FOOTER STYLING END */
