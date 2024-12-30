@@ -6,18 +6,17 @@ body {
     margin: 0;
     display: flex;
     flex-direction: column;
-    background-color: #FAF3E3;
+    background-color: #F1F1F1;
 }
 
 /* NAV STYLING START */
 nav {
     display: flex;
-    background-color: #242424;
-    height: 6.25rem;
     width: 100%;
     min-width: 100%;
-    padding: 10px 30px;
+    padding: 10px 65px 10px 30px;
     position: fixed;
+    align-items: center;
 }
 nav img, nav a {
     align-self: center;
@@ -25,26 +24,23 @@ nav img, nav a {
 .nav_links--left {
     display: flex;
     gap: 1.875rem;
-    margin-top: auto;
     margin-left: 1.875rem;
-    height: min-content;
-    padding-bottom: 15px;
     font-size: 1.125rem;
+    text-align: center;
 }
 .nav_links--left a {
-    color: #D4AF37;
+    color: #A67C00;
     text-decoration: none;
     font-family: "Montserrat", sans-serif;
     border-bottom: none;
     transition: border-bottom 0.05s ease;
 }
 .nav_links--left a:hover {
-    border-bottom: 2px solid #FFC1C6;
+    filter: drop-shadow(0 0 0.75rem black);
 }
 .nav_links--right {
     margin-left: auto;
-    align-self: flex-end;
-    padding-bottom: 15px;
+    padding-bottom: 1.25rem;
 }
 nav button {
     font-size: 1.35rem;
@@ -59,9 +55,9 @@ nav button {
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 nav button:hover {
-    background-color: #B19025;
+    background-color: #A67C00;
     color: white;
-    border-color: #B19025;
+    border-color: #A67C00;
 }
 /* NAV STYLING END */
 
