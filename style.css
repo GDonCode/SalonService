@@ -4,9 +4,9 @@
 body {
     padding: 0;
     margin: 0;
+    background-color: #F1F1F1;
     display: flex;
     flex-direction: column;
-    background-color: #F1F1F1;
 }
 
 /* NAV STYLING START */
@@ -14,9 +14,10 @@ nav {
     display: flex;
     width: 100%;
     min-width: 100%;
-    padding: 10px 65px 10px 30px;
+    padding: 10px 30px;
     position: fixed;
     align-items: center;
+    height: 10rem;
 }
 nav img, nav a {
     align-self: center;
@@ -58,6 +59,45 @@ nav button:hover {
     background-color: #087500;
 }
 /* NAV STYLING END */
+
+/*  MAIN STYLING START */
+
+main {
+    padding-top: 10rem;
+}
+main h1 {
+    text-align: center;
+    font-family: "Montserrat", serif;
+    margin-top: 0;
+    font-size: 2rem;
+    font-weight: 450;
+    text-decoration: underline;
+    text-decoration-color: #087500;
+}
+
+
+.swiper {
+    width: 55rem;
+    height: 26.813rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; 
+    background-color: beige;
+}
+.swiper-slide img, .swiper-slide video {
+    width: 100%;
+    height: 94%;
+    object-fit: contain;
+    margin: 0 auto;
+}
+.swiper-pagination-bullet, .swiper-pagination-bullet-active {
+    background-color: #0A9300 !important;
+}
+.swiper-button-prev::after, .swiper-button-next::after {
+    color: #0A9300;
+}
+/*  MAIN STYLING END */
 
 /* FOOTER STYLING START */
 
