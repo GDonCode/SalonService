@@ -4,7 +4,7 @@
 body {
     padding: 0;
     margin: 0;
-    background-color: #E8F5F3;
+    background-color: white;
     display: flex;
     flex-direction: column;
 }
@@ -78,10 +78,10 @@ main h1 {
 .hero_section {
     width: 100%;
     display: flex;
-    padding: 1.563rem;
+    padding: 1.563rem 1.563rem 0 1.563rem;
     font-family: "Montserrat", serif;
     justify-content: space-between;
-
+    height: 31.563rem;
 }
 .hero_section--text {
     max-width: 55%;
