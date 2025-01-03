@@ -1,0 +1,69 @@
+main h1 {
+    text-decoration: underline;
+    text-decoration-color: #0A9300;
+    text-align: center;
+}
+
+.services_section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-height: 350px;
+    height: 350px;
+    padding: 0px 40px;
+}
+.services_section button {
+    font-size: 1.35rem;
+    font-weight: 500;
+    border-radius: 0.375rem;
+    border: none;
+    padding: 0.625rem 1.25rem;
+    background-color: #111827;
+    color: white;
+    box-shadow: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, font-size 0.3s ease;
+    width: 20rem;
+    margin: 0 auto;
+}
+.services_section button:hover {
+    background-color: #087500;
+    font-size: 1.5rem;
+}
+.services_section h2 {
+    font-size: 1.75rem;
+}
+.services_section ul {
+    font-size: 1.5em;
+}
+.services_section ul li::marker {
+    color: #087500;
+    font-size: 1.5rem;
+}
+.services_section_inner {
+    display: flex;
+    width: 100%;
+}
+.services_section_text--container, .services_section_media--container {
+    width: 50%;
+}
+
+.services_section_text--container {
+
+}
+.services_section_media--container {
+    display: flex;
+    width: 50%;
+    align-items: center;
+}
+.services_section_media--grid {
+    display: grid;
+    grid-template-columns: repeat(2, 200px);
+    grid-template-rows: repeat(2, 200px);
+}
+/* MEDIA STYLING START*/
+
+#hair_video {
+    height: 350px;
+    width: 50%;
+}
