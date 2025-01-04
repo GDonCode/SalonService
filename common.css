@@ -5,9 +5,9 @@ body {
     padding: 0;
     margin: 0;
     background-color: #F1F1F1;
-    display: flex;
-    flex-direction: column;
+    position: relative;
     font-family: "Montserrat", serif;
+    min-height: 100vh;
 }
 
 /* NAV STYLING START */
@@ -59,3 +59,106 @@ nav button:hover {
     font-size: 1.5rem;
 }
 /* NAV STYLING END */
+
+/* FOOTER STYLING START */
+
+footer {
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    min-width: 100%;
+    height: 8rem;
+    background-color: #242424;
+    display: flex;
+    flex-direction: column;
+    align-items: space-evenly;
+    gap: 40px;
+    padding: 0 1.875rem;
+    background: transparent;
+}
+.footer_info {
+    display: flex;
+    justify-content: space-evenly;
+}
+.footer_logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+footer h2 {
+    color: #0A9300;
+}
+footer p {
+    margin: 0;
+}
+.footer_contact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.footer_contact h2, .footer_location h2, .footer_social h2 {
+    text-align: center;
+    margin: 0;
+}
+.footer_contact_inner {
+    display: flex;
+    gap: 0.625rem;
+}
+.footer_contact_inner_numbers {
+    display: flex;
+    flex-direction: column;
+}
+.footer_contact_inner img {
+    width: 20px;
+    height: 20px;
+}
+.footer_social {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.footer_social h2 {
+    margin-left: 1px;
+}
+.footer_social img {
+    width: 32px;
+    height: 32px;
+}
+.footer_social_inner {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+.footer_location {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.footer_divider {
+    position: absolute;
+    top: 15px;
+    border-top: 2px solid #087500;
+}
+
+.divider1 {
+    position: absolute;
+    left: 0;
+    min-width: 242px;
+}
+.divider2 {
+    position: absolute;
+    left: 407px;
+    min-width: 220px;
+}
+.divider3 {
+    position: absolute;
+    left: 770px;
+    min-width: 220px;
+}
+.divider4 {
+    position: absolute;
+    left: 1103px;
+    min-width: 246px;
+}
+/* FOOTER STYLING END */
