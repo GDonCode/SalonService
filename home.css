@@ -3,23 +3,24 @@
 
 main {
     background: transparent;
-    padding-bottom: 7.5rem;
+    padding: 0 3rem 7.5rem 2.5rem;
 }
 main h1 {
     font-family: "Libre Baskerville", serif;
     font-size: 2.2rem;
-    line-height: 2.86rem;
+    line-height: 1.3;
     letter-spacing: -3%;
     margin-bottom: 1.875rem;
     font-weight: 550;
     text-decoration: underline;
+    text-decoration-thickness: 1.5px;
     text-decoration-color: #087500;
     margin: 0;
 }
 .hero_section {
     width: 100%;
     display: flex;
-    padding: 2.5rem 2.5rem 0 2.5rem;
+    padding: 0 2.5rem 0 2.5rem;
     font-family: "Montserrat", serif;
     height: 31.563rem;
 }
@@ -27,25 +28,26 @@ main h1 {
     max-width: 50%;
     display: flex;
     flex-direction: column;
-    gap: 45px;
+    gap: 50px;
     font-family: "Montserrat", serif;
 }
 .hero_section--text h3, .hero_section--text p {
     max-width: 45ch;
     margin: 0;
     font-size: 1.2rem;
-    line-height: 1.8rem;
+    line-height: 1.5;
 }
 .hero_section--text h3 {
     font-weight: 550;
 }
 .hero_section--text p {
     margin-top: -20px;
+    font-weight: 450;
 }
 .hero_section--text--check {
     color: #D4AF37;
-    font-size: 1.5rem;
-    margin-right: 0.125rem;
+    font-size: 1.2rem;
+    margin-right: 0.25rem;
 }
 .hero_section--CTA {
     display: flex;
@@ -92,7 +94,7 @@ main h1 {
     font-size: 1.5rem;
 }
 .swiper {
-    height: 23.125rem;
+    height: 24rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -120,7 +122,7 @@ main h1 {
 .testimonial_section {
     display: flex;
     justify-content: space-between;
-    padding: 0 90px;
+    padding: 0 55px;
     margin-top: 3.75rem;
 }
 .testimonial_review img {

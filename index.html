@@ -19,6 +19,11 @@
     href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
     <!-- SWIPER -->
+
+    <!-- AOS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+    <!-- AOS -->
+
 </head>
 <body>
     <header>
@@ -76,7 +81,7 @@
         </div>
         <div class="testimonial_section">
             <div class="testimonial_section--container">
-                <div class="testimonial_review">
+                <div class="testimonial_review" data-aos="fade-up">
                     <img src="media/five-stars.png">
                     <img src="media/google.png">
                     <h3>4.9 Stars on Google Review</h3>
@@ -85,11 +90,11 @@
                     <blockquote>
                         <p>" I highly recommend Payeton's Place! When you need to relax and be catered to, that's the place to be. Absolutely loved the environment and the service was excellent. We felt welcomed, refreshed and comfortable. We will definitely be back! Don't miss out on an amazing experience! "</p>
                     </blockquote>
-                    <p>—Judine Dawkins</p>
+                    <p style="font-weight: 500;">—Judine Dawkins</p>
                 </div>
             </div>
             <div class="testimonial_section--container">
-                <div class="testimonial_review">
+                <div class="testimonial_review" data-aos="fade-up">
                     <img src="media/five-stars.png">
                     <img src="media/facebook.png">
                     <h3>5 Star Reviews on Facebook</h3>
@@ -98,7 +103,7 @@
                     <blockquote>
                         <p>" It's always a bonus when you can get services done in a non-chaotic environment, in an atmosphere filled with classical music to bring your mind at ease & a beverage in hand upon entry always. One where your gel polish doesn't chip & the sole of your feet stays smoooth. "</p>
                     </blockquote>
-                    <p>—Lashaunie Lindo</p>
+                    <p style="font-weight: 500;">—Lashaunie Lindo</p>
                 </div>
             </div> 
         </div>
@@ -170,6 +175,14 @@
           el: '.swiper-scrollbar',
         },
       });
-      </script>
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 600, // Animation duration in milliseconds
+            easing: 'ease-out',
+            once: true // Only animate once
+        });
+    </script>    
 </body>
 </html>

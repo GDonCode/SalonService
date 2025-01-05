@@ -15,19 +15,17 @@ nav {
     display: flex;
     width: 100%;
     min-width: 100%;
-    padding: 0.625rem 1.875rem;
+    padding: 4.75rem 4rem 5.313rem 4rem;
     align-items: center;
     height: 8rem;
     background: transparent;
-}
-nav img, nav a {
-    align-self: center;
 }
 .nav_links--left {
     display: flex;
     gap: 2.5rem;
     margin-left: 4.25rem;
     font-size: 1.25rem;
+    font-weight: 500;
     text-align: center;
 }
 .nav_links--left a {
@@ -116,6 +114,7 @@ footer p {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    margin-left: -45px;
 }
 .footer_social h2 {
     margin-left: 1px;
@@ -144,21 +143,21 @@ footer p {
 .divider1 {
     position: absolute;
     left: 0;
-    min-width: 242px;
+    min-width: 257px;
 }
 .divider2 {
     position: absolute;
-    left: 407px;
-    min-width: 220px;
+    left: 412px;
+    min-width: 194px;
 }
 .divider3 {
     position: absolute;
-    left: 770px;
-    min-width: 220px;
+    left: 746px;
+    min-width: 235px;
 }
 .divider4 {
     position: absolute;
-    left: 1103px;
-    min-width: 246px;
+    left: 1091px;
+    min-width: 258px;
 }
 /* FOOTER STYLING END */
