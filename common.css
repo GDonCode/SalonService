@@ -114,7 +114,7 @@ footer p {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    margin-left: -50px;
+    margin-left: -60px;
 }
 .footer_social h2 {
     margin-left: 1px;
@@ -143,16 +143,16 @@ footer p {
 .divider1 {
     position: absolute;
     left: 0;
-    min-width: 260px;
+    min-width: 265px;
 }
 .divider2 {
     position: absolute;
-    left: 413px;
-    min-width: 192px;
+    left: 420px;
+    min-width: 185px;
 }
 .divider3 {
     position: absolute;
-    left: 740px;
+    left: 743px;
     min-width: 238px;
 }
 .divider4 {
