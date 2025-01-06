@@ -42,54 +42,59 @@
         </nav>
     </header>
     <main>
-        <h1 class="headline">Our Services</h1>
+        <h1>Our Services</h1>
         <div class="service_selector">
             <div class="service_icon">
-                <button>
-                    <img src="media/small-down-arrow.png" alt="Arrow pointing down" id="icon-indicator">
+                <button class="service_scroll_button" data-scroll-target="hair_section"> 
+                    <img src="media/small-down-arrow.png" alt="Arrow pointing down" class="icon-indicator">
                     <img src="media/hair.png" alt="Hair">
                     <h3>Hair</h3>
                 </button>
             </div>
             <div class="service_icon">
-                <button>
-                    <img src="media/small-down-arrow.png" alt="Arrow pointing down" id="icon-indicator">
+                <button class="service_scroll_button" data-scroll-target="hair_section">
+                    <img src="media/small-down-arrow.png" alt="Arrow pointing down" class="icon-indicator">
                     <img src="media/makeup.png" alt="">
                     <h3>Face and Makeup</h3>
                 </button>
             </div>
             <div class="service_icon">
-                <button>
-                    <img src="media/small-down-arrow.png" alt="Arrow pointing down" id="icon-indicator">
+                <button class="servive_scroll_button" data-scroll-target="nail_section">
+                    <img src="media/small-down-arrow.png" alt="Arrow pointing down" class="icon-indicator">
                     <img src="media/nails.png" alt="">
                     <h3>Nails</h3>
                 </button>
             </div>
             <div class="service_icon">
-                <button>
-                    <img src="media/small-down-arrow.png" alt="Arrow pointing down" id="icon-indicator">
+                <button class="service_scroll_button" data-scroll-target="body_section">
+                    <img src="media/small-down-arrow.png" alt="Arrow pointing down" class="icon-indicator">
                     <img src="media/body.png" alt="">
                     <h3>Body Treatments</h3>
                 </button>
             </div>
             <div class="service_icon">
-                <button>
-                    <img src="media/small-down-arrow.png" alt="Arrow pointing down" id="icon-indicator">
+                <button class="service_scroll_button" data-scroll-target="add_section">
+                    <img src="media/small-down-arrow.png" alt="Arrow pointing down" class="icon-indicator">
                     <img src="media/plus.png" alt="">
                     <h3>Additional</h3>
                 </button>
             </div>
         </div>
         <img src="media/down-arrow.png" alt="Downward Arrow" width="80px" height="auto"; style="display: block;margin: 60px auto 0 auto;">
-        <hr style="margin-top: 55px;border-color: #087500;">
+        <hr style="margin: 55px 0px 60px 0px;border-color: #087500;">
         <div class="service_accordion">
-            <div class="accordion_item">
+            <div class="accordion_item" id="hair_section">
                 <div class="accordion_header">
-                    <h4>Braids</h4>
-                    <span>▼</span>
+                    <div class="accordion_header_left">
+                        <h4 style="margin-right: 20px;">Braids</h4>
+                        <h4 class="accordion_header_info">From $80</h4>
+                        <h4 class="accordion_header_info">2-6 Hours</h4>
+                    </div>
+                    <img src="media/small-down-arrow.png" alt="Arrow pointing down" class="accordion_down_icon" id="down-indicator">
                 </div>
             </div>
         </div>
     </main>
+    <script src="script.js"></script>
 </body>
 </html>
