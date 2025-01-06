@@ -46,3 +46,19 @@ main h1 {
     width: 45px;
     height: auto;
 }
+
+.accordion_item {
+    width: 100%;
+    padding: 10px 80px;
+}
+.accordion_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2rem;
+    border: 2px solid #087500;
+    border-radius: 3px;
+    padding: 5px 60px;
+    background-color: #f0fdf4;
+    color: #087500;
+}
