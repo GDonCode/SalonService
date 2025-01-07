@@ -51,7 +51,10 @@ main h1 {
     height: auto;
 }
 
-
+.section_divider {
+    margin: 55px 0px 60px 0px;
+    border-color: #087500;
+}
 .service_accordion {
     display: flex;
     flex-direction: column;
@@ -67,10 +70,13 @@ main h1 {
     transition: transform 0.3s ease;
 }
 
-/* STOP BLUE OVERLAY WHEN CLICKING */
+
 .accordion_header {
-    -webkit-tap-highlight-color: transparent;  /* For mobile devices */
+    /* STOP BLUE OVERLAY WHEN CLICKING */
+    -webkit-tap-highlight-color: transparent;  
     outline: none;
+    /* STOP BLUE OVERLAY WHEN CLICKING */
+    background: url(media/papyrus.png);
 }
 
 .accordion_header:focus {
