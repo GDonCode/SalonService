@@ -12,10 +12,10 @@ Array.from(scrollbuttons).forEach(button => {
 
 
 for (let i = 0; i < headers.length; i++) {
-    headers[i].onclick = testfunction;
+    headers[i].onclick = service_dropdown_function;
 }
 
-function testfunction() {
+function service_dropdown_function() {
     const down_arrow = this.querySelector(".accordion_down_icon");
 
     if (down_arrow.style.transform === "rotateZ(180deg)") {
@@ -24,9 +24,10 @@ function testfunction() {
         down_arrow.style.transform = "rotateZ(180deg)";
     }
 
-    console.log("Its Working");
-}
-
-function hair_icon_click() {
-
+    const info_section = this.nextElementSibling;
+    if (info_section.classList.contains("expanded")) {
+        info_section.classList.remove("expanded");
+    } else {
+        info_section.classList.add("expanded");
+    }
 }

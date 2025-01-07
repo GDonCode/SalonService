@@ -1,15 +1,12 @@
 main {
-    padding: 0px 35px 35px 35px;
+    padding-bottom: 60px;
 }
 main h1 {
-    font-family: "Libre Baskerville", serif;
+    font-family: "Montserrat", serif;
     font-size: 2.2rem;
     line-height: 1.35;
     margin-bottom: 1.875rem;
-    font-weight: 550;
-    text-decoration: underline;
-    text-decoration-thickness: 1.5px;
-    text-decoration-color: #087500;
+    font-weight: 650;
     margin: 0;
     text-align: center;
 }
@@ -17,10 +14,11 @@ main h1 {
     display: flex;
     justify-content: center;
     gap: 120px;
-    margin-top: 50px;
     border: 2px solid #087500;
     border-radius: 5px;
     padding: 20px;
+    width: 90%;
+    margin: 40px auto;
 }
 .service_icon {
     display: flex;
@@ -54,9 +52,14 @@ main h1 {
 }
 
 
+.service_accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
 .accordion_item {
     width: 100%;
-    padding: 0px 80px;
+    padding: 0px 120px;
 }
 .accordion_down_icon {
     width: 25px;
@@ -89,10 +92,9 @@ main h1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 2px solid #087500;
+    border: 2px solid black;
     border-radius: 5px;
     padding: 5px 60px;
-    color: #087500;
     font-size: 1.2rem;
     cursor: pointer;
 }
@@ -106,5 +108,31 @@ main h1 {
     background-color: #dcfce7;
     border-radius:  10px;
     padding: 5px;
+    border: 2px solid black;
+    color: black;
+}
+
+.accordion_info {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0;
+    border: 0px solid #087500;
+    border-radius: 0px;
+    transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out, border 0.1s ease-in-out, border-radius 0.3s ease-in-out;
+    background-color:  #a8e6cf;
+}
+.accordion_info.expanded {
+    max-height: 500px; 
+    padding: 10px 60px;
     border: 2px solid #087500;
+    border-top: 0px;
+    border-radius: 5px;
+}
+.service_options {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.option_item{
+    display: flex;
 }

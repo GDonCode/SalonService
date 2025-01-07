@@ -23,15 +23,14 @@ main {
     padding: 0 3rem 7.5rem 2.5rem;
 }
 main h1 {
-    font-family: "Libre Baskerville", serif;
+    font-family: "Montserrat", serif;
     font-size: 2.2rem;
     line-height: 1.35;
     letter-spacing: -3%;
     margin-bottom: 1.875rem;
-    font-weight: 550;
+    font-weight: 650;    
     text-decoration: underline;
     text-decoration-thickness: 1.5px;
-    text-decoration-color: #087500;
     margin: 0;
 }
 .hero_section {
