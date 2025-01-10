@@ -18,11 +18,11 @@ main {
 .service_selector {
     display: flex;
     justify-content: center;
-    gap: 120px;
+    gap: 140px;
     border: 2px solid #087500;
     border-radius: 5px;
     padding: 20px;
-    width: 90%;
+    width: 80%;
     margin: 40px auto;
 }
 .service_icon {
@@ -166,7 +166,7 @@ main {
     }
 }
 .accordion_info.expanded {
-    max-height: 500px; 
+    max-height: 600px; 
     padding: 10px 60px 40px 60px;
     border: 2px solid #087500;
     border-top: 0px;
@@ -177,14 +177,19 @@ main {
 .service_options {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 40px;
 }
+
 .option_item {
+    
+}
+.option_item--top {
     display: flex;
     align-items: center;
 }
-.option_item h5 {
+.option_item--top h5 {
     font-size: 1rem;
+    margin-bottom: 0;
 }
 .option_item--info {
     display: flex;

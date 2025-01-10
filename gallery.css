@@ -81,7 +81,7 @@ main {
     height: var(--h);
     transform-style: preserve-3d;
     transform: perspective(var(--perspective));
-    animation: rotating 20s linear infinite;
+    animation: rotating 30s linear infinite;
   }
 
 @keyframes rotating {

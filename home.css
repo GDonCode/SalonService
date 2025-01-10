@@ -175,7 +175,8 @@ main h1 {
 }
 .testimonial_section--CTA button {
     padding: 0.938rem;
-    font-size: 1.25rem;
+    font-size: 1.35rem;
+    font-weight: 500;
     background-color: #0A9300;
     color: white;
     border-radius: 12px;
