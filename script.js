@@ -41,3 +41,28 @@ function RmvService() {
         })
     })
 }
+
+const checkboxes = document.querySelectorAll('.ui-checkbox');
+
+function SelectService() {
+    let totalPrice = 0;
+    let totalTime = 0;
+    let selectedServices = [];
+    checkboxes.forEach(checkbox => {
+        if (checkbox.checked) {
+          totalPrice += parseFloat(checkbox.dataset.price);
+          totalTime += parseFloat((checkbox.dataset.time));
+          selectedServices.push(checkbox.dataset.name);
+        }
+      });
+
+    console.log(`Services booked: ${selectedServices}`);
+    console.log(`Total Cost: $${totalPrice.toLocaleString()}`);
+    if (totalTime > 1) {
+        console.log(`Total Time: ${totalTime} Hours`);
+    }
+    else {
+        console.log(`Total Time: ${totalTime} Hour`);
+    }
+}
+
