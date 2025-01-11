@@ -31,3 +31,13 @@ function service_dropdown_function() {
         info_section.classList.add("expanded");
     }
 }
+
+
+function RmvService() {
+    document.querySelectorAll('.remove--service').forEach(button => {
+        button.addEventListener('click', function() {
+            serviceDiv = this.parentElement;
+            serviceDiv.style.display = 'none';
+        })
+    })
+}

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book an appointment</title>
+
+    <link href="common.css" rel="stylesheet">
+    <link href="booking.css" rel="stylesheet">
+
+    <!-- MONTSERRAT & LIBRE BASKERVILLE FONT --> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- MONTSERRAT & LIBRE BASKERVILLE FONT --> 
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav_links">
+                <a href="services.html">Services</a>
+                <a href="gallery.html">Gallery</a>
+            </div>
+                <a href="index.html"><img src="media/payetonlogo.png" alt="logo" width="220px" height="auto"></a>
+            <div class="nav_links">
+                <a href="reviews.html" id="reviews">Reviews</a>
+                <a href="about.html">About Us</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="booking--container">
+            <form action="" class="form">
+                <div class="personal_details--container">
+                    <h2>Personal Details</h2>
+                    <div class="name--container">
+                        <input type="text" name="first-name" id="first-name" placeholder="First Name" required>
+                        <input type="text" name="last-name" id="last-name" placeholder="Last Name" required>
+                    </div>
+                    <input type="email" name="email" id="email" placeholder="Email" required>
+                    <input type="tel" name="phone" id="phone" placeholder="Phone Number" required>
+                </div>
+                <div class="appointment_details--container">
+                    <h2>Appointment Details</h2>
+                    <div class="date--container">
+                        <input type="date" name="date" id="date" required>
+                        <input type="time" name="time" id="time" required>
+                    </div>
+                    <div class="service--container">
+                        <h2>Selected Services</h2>
+                        <div class="service--container--inner" id="service-1">
+                            <h4>Service Name: Manicure</h4>
+                            <h4>Price: $6, 000</h4>
+                            <h4>Duration: 1 Hour</h4>
+                            <button class="remove--service" onclick="RmvService()" type="button">Remove</button>
+                        </div>
+                        <div class="service--container--inner">
+                            <h4>Service Name: Pedicure</h4>
+                            <h4>Price: $6, 000</h4>
+                            <h4>Duration: 1 Hour</h4>
+                            <button class="remove--service" onclick="RmvService()" type="button">Remove</button>
+                        </div>
+                        <div class="service--container--inner">
+                            <h4>Service Name: Cornrows</h4>
+                            <h4>Price: $6, 000</h4>
+                            <h4>Duration: 1 Hour</h4>
+                            <button class="remove--service" onclick="RmvService()" type="button">Remove</button>
+                        </div>
+                        <div class="service--container--inner">
+                            <h4>Service Name: Braids</h4>
+                            <h4>Price: $6, 000</h4>
+                            <h4>Duration: 1 Hour</h4>
+                            <button class="remove--service" onclick="RmvService()" type="button">Remove</button>
+                        </div>
+                    </div>
+                <textarea name="message" id="message" cols="30" rows="10" placeholder="Message"></textarea>
+            </form>
+            <div class="total--container">
+                <div class="total--container--inner">
+                    <h2>Service Duration:</h2>
+                    <p>5 Hours 30 Minutes</p>
+                </div>
+                <div class="total--container--inner">
+                    <h2>Total Cost:</h2>
+                    <p>$50, 000</p>
+                </div>
+            </div>
+        </div>
+        
+    </main>
+    <footer>
+        <div class="footer_info">
+            <div class="footer_contact">
+                <h2>Contact Us</h2>
+                <div class="footer_contact_inner">
+                    <img src="media/telephone.png" alt="Telephone Symbol">
+                    <p>Phone: </p>
+                    <div class="footer_contact_inner_numbers">
+                        <p>+1 876 842 0641</p>
+                    </div>
+                </div>
+                <div class="footer_contact_inner">
+                    <img src="media/email.png" alt="Email Symbol"><p>Email: </p>
+                    <p>support@payeton.com</p>
+                </div>
+            </div>
+            <div class="footer_social">
+                <h2>Follow Us</h2>
+                <div class="footer_social_inner">
+                    <a href="https://www.facebook.com/p/Payetons-Place-of-Beauty-100063628267769/"><img src="media/facebook.png" alt="Facebook Logo"></a>
+                    <a href="https://www.tiktok.com/@payetonsplaceofbeauty03"><img src="media/tik-tok.png" alt="TikTok Logo"></a>
+                    <a href="https://www.instagram.com/payetonplace_ofbeauty/"><img src="media/instagram.png" alt="Instagram Logo"></a>
+                </div>
+            </div>
+            <div class="footer_location">
+                <h2>Find Us</h2>
+                <address>
+                    Suite 8 & 9 <br>
+                    Catherine Hall Plaza <br>
+                    Fairfield Ave, Montego Bay <br>
+                    St. James
+                </address>
+            </div> 
+            <div class="footer_divider divider1"></div>
+            <div class="footer_divider divider2"></div>
+            <div class="footer_divider divider3"></div>
+            <div class="footer_divider divider4"></div>
+        </div>
+        <div class="footer_logo">
+            <a href="index.html"><img src="media/footerlogo.png" alt="logo" width="300px" height="auto"></a>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+.nav_links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 80px;
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+.nav_links a {
+    color: #0A9300;
+    text-decoration: none;
+    font-family: "Montserrat", sans-serif;
+}
+.nav_links a:hover {
+    filter: drop-shadow(0 0 0.75rem black);
+}
+
+main {
+    background-color: #d3d3d3;
+    position: relative;
+    padding-bottom: 10rem;
+}
+.booking--container {
+    display: flex;
+    justify-content:space-between;
+    background-color: #d3d3d3;
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+.total--container {
+    padding: 20px;
+    position: fixed;
+    right: 150px;
+    top: 160px;
+}
+.total--container--inner {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    text-align: center;
+}
+.form {
+    background-color: #d3d3d3;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    border-radius: 5px;
+}
+.personal_details--container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.personal_details--container h2, .appointment_details--container h2 {
+    text-decoration: underline;
+}
+.appointment_details--container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.date--container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+} 
+.name--container > input, .personal_details--container > input, .date--container > input, .appointment_details--container select {
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    border: 2px solid black;
+    background-color: white;
+    box-shadow: 4px 4px black;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 5px 10px;
+    outline: none;
+}
+.appointment_details--container textarea {
+    width: 100%;
+    border-radius: 5px;
+    border: 2px solid black;
+    background-color: white;
+    box-shadow: 4px 4px black;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 5px 10px;
+    outline: none;
+}
+.name--container {
+    display: flex;
+    gap: 20px;
+}
+.service--container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.service--container h2 {
+    margin-bottom: 0;
+}
+.service--container--inner {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    width: 100%;
+}
+.service--container--inner button {
+    height: 20px;
+    display: block;
+    margin-left: 0 auto;
+}
