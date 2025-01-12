@@ -1,8 +1,11 @@
+body {
+    font-family: "Montserrat", sans-serif;
+}
 main {
     padding-bottom: 120px;
 }
 .headline h1 {
-    font-family: "Montserrat", serif;
+    font-family: "Montserrat", sans-serif;
     font-size: 3rem;
     line-height: 1.35;
     margin-bottom: 1.875rem;

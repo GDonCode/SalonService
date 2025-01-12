@@ -1,3 +1,10 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    flex-direction: column;
+}
 .nav_links {
     display: flex;
     justify-content: center;
@@ -18,41 +25,87 @@
 
 main {
     background-color: #d3d3d3;
-    position: relative;
-    padding-bottom: 10rem;
+    width: 100%;
+    height: fit-content;
+    padding-bottom: 80px;
 }
-.booking--container {
+main button {
+    display: block;
+    margin: /* 60px 160px */60px auto 0 auto;
+    font-size: 1.35rem;
+    font-weight: 500;
+    border-radius: 12px;
+    border: none;
+    padding: 0.938rem 1.25rem;
+    background-color: #0A9300;
+    color: white;
+    box-shadow: hsl(125, 80%, 20%) 0px 7px 0px 0px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, font-size 0.3s ease;
+    width: 280px;
+}
+main button:hover {
+    background-color: #087500;
+    font-size: 1.5rem;
+}
+.booking_container {
     display: flex;
-    justify-content:space-between;
+    justify-content: center;
     background-color: #d3d3d3;
-    width: 80%;
-    margin: 0 auto;
+    width: 100%;
     border-radius: 5px;
+    height: fit-content;
+    padding: 10px 80px;
+    gap: 40px;
+}
+.sticky_total {
+    min-width: 41%;
+    max-width: 41%;
 }
 .total--container {
-    padding: 20px;
-    position: fixed;
-    right: 150px;
-    top: 160px;
+    border-radius: 5px;
+    border: 2px solid black;
+    background-color: white;
+    box-shadow: 4px 4px black;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 5px 40px;
+    outline: none;
+    position: sticky; 
+    top: 60px;
+    margin-top: 14px;
+    width: 100%;
 }
 .total--container--inner {
     display: flex;
     gap: 10px;
     align-items: center;
     text-align: center;
+    font-size: 1.2rem;
 }
+#total_cost, #service_duration {
+    font-size: 1.2rem;
+    margin-left: 10px;
+}
+
+
 .form {
     background-color: #d3d3d3;
     display: flex;
     flex-direction: column;
     gap: 20px;
     padding: 20px;
+    padding-bottom: 0px;
     border-radius: 5px;
+    font-size: 1.2rem;
+    min-width: 59%;
+    max-width: 59%;
+    height: fit-content;
 }
 .personal_details--container {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 30px;
 }
 .personal_details--container h2, .appointment_details--container h2 {
     text-decoration: underline;
@@ -60,16 +113,16 @@ main {
 .appointment_details--container {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 30px;
 }
 .date--container {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 30px;
 } 
 .name--container > input, .personal_details--container > input, .date--container > input, .appointment_details--container select {
     width: 100%;
-    height: 40px;
+    height: 50px;
     border-radius: 5px;
     border: 2px solid black;
     background-color: white;
@@ -97,10 +150,7 @@ main {
 .service--container {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-}
-.service--container h2 {
-    margin-bottom: 0;
+    min-height: fit-content;
 }
 .service--container--inner {
     display: flex;
@@ -112,4 +162,9 @@ main {
     height: 20px;
     display: block;
     margin-left: 0 auto;
+}
+#services-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }

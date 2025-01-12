@@ -88,9 +88,39 @@ function SelectService() {
 
 window.onload = function() {
     const Booking = JSON.parse(localStorage.getItem("Booking")) || {};
-    console.log(Booking);  // Access the saved booking object
-};
+    const service_duration = document.getElementById("service_duration");
+    const total_cost = document.getElementById("total_cost");
 
+    // Update Service Duration
+    let mins = Booking.TotalDuration * 60;
+    if (Booking.TotalDuration < 1){
+        service_duration.textContent = `${mins} Minutes`;
+    }
+    else if (Booking.TotalDuration === 1){
+        service_duration.textContent = `${Booking.TotalDuration} Hour`;
+    }
+    else {
+        service_duration.textContent = `${Booking.TotalDuration} Hours`;
+    }
+
+    // Update Total Cost
+    total_cost.textContent = `$${Booking.TotalCost.toLocaleString()}`;
+
+    console.log(Booking);  // Log the saved booking object
+
+    //Update Selected Services 
+    const ul = document.querySelector('ul');
+    Booking.Services.forEach(service => {
+        const li = document.createElement('li');
+        li.innerHTML = `<strong>Service Name:</strong> ${service.name} &nbsp; <strong>Service Price:</strong> $${service.price.toLocaleString()} &nbsp; <strong>Service Duration:</strong> ${service.time}hr/s`;
+        ul.appendChild(li);;
+    });
+    // DIV HEIGHT CALCULATIONS
+    const main = document.getElementsByTagName("main");
+    const sticky_totalDiv = document.querySelector(".sticky_total");
+    const booking_container = document.querySelector(".booking_container");
+    const form = document.querySelector('form');
+   
 
 // Remove Service Function
 function RmvService() {
@@ -101,3 +131,8 @@ function RmvService() {
         })
     })
 }
+
+}
+// TOTAL CONTAINER SCROLL STOP 
+
+

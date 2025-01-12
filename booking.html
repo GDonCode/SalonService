@@ -29,7 +29,7 @@
         </nav>
     </header>
     <main>
-        <div class="booking--container">
+        <div class="booking_container">
             <form action="" class="form">
                 <div class="personal_details--container">
                     <h2>Personal Details</h2>
@@ -52,20 +52,23 @@
                             <ul id="services-list"></ul>
                         </div>
                     </div>
-                <textarea name="message" id="message" cols="30" rows="10" placeholder="Have any specific requests?"></textarea>
+                    <textarea name="message" id="message" cols="30" rows="10" placeholder="Have any specific requests?"></textarea>
+                </div>
             </form>
-            <div class="total--container">
-                <div class="total--container--inner">
-                    <h2>Service Duration:</h2>
-                    <p>5 Hours 30 Minutes</p>
+            <div class="sticky_total">
+                <div class="total--container">
+                    <div class="total--container--inner">
+                        <h2>Service Duration:</h2>
+                        <p id="service_duration"></p>
+                    </div>
+                    <div class="total--container--inner">
+                        <h2>Total Cost:</h2>
+                        <p id="total_cost"></p>
+                    </div>
                 </div>
-                <div class="total--container--inner">
-                    <h2>Total Cost:</h2>
-                    <p>$50, 000</p>
-                </div>
-            </div>
+            </div> 
         </div>
-        
+        <button>Confirm Booking</button>
     </main>
     <footer>
         <div class="footer_info">

@@ -10,6 +10,7 @@ body {
     min-height: 100vh;
 }
 
+
 /* NAV STYLING START */
 nav {
     display: flex;
@@ -24,7 +25,7 @@ nav {
     display: flex;
     gap: 2.5rem;
     margin-left: 4.25rem;
-    font-size: 1.25rem;
+    font-size: 1.3rem;
     font-weight: 500;
     text-align: center;
 }
