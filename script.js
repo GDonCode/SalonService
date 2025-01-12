@@ -131,8 +131,22 @@ function RmvService() {
         })
     })
 }
-
 }
-// TOTAL CONTAINER SCROLL STOP 
+
+function confirmBooking() {
+    const Booking = JSON.parse(localStorage.getItem("Booking")) || {};
+    Booking.FirstName = document.getElementById("first-name").value;
+    Booking.LastName = document.getElementById("last-name").value;
+    Booking.Email = document.getElementById("email").value;
+    Booking.Phone = document.getElementById("phone").value;
+    Booking.Date = document.getElementById("date").value;
+    Booking.Time = document.getElementById("time").value;
+    Booking.Notes = document.getElementById("message").value;
+    Booking.BookingID = Math.floor(Math.random() * 100000);
+
+    console.log(Booking);
+    localStorage.setItem("Booking", JSON.stringify(Booking));
+}
+
 
 
