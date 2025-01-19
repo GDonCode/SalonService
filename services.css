@@ -4,6 +4,9 @@ body {
 main {
     padding-bottom: 120px;
 }
+.headline {
+    margin-top: 40px;
+}
 .headline h1 {
     font-family: "Montserrat", sans-serif;
     font-size: 3rem;

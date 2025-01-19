@@ -1,905 +1,567 @@
 <!DOCTYPE html>
+<!-- <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smooth UI Components</title>
+    <style>
+        /* Base styles for clean, modern look */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            padding: 2rem;
+            line-height: 1.6;
+        }
+
+        /* Container for all components */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: grid;
+            gap: 2rem;
+        }
+
+        /* Component 1: Smooth Card with Expand/Collapse */
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .card-content.expanded {
+            max-height: 500px;
+            margin-top: 1rem;
+        }
+
+        .expand-btn {
+            background: #007AFF;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .expand-btn:hover {
+            background: #0056b3;
+        }
+
+        /* Component 2: Smooth Notification Toast */
+        .toast-container {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .toast {
+            background: #333;
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            transform: translateX(150%);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .toast.show {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        /* Component 3: Smooth Tab Interface */
+        .tabs {
+            background: white;
+            border-radius: 12px;
+            padding: 1rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .tab-buttons {
+            display: flex;
+            gap: 1rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            position: relative;
+            color: #666;
+            transition: color 0.2s ease;
+        }
+
+        .tab-btn::after {
+            content: '';
+            position: absolute;
+            bottom: -1rem;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #007AFF;
+            transform: scaleX(0);
+            transition: transform 0.2s ease;
+        }
+
+        .tab-btn.active {
+            color: #007AFF;
+        }
+
+        .tab-btn.active::after {
+            transform: scaleX(1);
+        }
+
+        .tab-content {
+            display: none;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Component 1: Expandable Card 
+        <div class="card">
+            <h2>Smooth Expandable Card</h2>
+            <button class="expand-btn">Read More</button>
+            <div class="card-content">
+                <p>This is a smoothly expanding card component that demonstrates clean animations and modern interactions. Notice how the height animates smoothly and the card subtly responds to hover states.</p>
+            </div>
+        </div>
+
+        <!-- Component 2: Toast Trigger 
+        <div class="card">
+            <h2>Smooth Toast Notifications</h2>
+            <button class="expand-btn" onclick="showToast('Notification triggered!')">Show Toast</button>
+        </div>
+
+        <!-- Component 3: Tabs 
+        <div class="tabs">
+            <div class="tab-buttons">
+                <button class="tab-btn active" data-tab="tab1">Tab 1</button>
+                <button class="tab-btn" data-tab="tab2">Tab 2</button>
+                <button class="tab-btn" data-tab="tab3">Tab 3</button>
+            </div>
+            <div class="tab-content active" id="tab1">
+                <h3>Tab 1 Content</h3>
+                <p>This is the content for tab 1. Notice the smooth transition between tabs.</p>
+            </div>
+            <div class="tab-content" id="tab2">
+                <h3>Tab 2 Content</h3>
+                <p>Here's tab 2's content. The indicator slides smoothly under the active tab.</p>
+            </div>
+            <div class="tab-content" id="tab3">
+                <h3>Tab 3 Content</h3>
+                <p>And finally, tab 3's content. All transitions are carefully timed for a natural feel.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Container 
+    <div class="toast-container"></div>
+
+    <script>
+        // Component 1: Expandable Card
+        document.querySelector('.card .expand-btn').addEventListener('click', function() {
+            const content = this.nextElementSibling;
+            content.classList.toggle('expanded');
+            this.textContent = content.classList.contains('expanded') ? 'Read Less' : 'Read More';
+        });
+
+        // Component 2: Toast Notifications
+        function showToast(message) {
+            const container = document.querySelector('.toast-container');
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.textContent = message;
+
+            container.appendChild(toast);
+            
+            // Force reflow to ensure animation plays
+            toast.offsetHeight;
+            
+            // Show toast
+            requestAnimationFrame(() => {
+                toast.classList.add('show');
+            });
+
+            // Remove toast after delay
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => {
+                    container.removeChild(toast);
+                }, 300);
+            }, 3000);
+        }
+
+        // Component 3: Tabs
+        document.querySelectorAll('.tab-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons and contents
+                document.querySelectorAll('.tab-btn').forEach(btn => 
+                    btn.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(content => 
+                    content.classList.remove('active'));
+
+                // Add active class to clicked button and corresponding content
+                button.classList.add('active');
+                const tabId = button.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>  -->
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payeton's Services</title>
-    <!-- <link href="media/payetonlogo.png" type="image/png" rel="icon"> -->
-    <link href="common.css" rel="stylesheet">
-    <link href="services.css" rel="stylesheet">
+    <title>Modern Web UI Elements</title>
+    <style>
+        /* Modern CSS Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
 
-    <!-- MONTSERRAT FONT --> 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Parkinsans:wght@300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
-    <!-- MONTSERRAT FONT --> 
+        :root {
+            --primary: #2563eb;
+            --primary-light: #3b82f6;
+            --text: #1f2937;
+            --text-light: #6b7280;
+            --background: #ffffff;
+            --background-alt: #f3f4f6;
+        }
 
-    <!-- JULIUS SANS ONE -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Parkinsans:wght@300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
-    <!-- JULIUS SANS ONE -->
+        body {
+            color: var(--text);
+            line-height: 1.5;
+        }
 
-    <!-- SWIPER -->
-    <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-    />
-    <!-- SWIPER -->
+        /* Modern Navigation - Notice the subtle backdrop blur and smooth transitions */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: var(--text);
+            text-decoration: none;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--primary);
+            transform: scaleX(0);
+            transition: transform 0.2s ease;
+        }
+
+        .nav-link:hover::after {
+            transform: scaleX(1);
+        }
+
+        /* Modern Header - Large, bold typography with subtle animations */
+        .header {
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            background: var(--background-alt);
+        }
+
+        .header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, var(--primary), var(--primary-light));
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        /* Modern CTA - Floating card with depth and interaction */
+        .cta {
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 600px;
+            background: var(--background);
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cta:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--primary);
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: transform 0.2s ease;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+        }
+
+        /* Modern Testimonials - Clean cards with subtle hover effects */
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 4rem 2rem;
+            background: var(--background-alt);
+        }
+
+        .testimonial-card {
+            background: var(--background);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+        }
+
+        /* Modern Footer - Clean, organized sections with smooth hover states */
+        .footer {
+            background: var(--text);
+            color: white;
+            padding: 4rem 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-link {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.2s ease;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-link:hover {
+            color: white;
+        }
+        /* Component 2: Smooth Notification Toast */
+        .toast-container {
+            position: fixed;
+            top: 5rem;
+            right: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .toast {
+            background: #333;
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            transform: translateX(150%);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .toast.show {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        .expand-btn {
+            background: #007AFF;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .expand-btn:hover {
+            background: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="index.html"><img src="media/payetonlogo.png" alt="logo" width="200px" height="auto"></a>
-            <div class="nav_links--left">
-                <a href="gallery.html">Gallery</a>
-                <a href="reviews.html" id="reviews">Reviews</a>
-                <a href="about.html">About Us</a>
-            </div>
-            <div class="nav_links--right">
-                <button>Book Appointment</button>
-            </div>
-        </nav>
+    <!-- Modern Navigation -->
+    <nav class="nav">
+        <div class="logo">ModernApp</div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="#" class="nav-link">Features</a>
+            <a href="#" class="nav-link">Pricing</a>
+            <a href="#" class="nav-link">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Modern Header -->
+    <header class="header">
+        <h1>Transform Your Experience</h1>
+        <p>Discover a new way to interact with web applications</p>
     </header>
-    <main>
-        <div class="headline">
-            <h1>Our Services</h1>
-            <p>Select a service category</p>
+
+    <!-- Modern CTA -->
+    <section class="cta">
+        <h2>Ready to Get Started?</h2>
+        <p>Join thousands of users who have already transformed their workflow</p>
+        <a href="#" class="cta-button">Start Free Trial</a>
+    </section>
+
+    <!-- Modern Testimonials -->
+    <section class="testimonials">
+        <div class="testimonial-card">
+            <p>"This platform has completely changed how we work. The interface is incredibly intuitive."</p>
+            <cite>- Sarah Johnson, Designer</cite>
         </div>
-        <div class="service_selector">
-            <div class="service_icon">
-                <button class="service_scroll_button" data-scroll-target="hair-divider"> 
-                    <img src="media/small-down-arrow.png" alt="Arrow pointing down" class="icon-indicator">
-                    <img src="media/hair.png" alt="Hair">
-                    <h3>Hair</h3>
-                </button>
-            </div>
-            <div class="service_icon">
-                <button class="service_scroll_button" data-scroll-target="face-divider">
-                    <img src="media/small-down-arrow.png" alt="Arrow pointing down" class="icon-indicator">
-                    <img src="media/makeup.png" alt="">
-                    <h3>Face and Makeup</h3>
-                </button>
-            </div>
-            <div class="service_icon">
-                <button class="service_scroll_button" data-scroll-target="nail-divider">
-                    <img src="media/small-down-arrow.png" alt="Arrow pointing down" class="icon-indicator">
-                    <img src="media/nails.png" alt="">
-                    <h3>Nails</h3>
-                </button>
-            </div>
-            <div class="service_icon">
-                <button class="service_scroll_button" data-scroll-target="body-divider">
-                    <img src="media/small-down-arrow.png" alt="Arrow pointing down" class="icon-indicator">
-                    <img src="media/body.png" alt="">
-                    <h3>Body Treatments</h3>
-                </button>
-            </div>
-            <div class="service_icon">
-                <button class="service_scroll_button" data-scroll-target="add-divider">
-                    <img src="media/small-down-arrow.png" alt="Arrow pointing down" class="icon-indicator">
-                    <img src="media/plus.png" alt="">
-                    <h3>Additional</h3>
-                </button>
-            </div>
+        <div class="testimonial-card">
+            <p>"The smoothest experience I've had with any web application. It feels native."</p>
+            <cite>- Mark Chen, Developer</cite>
         </div>
-        <img src="media/double-down.png" alt="Downward Arrow" width="70px" height="auto"; style="display: block;margin: 45px auto 0 auto;">
-        
-        <!-- HAIR SECTION -->   <!-- HAIR SECTION -->   <!-- HAIR SECTION -->   <!-- HAIR SECTION -->
-        <hr class="section_divider" id="hair-divider">
-        <div class="section_title">
-            <img src="media/hair.png" alt="Hair">
-            <h3 class="section_title">Hair</h3>
-            <img src="media/hair.png" alt="Hair">
+        <div class="testimonial-card">
+            <p>"Incredibly polished and professional. Our team's productivity has increased significantly."</p>
+            <cite>- Alex Rivera, Manager</cite>
         </div>
-        <div class="service_accordion">
-            <div class="accordion_item">
-                <div class="accordion_header">
-                    <div class="accordion_header_left">
-                        <h4 style="margin-right: 20px;">Braids</h4>
-                        <h4 class="accordion_header_info">$2,000 - $12,000</h4>
-                        <h4 class="accordion_header_info">1.5 - 8hrs</h4>
-                    </div>
-                    <img src="media/small-down-arrow.png" alt="Arrow pointing down" class="accordion_down_icon" id="down-indicator">
-                </div>
-                <div class="accordion_info">
-                    <div class="service_options">
+    </section>
 
-                        <div class="option_item">
-                            <div class="option_item--top">
-                                <h5 style="margin-right: 20px;">Cornrows</h5>
-                                <div class="option_item--info">
-                                    <h5>$3,500</h5>
-                                    <h5>2hrs</h5>
-                                </div>
-                                <input type="checkbox" class="ui-checkbox" name="cornrows" id="cornrows">
-                            </div>
-                            <div class="option_item--bottom">
-                                <p style="margin: 0;">Service Description</p>
-                            </div>
-                        </div>
-
-
-                        <div class="option_item">
-                            <h5 style="margin-right: 20px;">Box Braids</h5>
-                            <div class="option_item--info">
-                                <h5>$7,000</h5>
-                                <h5>5hrs</h5>
-                            </div>
-                            <input type="checkbox" class="ui-checkbox" name="box-braids" id="box-braids">
-                        </div>
-                        <div class="option_item">
-                            <h5 style="margin-right: 20px;">Knotless Braids</h5>
-                            <div class="option_item--info">
-                                <h5>$12,000</h5>
-                                <h5>8hrs</h5>
-                            </div>
-                            <input type="checkbox" class="ui-checkbox" name="knotless-braids" id="knotless-braids"> 
-                        </div>
-                        <button class="accordion_CTA_button">Book Now</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion_item">
-                <div class="accordion_header">
-                    <div class="accordion_header_left">
-                        <h4>Hair Extensions</h4>
-                        <h4 class="accordion_header_info">$5,000 - $20,000</h4>
-                        <h4 class="accordion_header_info">1 - 3hrs</h4>
-                    </div>
-                    <img src="media/small-down-arrow.png" alt="Arrow pointing down" class="accordion_down_icon" id="down-indicator">
-                </div>
-                <div class="accordion_info">
-                    <div class="service_options">
-                        <div class="option_item">
-                            <h5 style="margin-right: 20px;">Clip-ins</h5>
-                            <div class="option_item--info">
-                                <h5>$7,500</h5>
-                                <h5>1.5hrs</h5>
-                            </div>
-                            <input type="checkbox" class="ui-checkbox" name="clip-ins" id="clip-ins">   
-                        </div>
-                        <div class="option_item">
-                            <h5 style="margin-right: 20px;">Sew-ins</h5>
-                            <div class="option_item--info">
-                                <h5>$12,000</h5>
-                                <h5>3hrs</h5>
-                            </div>
-                            <input type="checkbox" class="ui-checkbox" name="sew-ins" id="sew-ins">
-                        </div>
-                        <div class="option_item">
-                            <h5 style="margin-right: 20px;">Tape-ins</h5>
-                            <div class="option_item--info">
-                                <h5>$20,000</h5>
-                                <h5>2hrs</h5>
-                            </div>
-                            <input type="checkbox" class="ui-checkbox" name="tape-ins" id="tape-ins">
-                        </div>
-                        <button class="accordion_CTA_button">Book Now</button>
-                    </div>
-                </div>
-            </div>
-
-            
-            <div class="accordion_item">
-                <div class="accordion_header">
-                    <div class="accordion_header_left">
-                        <h4>Hair Cut</h4>
-                        <h4 class="accordion_header_info">$2,500</h4>
-                        <h4 class="accordion_header_info">30mins - 1hr</h4>
-                    </div>
-                    <img src="media/small-down-arrow.png" alt="Arrow pointing down" class="accordion_down_icon" id="down-indicator">
-                </div>
-                <div class="accordion_info">
-                    <div class="service_options">
-                        <div class="option_item">
-                            <h5 style="margin-right: 20px;">Hair Cut</h5>
-                            <div class="option_item--info">
-                                <h5>$2,500</h5>
-                                <h5>30mins</h5>
-                            </div>
-                            <input type="checkbox" class="ui-checkbox" name="hair-cut" id="hair-cut">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            
-            <div class="accordion_item">
-                <div class="accordion_header">
-                    <div class="accordion_header_left">
-                        <h4>Perm</h4>
-                        <h4 class="accordion_header_info">$5,000 - $15,000</h4>
-                        <h4 class="accordion_header_info">1.5 - 3hrs</h4>
-                    </div>
-                    <img src="media/small-down-arrow.png" alt="Arrow pointing down" class="accordion_down_icon" id="down-indicator">
-                </div>
-                <div class="accordion_info">
-                    <div class="service_options">
-                        <div class="option_item">
-                            <h5 style="margin-right: 20px;">Relaxer Touch-up</h5>
-                            <div class="option_item--info">
-                                <h5>$5,000</h5>
-                                <h5>1.5hrs</h5>
-                            </div>
-                            <input type="checkbox" class="ui-checkbox" name="relaxer-touch-up" id="relaxer-touch-up">
-                        </div>
-                        <div class="option_item">
-                            <h5 style="margin-right: 20px;">Full Relaxer</h5>
-                            <div class="option_item--info">
-                                <h5>$15,000</h5>
-                                <h5>3hrs</h5>
-                            </div>
-                            <input type="checkbox" class="ui-checkbox" name="full-relaxer" id="full-relaxer">
-                        </div>
-                        <button class="accordion_CTA_button">Book Now</button>
-                    </div>
-                </div>
-            </div>
-
-            
-            <div class="accordion_item">
-                <div class="accordion_header">
-                    <div class="accordion_header_left">
-                        <h4>Wash and Style</h4>
-                        <h4 class="accordion_header_info">$3,500 - $9,000</h4>
-                        <h4 class="accordion_header_info">45mins - 2hrs</h4>
-                    </div>
-                    <img src="media/small-down-arrow.png" alt="Arrow pointing down" class="accordion_down_icon" id="down-indicator">
-                </div>
-                <div class="accordion_info">
-                    <div class="service_options">
-                        <div class="option_item">
-                            <h5 style="margin-right: 20px;">Shampoo and Conditioning</h5>
-                            <div class="option_item--info">
-                                <h5>$3,500</h5>
-                                <h5>45mins</h5>
-                            </div>
-                            <input type="checkbox" class="ui-checkbox" name="shampoo-conditioning" id="shampoo-conditioning">
-                        </div>
-                        <div class="option_item">
-                            <h5 style="margin-right: 20px;">Blow-dry & Flat Iron</h5>
-                            <div class="option_item--info">
-                                <h5>$5,000</h5>
-                                <h5>1hr</h5>
-                            </div>
-                            <input type="checkbox" class="ui-checkbox" name="blow-dry-flat-iron" id="blow-dry-flat-iron">
-                        </div>
-                        <div class="option_item">
-                            <h5 style="margin-right: 20px;">Wash & Style</h5>
-                            <div class="option_item--info">
-                                <h5>$6,000</h5>
-                                <h5>2hrs</h5>
-                            </div>
-                            <input type="checkbox" class="ui-checkbox" name="wash-style" id="wash-style">
-                        </div>
-                        <button class="accordion_CTA_button">Book Now</button>
-                    </div>
-                </div>
-            </div>
+    <section>
+        <!-- Toast Trigger -->
+        <div class="card">
+            <h2>Smooth Toast Notifications</h2>
+            <button class="expand-btn" onclick="showToast('Notification triggered!')">Show Toast</button>
         </div>
+    </section>
 
-        <!-- FACE SECTION -->   <!-- FACE SECTION -->   <!-- FACE SECTION -->   <!-- FACE SECTION -->
-        <hr class="section_divider" id="face-divider">
-        <div class="section_title">
-            <img src="media/makeup.png" alt="Makeup">
-            <h3 class="section_title">Face & Makeup</h3>
-            <img src="media/makeup.png" alt="Makeup">
-        </div>
-        <div class="service_accordion">
-
-            <div class="accordion_item">
-                <div class="accordion_header">
-                    <div class="accordion_header_left">
-                        <h4>Makeup</h4>
-                        <h4 class="accordion_header_info">$6,000 - $12,000</h4>
-                        <h4 class="accordion_header_info">1 - 1.5hrs</h4>
-                    </div>
-                    <img src="media/small-down-arrow.png" alt="Arrow pointing down" class="accordion_down_icon" id="down-indicator">
-                </div>
-                <div class="accordion_info">
-                    <div class="service_options">
-                        <div class="option_item">
-                            <h5 style="margin-right: 20px;">Natural Look</h5>
-                            <div class="option_item--info">
-                                <h5>$6,000</h5>
-                                <h5>1hr</h5>
-                            </div>
-                            <input type="checkbox" class="ui-checkbox" name="natural-look" id="natural-look">
-                        </div>
-                        <div class="option_item">
-                            <h5 style="margin-right: 20px;">Full Glam</h5>
-                            <div class="option_item--info">
-                                <h5>$12,000</h5>
-                                <h5>1.5hrs</h5>
-                            </div>
-                            <input type="checkbox" class="ui-checkbox" name="full-glam" id="full-glam">
-                        </div>
-                        <button class="accordion_CTA_button">Book Now</button>
-                    </div>
-                </div>
+    <!-- Modern Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-section">
+                <h3>Product</h3>
+                <a href="#" class="footer-link">Features</a>
+                <a href="#" class="footer-link">Pricing</a>
+                <a href="#" class="footer-link">Updates</a>
             </div>
-
-            
-            <div class="accordion_item">
-                <div class="accordion_header">
-                    <div class="accordion_header_left">
-                        <h4>Microblading</h4>
-                        <h4 class="accordion_header_info">$25,000</h4>
-                        <h4 class="accordion_header_info">2.5hrs</h4>
-                    </div>
-                    <img src="media/small-down-arrow.png" alt="Arrow pointing down" class="accordion_down_icon" id="down-indicator">
-                </div>
-                <div class="accordion_info">
-                    <div class="service_options">
-                        <div class="option_item">
-                            <h5 style="margin-right: 20px;">Microblading</h5>
-                            <div class="option_item--info">
-                                <h5>$25,000</h5>
-                                <h5>2.5hrs</h5>
-                            </div>
-                            <input type="checkbox" class="ui-checkbox" name="microblading" id="microblading">
-                        </div>
-                        <button class="accordion_CTA_button">Book Now</button>
-                    </div>
-                </div>
+            <div class="footer-section">
+                <h3>Company</h3>
+                <a href="#" class="footer-link">About</a>
+                <a href="#" class="footer-link">Blog</a>
+                <a href="#" class="footer-link">Careers</a>
             </div>
-
-            
-            <div class="accordion_item">
-                <div class="accordion_header">
-                    <div class="accordion_header_left">
-                        <h4>Eyelash Extensions</h4>
-                        <h4 class="accordion_header_info">$8,500 - $12,500</h4>
-                        <h4 class="accordion_header_info">2 - 2.5hrs</h4>
-                    </div>
-                    <img src="media/small-down-arrow.png" alt="Arrow pointing down" class="accordion_down_icon" id="down-indicator">
-                </div>
-                <div class="accordion_info">
-                    <div class="service_options">
-                        <div class="option_item">
-                            <h5 style="margin-right: 20px;">Classic Set</h5>
-                            <div class="option_item--info">
-                                <h5>$8,500</h5>
-                                <h5>2hrs</h5>
-                            </div>
-                            <input type="checkbox" class="ui-checkbox" name="classic-set" id="classic-set">
-                        </div>
-                        <div class="option_item">
-                            <h5 style="margin-right: 20px;">High-Volume Set</h5>
-                            <div class="option_item--info">
-                                <h5>$12,500</h5>
-                                <h5>2.5hrs</h5>
-                            </div>
-                            <input type="checkbox" class="ui-checkbox" name="high-volume-set" id="high-volume-set">
-                        </div>
-                        <button class="accordion_CTA_button">Book Now</button>
-                    </div>
-                </div>
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <a href="#" class="footer-link">Documentation</a>
+                <a href="#" class="footer-link">Help Center</a>
+                <a href="#" class="footer-link">Contact</a>
             </div>
-
-            
-            <div class="accordion_item">
-                <div class="accordion_header">
-                    <div class="accordion_header_left">
-                        <h4>Facial</h4>
-                        <h4 class="accordion_header_info">$6,000 - $12,500</h4>
-                        <h4 class="accordion_header_info">1 - 1.5hrs</h4>
-                    </div>
-                    <img src="media/small-down-arrow.png" alt="Arrow pointing down" class="accordion_down_icon" id="down-indicator">
-                </div>
-                <div class="accordion_info">
-                    <div class="service_options">
-                        <div class="option_item">
-                            <h5 style="margin-right: 20px;">Basic Facial</h5>
-                            <div class="option_item--info">
-                                <h5>$6,000</h5>
-                                <h5>1hr</h5>
-                            </div>
-                            <input type="checkbox" class="ui-checkbox" name="basic-facial" id="basic-facial">
-                        </div>
-                        <div class="option_item">
-                            <h5 style="margin-right: 20px;">Deep Cleansing Facial</h5>
-                            <div class="option_item--info">
-                                <h5>$8,500</h5>
-                                <h5>1.5hrs</h5>
-                            </div>
-                            <input type="checkbox" class="ui-checkbox" name="deep-cleansing-facial" id="deep-cleansing-facial">
-                        </div>
-                        <div class="option_item">
-                            <h5 style="margin-right: 20px;">Anti-Aging Facial</h5>
-                            <div class="option_item--info">
-                                <h5>$12,500</h5>
-                                <h5>2hrs</h5>
-                            </div>
-                            <input type="checkbox" class="ui-checkbox" name="anti-aging-facial" id="anti-aging-facial">
-                        </div>
-                        <button class="accordion_CTA_button">Book Now</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- NAIL SECTION -->   <!-- NAIL SECTION -->   <!-- NAIL SECTION -->   <!-- NAIL SECTION -->
-        <hr class="section_divider" id="nail-divider">
-        <div class="section_title">
-            <img src="media/nails.png" alt="Nails">
-            <h3 class="section_title">Nails</h3>
-            <img src="media/nails.png" alt="Nails">
-        </div>
-        <div class="service_accordion">
-            <div class="accordion_item">
-                <div class="accordion_header">
-                    <div class="accordion_header_left">
-                        <h4>Acrylic Nails</h4>
-                        <h4 class="accordion_header_info">$4,000 - $6,500</h4>
-                        <h4 class="accordion_header_info">1 - 2hrs</h4>
-                    </div>
-                    <img src="media/small-down-arrow.png" alt="Arrow pointing down" class="accordion_down_icon" id="down-indicator">
-                </div>
-                <div class="accordion_info">
-                    <div class="service_options">
-                        <div class="option_item">
-                            <h5 style="margin-right: 20px;">Full Set</h5>
-                            <div class="option_item--info">
-                                <h5>$6,500</h5>
-                                <h5>2hrs</h5>
-                            </div>
-                            <input type="checkbox" class="ui-checkbox" name="full-set" id="full-set">
-                        </div>
-                        <div class="option_item">
-                            <h5 style="margin-right: 20px;">Refill</h5>
-                            <div class="option_item--info">
-                                <h5>$4,000</h5>
-                                <h5>1hr</h5>
-                            </div>
-                            <input type="checkbox" class="ui-checkbox" name="refill" id="refill">
-                        </div>
-                        <button class="accordion_CTA_button">Book Now</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion_item">
-                <div class="accordion_header">
-                    <div class="accordion_header_left">
-                        <h4>Manicure</h4>
-                        <h4 class="accordion_header_info">$3,000</h4>
-                        <h4 class="accordion_header_info">1hr</h4>
-                    </div>
-                    <img src="media/small-down-arrow.png" alt="Arrow pointing down" class="accordion_down_icon" id="down-indicator">
-                </div>
-                <div class="accordion_info">
-                    <div class="service_options">
-                        <div class="option_item">
-                            <h5 style="margin-right: 20px;">Manicure</h5>
-                            <div class="option_item--info">
-                                <h5>$3,000</h5>
-                                <h5>1hr</h5>
-                            </div>
-                            <input type="checkbox" class="ui-checkbox" name="manicure" id="manicure">
-                        </div>
-                        <button class="accordion_CTA_button">Book Now</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion_item">
-                <div class="accordion_header">
-                    <div class="accordion_header_left">
-                        <h4>Pedicure</h4>
-                        <h4 class="accordion_header_info">$4,500</h4>
-                        <h4 class="accordion_header_info">1hr</h4>
-                    </div>
-                    <img src="media/small-down-arrow.png" alt="Arrow pointing down" class="accordion_down_icon" id="down-indicator">
-                </div>
-                <div class="accordion_info">
-                    <div class="service_options">
-                        <div class="option_item">
-                            <h5 style="margin-right: 20px;">Pedicure</h5>
-                            <div class="option_item--info">
-                                <h5>$4,500</h5>
-                                <h5>1hr</h5>
-                            </div>
-                            <input type="checkbox" class="ui-checkbox" name="pedicure" id="pedicure">
-                        </div>
-                        <button class="accordion_CTA_button">Book Now</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- BODY SECTION -->   <!-- BODY SECTION -->   <!-- BODY SECTION -->   <!-- BODY SECTION -->
-        <hr class="section_divider" id="body-divider">
-        <div class="section_title">
-            <img src="media/body.png" alt="Body Treatments">
-            <h3 class="section_title">Body Treatments</h3>
-            <img src="media/body.png" alt="Body Treatments">
-        </div>
-        <div class="service_accordion">
-            <div class="accordion_item">
-                <div class="accordion_header">
-                    <div class="accordion_header_left">
-                        <h4>Body Waxing</h4>
-                        <h4 class="accordion_header_info">$5,000</h4>
-                        <h4 class="accordion_header_info">2hrs</h4>
-                    </div>
-                    <img src="media/small-down-arrow.png" alt="Arrow pointing down" class="accordion_down_icon" id="down-indicator">
-                </div>
-                <div class="accordion_info">
-                    <div class="service_options">
-                        <div class="option_item">
-                            <h5 style="margin-right: 20px;">Body Waxing</h5>
-                            <div class="option_item--info">
-                                <h5>$5,000</h5>
-                                <h5>2hrs</h5>
-                            </div>
-                            <input type="checkbox" class="ui-checkbox" name="body-waxing" id="body-waxing">
-                        </div>
-                        <button class="accordion_CTA_button">Book Now</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion_item">
-                <div class="accordion_header">
-                    <div class="accordion_header_left">
-                        <h4>Vagina Therapy</h4>
-                        <h4 class="accordion_header_info">$10,000</h4>
-                        <h4 class="accordion_header_info">1hr</h4>
-                    </div>
-                    <img src="media/small-down-arrow.png" alt="Arrow pointing down" class="accordion_down_icon" id="down-indicator">
-                </div>
-                <div class="accordion_info">
-                    <div class="service_options">
-                        <div class="option_item">
-                            <h5 style="margin-right: 20px;">"Vagifacial"</h5>
-                            <div class="option_item--info">
-                                <h5>$10,000</h5>
-                                <h5>1hr</h5>
-                            </div>
-                            <input type="checkbox" class="ui-checkbox" name="vagifacial" id="vagifacial">
-                        </div>
-                        <div class="option_item">
-                            <h5 style="margin-right: 20px;">Vagina Waxing</h5>
-                            <div class="option_item--info">
-                                <h5>$6,500</h5>
-                                <h5>1hr</h5>
-                            </div>
-                            <input type="checkbox" class="ui-checkbox" name="vagina-waxing" id="vagina-waxing">
-                        </div>
-                        <button class="accordion_CTA_button">Book Now</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion_item">
-                <div class="accordion_header">
-                    <div class="accordion_header_left">
-                        <h4>Laser Hair & Wart Removal</h4>
-                        <h4 class="accordion_header_info">$10,000 - $20,000</h4>
-                        <h4 class="accordion_header_info">45mins - 1.5hrs</h4>
-                    </div>
-                    <img src="media/small-down-arrow.png" alt="Arrow pointing down" class="accordion_down_icon" id="down-indicator">
-                </div>
-                <div class="accordion_info">
-                    <div class="service_options">
-                        <div class="option_item">
-                            <h5 style="margin-right: 20px;">Laser Hair Removal</h5>
-                            <div class="option_item--info">
-                                <h5>$20,000</h5>
-                                <h5>1.5hrs</h5>
-                            </div>
-                            <input type="checkbox" class="ui-checkbox" name="laser-hair-removal" id="laser-hair-removal">
-                        </div>
-                        <div class="option_item">
-                            <h5 style="margin-right: 20px;">Laser Wart Removal</h5>
-                            <div class="option_item--info">
-                                <h5>$10,000</h5>
-                                <h5>45mins</h5>
-                            </div>
-                            <input type="checkbox" class="ui-checkbox" name="laser-wart-removal" id="laser-wart-removal">
-                        </div>
-                        <button class="accordion_CTA_button">Book Now</button>
-                    </div>
-                </div>
-            </div>
-
-            
-            <div class="accordion_item">
-                <div class="accordion_header">
-                    <div class="accordion_header_left">
-                        <h4>Massage</h4>
-                        <h4 class="accordion_header_info">$8,500</h4>
-                        <h4 class="accordion_header_info">1.5hrs</h4>
-                    </div>
-                    <img src="media/small-down-arrow.png" alt="Arrow pointing down" class="accordion_down_icon" id="down-indicator">
-                </div>
-                <div class="accordion_info">
-                    <div class="service_options">
-                        <div class="option_item">
-                            <h5 style="margin-right: 20px;">Massage</h5>
-                            <div class="option_item--info">
-                                <h5>$8,500</h5>
-                                <h5>1.5hrs</h5>
-                            </div>
-                            <input type="checkbox" class="ui-checkbox" name="massage" id="massage">
-                        </div>
-                        <button class="accordion_CTA_button">Book Now</button>
-                    </div>
-                </div>
-            </div>
-
-            
-            <div class="accordion_item">
-                <div class="accordion_header">
-                    <div class="accordion_header_left">
-                        <h4>Ultrasonic Cavitation</h4>
-                        <h4 class="accordion_header_info">$12,000</h4>
-                        <h4 class="accordion_header_info">1hr</h4>
-                    </div>
-                    <img src="media/small-down-arrow.png" alt="Arrow pointing down" class="accordion_down_icon" id="down-indicator">
-                </div>
-                <div class="accordion_info">
-                    <div class="service_options">
-                        <div class="option_item">
-                            <h5 style="margin-right: 20px;">Ultrasonic Cavitation</h5>
-                            <div class="option_item--info">
-                                <h5>$12,000</h5>
-                                <h5>1hr</h5>
-                            </div>
-                            <input type="checkbox" class="ui-checkbox" name="ultrasonic-cavitation" id="ultrasonic-cavitation">
-                        </div>
-                        <button class="accordion_CTA_button">Book Now</button>
-                    </div>
-                </div>
-            </div>
-
-            
-            <div class="accordion_item">
-                <div class="accordion_header">
-                    <div class="accordion_header_left">
-                        <h4>Piercings</h4>
-                        <h4 class="accordion_header_info">$3,000</h4>
-                        <h4 class="accordion_header_info">30mins</h4>
-                    </div>
-                    <img src="media/small-down-arrow.png" alt="Arrow pointing down" class="accordion_down_icon" id="down-indicator">
-                </div>
-                <div class="accordion_info">
-                    <div class="service_options">
-                        <div class="option_item">
-                            <h5 style="margin-right: 20px;">Piercing</h5>
-                            <div class="option_item--info">
-                                <h5>$3,000</h5>
-                                <h5>30mins</h5>
-                            </div>
-                            <input type="checkbox" class="ui-checkbox" name="piercing" id="piercing">
-                        </div>
-                        <button class="accordion_CTA_button">Book Now</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion_item">
-                <div class="accordion_header">
-                    <div class="accordion_header_left">
-                        <h4>Vacuum Cupping Therapy</h4>
-                        <h4 class="accordion_header_info">$7,000</h4>
-                        <h4 class="accordion_header_info">1hr</h4>
-                    </div>
-                    <img src="media/small-down-arrow.png" alt="Arrow pointing down" class="accordion_down_icon" id="down-indicator">
-                </div>
-                <div class="accordion_info">
-                    <div class="service_options">
-                        <div class="option_item">
-                            <h5 style="margin-right: 20px;">Vacuum Cupping Therapy</h5>
-                            <div class="option_item--info">
-                                <h5>$7,000</h5>
-                                <h5>1hr</h5>
-                            </div>
-                            <input type="checkbox" class="ui-checkbox" name="vacuum-cupping-therapy" id="vacuum-cupping-therapy">
-                        </div>
-                        <button class="accordion_CTA_button">Book Now</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion_item">
-                <div class="accordion_header">
-                    <div class="accordion_header_left">
-                        <h4>Body Scrub</h4>
-                        <h4 class="accordion_header_info">$8,000</h4>
-                        <h4 class="accordion_header_info">1hr</h4>
-                    </div>
-                    <img src="media/small-down-arrow.png" alt="Arrow pointing down" class="accordion_down_icon" id="down-indicator">
-                </div>
-                <div class="accordion_info">
-                    <div class="service_options">
-                        <div class="option_item">
-                            <h5 style="margin-right: 20px;">Body Scrub</h5>
-                            <div class="option_item--info">
-                                <h5>$8,000</h5>
-                                <h5>1hr</h5>
-                            </div>
-                            <input type="checkbox" class="ui-checkbox" name="body-scrub" id="body-scrub">
-                        </div>
-                        <button class="accordion_CTA_button">Book Now</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion_item">
-                <div class="accordion_header">
-                    <div class="accordion_header_left">
-                        <h4>Sauna Detox</h4>
-                        <h4 class="accordion_header_info">$4,500</h4>
-                        <h4 class="accordion_header_info">45mins</h4>
-                    </div>
-                    <img src="media/small-down-arrow.png" alt="Arrow pointing down" class="accordion_down_icon" id="down-indicator">
-                </div>
-                <div class="accordion_info">
-                    <div class="service_options">
-                        <div class="option_item">
-                            <h5 style="margin-right: 20px;">Sauna Detox</h5>
-                            <div class="option_item--info">
-                                <h5>$4,500</h5>
-                                <h5>45mins</h5>
-                            </div>
-                            <input type="checkbox" class="ui-checkbox" name="sauna-detox" id="sauna-detox">
-                        </div>
-                        <button class="accordion_CTA_button">Book Now</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- ADD SECTION -->   <!-- ADD SECTION -->   <!-- ADD SECTION -->   <!-- ADD SECTION -->
-        <hr class="section_divider" id="add-divider">
-        <div class="section_title">
-            <img src="media/plus.png" alt="Additional Symbol">
-            <h3 class="section_title">Additional Services</h3>
-            <img src="media/plus.png" alt="Additional Symbol">
-        </div>
-        <div class="service_accordion">
-            <div class="accordion_item">
-                <div class="accordion_header">
-                    <div class="accordion_header_left">
-                        <h4>Bridal Services</h4>
-                        <h4 class="accordion_header_info">From $80</h4>
-                        <h4 class="accordion_header_info">2-6hrs</h4>
-                    </div>
-                    <img src="media/small-down-arrow.png" alt="Arrow pointing down" class="accordion_down_icon" id="down-indicator">
-                </div>
-                <div class="accordion_info">
-                    <div class="service_options">
-                        <div class="option_item">
-                            <h5 style="margin-right: 20px;">Option 1</h5>
-                            <h5>$150</h5>
-                            <h5>2hrs</h5>
-                        </div>
-                        <div class="option_item">
-                            <h5 style="margin-right: 20px;">Option 2</h5>
-                            <h5>$250</h5>
-                            <h5>4hrs</h5>
-                        </div>
-                        <div class="option_item">
-                            <h5 style="margin-right: 20px;">Option 3</h5>
-                            <h5>$350</h5>
-                            <h5>6hrs</h5>
-                        </div>
-                        <button class="accordion_CTA_button">Book Now</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion_item">
-                <div class="accordion_header">
-                    <div class="accordion_header_left">
-                        <h4>Event Planning and Decor</h4>
-                        <h4 class="accordion_header_info">From $80</h4>
-                        <h4 class="accordion_header_info">2-6hrs</h4>
-                    </div>
-                    <img src="media/small-down-arrow.png" alt="Arrow pointing down" class="accordion_down_icon" id="down-indicator">
-                </div>
-                <div class="accordion_info">
-                    <div class="service_options">
-                        <div class="option_item">
-                            <h5 style="margin-right: 20px;">Option 1</h5>
-                            <h5>$150</h5>
-                            <h5>2hrs</h5>
-                        </div>
-                        <div class="option_item">
-                            <h5 style="margin-right: 20px;">Option 2</h5>
-                            <h5>$250</h5>
-                            <h5>4hrs</h5>
-                        </div>
-                        <div class="option_item">
-                            <h5 style="margin-right: 20px;">Option 3</h5>
-                            <h5>$350</h5>
-                            <h5>6hrs</h5>
-                        </div>
-                        <button class="accordion_CTA_button">Book Now</button>
-                    </div>
-                </div>
-            </div>
-
-            
-            <div class="accordion_item">
-                <div class="accordion_header">
-                    <div class="accordion_header_left">
-                        <h4>Photo Studio</h4>
-                        <h4 class="accordion_header_info">From $80</h4>
-                        <h4 class="accordion_header_info">2-6hrs</h4>
-                    </div>
-                    <img src="media/small-down-arrow.png" alt="Arrow pointing down" class="accordion_down_icon" id="down-indicator">
-                </div>
-                <div class="accordion_info">
-                    <div class="service_options">
-                        <div class="option_item">
-                            <h5 style="margin-right: 20px;">Option 1</h5>
-                            <h5>$150</h5>
-                            <h5>2hrs</h5>
-                        </div>
-                        <div class="option_item">
-                            <h5 style="margin-right: 20px;">Option 2</h5>
-                            <h5>$250</h5>
-                            <h5>4hrs</h5>
-                        </div>
-                        <div class="option_item">
-                            <h5 style="margin-right: 20px;">Option 3</h5>
-                            <h5>$350</h5>
-                            <h5>6hrs</h5>
-                        </div>
-                        <button class="accordion_CTA_button">Book Now</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-    <footer>
-        <div class="footer_info">
-            <div class="footer_contact">
-                <h2>Contact Us</h2>
-                <div class="footer_contact_inner">
-                    <img src="media/telephone.png" alt="Telephone Symbol">
-                    <p>Phone: </p>
-                    <div class="footer_contact_inner_numbers">
-                        <p>+1 876 842 0641</p>
-                    </div>
-                </div>
-                <div class="footer_contact_inner">
-                    <img src="media/email.png" alt="Email Symbol"><p>Email: </p>
-                    <p>support@payeton.com</p>
-                </div>
-            </div>
-            <div class="footer_social">
-                <h2>Follow Us</h2>
-                <div class="footer_social_inner">
-                    <a href="https://www.facebook.com/p/Payetons-Place-of-Beauty-100063628267769/"><img src="media/facebook.png" alt="Facebook Logo"></a>
-                    <a href="https://www.tiktok.com/@payetonsplaceofbeauty03"><img src="media/tik-tok.png" alt="TikTok Logo"></a>
-                    <a href="https://www.instagram.com/payetonplace_ofbeauty/"><img src="media/instagram.png" alt="Instagram Logo"></a>
-                </div>
-            </div>
-            <div class="footer_location">
-                <h2>Find Us</h2>
-                <address>
-                    Suite 8 & 9 <br>
-                    Catherine Hall Plaza <br>
-                    Fairfield Ave, Montego Bay <br>
-                    St. James
-                </address>
-            </div> 
-            <div class="footer_divider divider1"></div>
-            <div class="footer_divider divider2"></div>
-            <div class="footer_divider divider3"></div>
-            <div class="footer_divider divider4"></div>
-        </div>
-        <div class="footer_logo">
-            <a href="index.html"><img src="media/footerlogo.png" alt="logo" width="300px" height="auto"></a>
         </div>
     </footer>
-    <script src="script.js"></script>
-</body>
+    <div class="toast-container"></div>
+    <script>
+        // Component 2: Toast Notifications
+            function showToast(message) {
+                const container = document.querySelector('.toast-container');
+                const toast = document.createElement('div');
+                toast.className = 'toast';
+                toast.textContent = message;
 
+                container.appendChild(toast);
+                
+                // Force reflow to ensure animation plays
+                toast.offsetHeight;
+                
+                // Show toast
+                requestAnimationFrame(() => {
+                    toast.classList.add('show');
+                });
+
+                // Remove toast after delay
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                    setTimeout(() => {
+                        container.removeChild(toast);
+                    }, 300);
+                }, 3000);
+            }
+        </script>
+</body>
 </html>

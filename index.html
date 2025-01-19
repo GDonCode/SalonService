@@ -26,90 +26,96 @@
 
 </head>
 <body>
-    <header>
+    <header class="header DESKTOP">
         <nav>
-            <a href="index.html"><img src="media/payetonlogo.png" alt="logo" width="200px" height="auto"></a>
-            <div class="nav_links--left">
-                <a href="services.html">Services</a>
-                <a href="gallery.html">Gallery</a>
-                <a href="reviews.html" id="reviews">Reviews</a>
-                <a href="about.html">About Us</a>
+            <a href="index.html"><img src="media/payetonlogo.png" alt="logo" width="150px" height="auto"></a>
+            <div class="nav_links">
+                <a href="services.html" class="nav_link">Services</a>
+                <a href="gallery.html" class="nav_link">Gallery</a>
+                <a href="reviews.html" class="nav_link">Reviews</a>
+                <a href="about.html" class="nav_link">About Us</a>
+                <a href="test.html" class="nav_link">Test</a>
             </div>
-            <div class="nav_links--right">
-                <button onclick="window.location.href='services.html';">Book Appointment</button>
-            </div>
+            <button class="menu_button">
+                <img src="media/hamburger.png" alt="Menu" width="45px" height="auto">
+            </button>  
         </nav>
     </header>
     <main>
-        <div class="hero_section">
-            <div class="hero_section--text">
-                <h1>Your Complete Beauty Experience Under One Roof</h1>
-                <h3>From stunning hair transformations to luxurious skincare and flawless nails, experience expert care in our modern salon.</h3>
-                <div class="hero_section_bullets">
-                    <p data-aos="fade-right"><span class="hero_section--text--check">✓</span>Top-of-the-line stylists and beauticians</p>
-                    <p data-aos="fade-right" data-aos-delay="300"><span class="hero_section--text--check">✓</span>Premium products and treatments</p>
-                    <p data-aos="fade-right" data-aos-delay="500"><span class="hero_section--text--check">✓</span>Relaxing atmosphere in the heart of Montego Bay</p>
-                </div>
-                <div class="hero_section--CTA">
-                    <button onclick="window.location.href='services.html';">Services and Pricing</button>
-                </div>
-            </div>
-            <div class="carousel--container">
-                <!-- Slider main container -->
-                <div class="swiper">
-                    <!-- Additional required wrapper -->
-                    <div class="swiper-wrapper">
-                        <!-- Slides -->
-                        <div class="swiper-slide"><img src="media/carouselmedia6.png" alt=""></div>
-                        <div class="swiper-slide"><img src="media/carouselmedia2.png" alt=""></div>
-                        <div class="swiper-slide"><img src="media/carouselmedia5.png" alt=""></div>
-                        <div class="swiper-slide"><img src="media/carouselmedia3.png" alt=""></div>
-                        <div class="swiper-slide"><img src="media/carouselmedia4.png" alt=""></div>
-                        <div class="swiper-slide"><video src="media/carouselmedia7.mp4" alt="" autoplay="true" muted="true" loop="true"></div>
+        <section>
+            <div class="hero_section">
+                <div class="hero_section--text">
+                    <h1>Your Complete Beauty Experience Under One Roof</h1>
+                    <h3>From stunning hair transformations to luxurious skincare and flawless nails, experience expert care in our modern salon.</h3>
+                    <div class="hero_section_bullets">
+                        <p data-aos="fade-right"><span class="hero_section--text--check">✓</span>Top-of-the-line stylists and beauticians</p>
+                        <p data-aos="fade-right" data-aos-delay="300"><span class="hero_section--text--check DESKTOP">✓</span>Premium products and treatments</p>
+                        <p data-aos="fade-right" data-aos-delay="500"><span class="hero_section--text--check DESKTOP">✓</span>Relaxing atmosphere in the heart of Montego Bay</p>
                     </div>
-                
-                    <!-- If we need navigation buttons -->
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
-                
-                    <!-- If we need scrollbar -->
-                    <div class="swiper-scrollbar"></div>
+                    <div class="hero_section--CTA DESKTOP">
+                        <button onclick="window.location.href='services.html';">Services and Pricing</button>
+                    </div>
+                </div> 
+                <div class="carousel--container DESKTOP">
+                    <!-- Slider main container -->
+                    <div class="swiper DESKTOP">
+                        <!-- Additional required wrapper -->
+                        <div class="swiper-wrapper DESKTOP">
+                            <!-- Slides -->
+                            <div class="swiper-slide DESKTOP"><img src="media/carouselmedia6.png" alt=""></div>
+                            <div class="swiper-slide DESKTOP"><img src="media/carouselmedia2.png" alt=""></div>
+                            <div class="swiper-slide DESKTOP"><img src="media/carouselmedia5.png" alt=""></div>
+                            <div class="swiper-slide DESKTOP"><img src="media/carouselmedia3.png" alt=""></div>
+                            <div class="swiper-slide DESKTOP"><img src="media/carouselmedia4.png" alt=""></div>
+                            <div class="swiper-slide DESKTOP"><video src="media/carouselmedia7.mp4" alt="" autoplay="true" muted="true" loop="true"></div>
+                        </div>
+                    
+                        <!-- If we need navigation buttons -->
+                        <div class="swiper-button-prev DESKTOP"></div>
+                        <div class="swiper-button-next DESKTOP"></div>
+                    
+                        <!-- If we need scrollbar -->
+                        <div class="swiper-scrollbar DESKTOP"></div>
+                    </div>
                 </div>
-                <button onclick="window.location.href='gallery.html';">See More</button>
             </div>
-        </div>
-        <div class="testimonial_section">
-            <div class="testimonial_section--container">
-                <div class="testimonial_review" data-aos="fade-up">
-                    <img src="media/five-stars.png">
-                    <img src="media/google.png">
-                    <h3>4.9 Stars on Google Review</h3>
+        </section>
+
+        <section>
+            <div class="testimonial_section DESKTOP">
+                <div class="testimonial_section--TOP DESKTOP">
+                    <div class="testimonial_review DESKTOP" data-aos="fade-up">
+                        <img src="media/five-stars.png">
+                        <img src="media/google.png">
+                        <h3>4.9 Stars on Google Review</h3>
+                    </div>
+                    <div class="testimonial_review DESKTOP" data-aos="fade-up">
+                        <img src="media/five-stars.png">
+                        <img src="media/facebook.png">
+                        <h3>5 Star Reviews on Facebook</h3>
+                    </div>
                 </div>
-                <div class="testimonial_quote">
-                    <blockquote>
-                        <p>" I highly recommend Payeton's Place! When you need to relax and be catered to, that's the place to be. Absolutely loved the environment and the service was excellent. We felt welcomed, refreshed and comfortable. We will definitely be back! Don't miss out on an amazing experience! "</p>
-                    </blockquote>
-                    <p style="font-weight: 500;">—Judine Dawkins</p>
-                </div>
-            </div>
-            <div class="testimonial_section--container">
-                <div class="testimonial_review" data-aos="fade-up">
-                    <img src="media/five-stars.png">
-                    <img src="media/facebook.png">
-                    <h3>5 Star Reviews on Facebook</h3>
-                </div>
-                <div class="testimonial_quote">
-                    <blockquote>
-                        <p>" It's always a bonus when you can get services done in a non-chaotic environment, in an atmosphere filled with classical music to bring your mind at ease & a beverage in hand upon entry always. One where your gel polish doesn't chip & the sole of your feet stays smoooth. "</p>
-                    </blockquote>
-                    <p style="font-weight: 500;">—Lashaunie Lindo</p>
+                <div class="testimonial_section--BOTTOM">
+                    <div class="testimonial_quote DESKTOP">
+                        <p>" When you need to relax and be catered to, this is the place to be. Absolutely loved the environment and the service was excellent. We will definitely be back! "</p>
+                        <cite style="font-weight: 500;">—Judine Dawkins</cite>
+                    </div>
+                    <div class="testimonial_quote DESKTOP">
+                        <p>" The stylist did such a great job, I couldn't believe that was the same head of hair I walked in with! All in all, a true 5-star experience. "</p>
+                        <cite style="font-weight: 500;">—Kris W.</cite>
+                    </div>
+                    <div class="testimonial_quote DESKTOP">
+                        <p>" The team is so welcoming and warm, I enjoy every second. My nails look exceptional and I feel refreshed everytime. I 100% recommend them! "</p>
+                        <cite style="font-weight: 500;">—Kelsey Keane</cite>
+                    </div>
+                </div> 
+                <div class="testimonial_section--CTA">
+                    <button onclick="window.location.href='reviews.html';">See More</button>
                 </div>
             </div> 
-        </div>
-        <div class="testimonial_section--CTA">
-            <button onclick="window.location.href='reviews.html';">See More</button>
-        </div>
+        </section>
     </main>
+
     <footer>
         <div class="footer_info">
             <div class="footer_contact">
@@ -148,10 +154,7 @@
             <div class="footer_divider divider3"></div>
             <div class="footer_divider divider4"></div>
         </div>
-        <div class="footer_logo">
-            <a href="index.html"><img src="media/footerlogo.png" alt="logo" width="300px" height="auto"></a>
-        </div>
-    </footer>
+    </footer> 
     <audio src="media/"></audio>
     <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>

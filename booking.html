@@ -34,11 +34,11 @@
                 <div class="personal_details--container">
                     <h2>Personal Details</h2>
                     <div class="name--container">
-                        <input type="text" name="first-name" id="first-name" placeholder="First Name" required>
-                        <input type="text" name="last-name" id="last-name" placeholder="Last Name" required>
+                        <input type="text" name="first-name" id="first-name" placeholder="First Name" pattern="^[A-Za-zÀ-ÖØ-öø-ÿ]+(?:[' -][A-Za-zÀ-ÖØ-öø-ÿ]+)*\.?(?:\s+(?:Jr\.|Sr\.|I{2,3}|IV|V))?$" required>
+                        <input type="text" name="last-name" id="last-name" placeholder="Last Name" pattern="^[A-Za-zÀ-ÖØ-öø-ÿ]+(?:[' -][A-Za-zÀ-ÖØ-öø-ÿ]+)*\.?(?:\s+(?:Jr\.|Sr\.|I{2,3}|IV|V))?$" required>
                     </div>
                     <input type="email" name="email" id="email" placeholder="Email" required>
-                    <input type="tel" name="phone" id="phone" placeholder="Phone Number" required>
+                    <input type="tel" name="phone" id="phone" placeholder="Phone Number" pattern="^\d{10}$" required>
                 </div>
                 <div class="appointment_details--container">
                     <h2>Appointment Details</h2>
@@ -68,7 +68,7 @@
                 </div>
             </div> 
         </div>
-        <button onclick="confirmBooking()">Confirm Booking</button>
+        <button type="submit" onclick="confirmBooking()">Confirm Booking</button>
     </main>
     <footer>
         <div class="footer_info">

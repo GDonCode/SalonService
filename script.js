@@ -134,19 +134,39 @@ function RmvService() {
 }
 
 function confirmBooking() {
-    const Booking = JSON.parse(localStorage.getItem("Booking")) || {};
-    Booking.FirstName = document.getElementById("first-name").value;
-    Booking.LastName = document.getElementById("last-name").value;
-    Booking.Email = document.getElementById("email").value;
-    Booking.Phone = document.getElementById("phone").value;
-    Booking.Date = document.getElementById("date").value;
-    Booking.Time = document.getElementById("time").value;
-    Booking.Notes = document.getElementById("message").value;
-    Booking.BookingID = Math.floor(Math.random() * 100000);
+    //const Booking = JSON.parse(localStorage.getItem("Booking")) || {};
+
+    const form = document.querySelector('.form');
+    if (form.checkValidity()) {
+        // Proceed with booking confirmation logic
+        alert('Form is valid, proceed with submission!');
+    } else {
+        // Trigger the browser's default validation
+        form.reportValidity();  // This triggers the tooltips
+    }
+    
+    //Booking.FirstName = document.getElementById("first-name").value;
+    //Booking.LastName = document.getElementById("last-name").value;
+   // Booking.Email = document.getElementById("email").value;
+    //Booking.Phone = document.getElementById("phone").value;
+    //Booking.Date = document.getElementById("date").value;
+    //Booking.Time = document.getElementById("time").value;
+    //Booking.Notes = document.getElementById("message").value;
+    //Booking.BookingID = Math.floor(Math.random() * 100000);
 
     console.log(Booking);
-    localStorage.setItem("Booking", JSON.stringify(Booking));
+    //localStorage.setItem("Booking", JSON.stringify(Booking));
 }
 
 
 
+function toggleMenu() {
+    const menu_button = document.getElementById('menu_button');
+
+    if (menu_button.src.includes("hamburger.png")){
+        menu_button.src = "media/cancel.png";
+    }
+    else {
+        menu_button.src = "media/hamburger.png";
+    }
+}
