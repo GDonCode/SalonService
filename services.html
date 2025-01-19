@@ -30,14 +30,21 @@
 <body>
     <header class="header DESKTOP">
         <nav>
-            <a href="index.html"><img src="media/payetonlogo.png" alt="logo" width="150px" height="auto"></a>
-            <div class="nav_links">
+            <div class="nav_links left">
                 <a href="services.html" class="nav_link">Services</a>
                 <a href="gallery.html" class="nav_link">Gallery</a>
-                <a href="reviews.html" class="nav_link">Reviews</a>
-                <a href="about.html" class="nav_link">About Us</a>
-                <a href="test.html" class="nav_link">Test</a>
             </div>
+            <div class="nav_logo--container">
+                <a href="index.html"><img src="media/payetonlogo.png" alt="logo"></a>
+            </div>
+            <div class="nav_links right">
+                <a href="reviews.html" class="nav_link">Reviews</a>
+                <a href="test.html" class="nav_link">Test</a>
+                <!-- <a href="about.html" class="nav_link">About Us</a> -->       
+            </div>
+            <button class="menu_button">
+                <img src="media/hamburger.png" alt="Menu" width="45px" height="auto">
+            </button>  
         </nav>
     </header>
     <main>
@@ -88,9 +95,7 @@
             <div class="accordion_item">
                 <div class="accordion_header">
                     <div class="accordion_header_left">
-                        <h4 style="margin-right: 20px;">Braids</h4>
-                        <h4 class="accordion_header_info">$2,000 - $12,000</h4>
-                        <h4 class="accordion_header_info">1.5 - 8hrs</h4>
+                        <h4 style="margin-right: 20px;">Cut your Hair</h4>
                     </div>
                     <img src="media/small-down-arrow.png" alt="Arrow pointing down" class="accordion_down_icon" id="down-indicator">
                 </div>
@@ -98,12 +103,12 @@
                     <div class="service_options">
                         <div class="option_item">
                             <div class="option_item--top">
-                                <h5 style="margin-right: 20px;">Cornrows</h5>
+                                <h5 style="margin-right: 20px;">Women's Cut</h5>
                                 <div class="option_item--info">
-                                    <h5>$3,500</h5>
-                                    <h5>2hrs</h5>
+                                    <h5>$2,500</h5>
+                                    <h5>30mins</h5>
                                 </div>
-                                <input type="checkbox" class="ui-checkbox" name="cornrows" id="cornrows" data-price="3500" data-time="2" data-name="Cornrows">
+                                <input type="checkbox" class="ui-checkbox" name="hair-cut" id="hair-cut" data-price="2500" data-time="0.5" data-name="Hair Cut">
                             </div>
                             <div class="option_item--bottom">
                                 <p>Service Description</p>
@@ -111,12 +116,12 @@
                         </div>
                         <div class="option_item">
                             <div class="option_item--top">
-                                <h5 style="margin-right: 20px;">Box Braids</h5>
+                                <h5 style="margin-right: 20px;">Men's Cut</h5>
                                 <div class="option_item--info">
-                                    <h5>$7,000</h5>
-                                    <h5>5hrs</h5>
+                                    <h5>$2,500</h5>
+                                    <h5>30mins</h5>
                                 </div>
-                                <input type="checkbox" class="ui-checkbox" name="box-braids" id="box-braids" data-price="3500" data-time="5" data-name="Box Braids">
+                                <input type="checkbox" class="ui-checkbox" name="hair-cut" id="hair-cut" data-price="2500" data-time="0.5" data-name="Hair Cut">
                             </div>
                             <div class="option_item--bottom">
                                 <p>Service Description</p>
@@ -124,12 +129,12 @@
                         </div>
                         <div class="option_item">
                             <div class="option_item--top">
-                                <h5 style="margin-right: 20px;">Knotless Braids</h5>
+                                <h5 style="margin-right: 20px;">Children's Cut (under 12yrs)</h5>
                                 <div class="option_item--info">
-                                    <h5>$12,000</h5>
-                                    <h5>8hrs</h5>
+                                    <h5>$2,500</h5>
+                                    <h5>30mins</h5>
                                 </div>
-                                <input type="checkbox" class="ui-checkbox" name="knotless-braids" id="knotless-braids" data-price="12000" data-time="8" data-name="Knotless Braids"> 
+                                <input type="checkbox" class="ui-checkbox" name="hair-cut" id="hair-cut" data-price="2500" data-time="0.5" data-name="Hair Cut">
                             </div>
                             <div class="option_item--bottom">
                                 <p>Service Description</p>
@@ -143,9 +148,7 @@
             <div class="accordion_item">
                 <div class="accordion_header">
                     <div class="accordion_header_left">
-                        <h4>Hair Extensions</h4>
-                        <h4 class="accordion_header_info">$5,000 - $20,000</h4>
-                        <h4 class="accordion_header_info">1 - 3hrs</h4>
+                        <h4>Style your Hair</h4>
                     </div>
                     <img src="media/small-down-arrow.png" alt="Arrow pointing down" class="accordion_down_icon" id="down-indicator">
                 </div>
@@ -201,39 +204,7 @@
             <div class="accordion_item">
                 <div class="accordion_header">
                     <div class="accordion_header_left">
-                        <h4>Hair Cut</h4>
-                        <h4 class="accordion_header_info">$2,500</h4>
-                        <h4 class="accordion_header_info">30mins - 1hr</h4>
-                    </div>
-                    <img src="media/small-down-arrow.png" alt="Arrow pointing down" class="accordion_down_icon" id="down-indicator">
-                </div>
-                <div class="accordion_info">
-                    <div class="service_options">
-                        <div class="option_item">
-                            <div class="option_item--top">
-                                <h5 style="margin-right: 20px;">Hair Cut</h5>
-                                <div class="option_item--info">
-                                    <h5>$2,500</h5>
-                                    <h5>30mins</h5>
-                                </div>
-                                <input type="checkbox" class="ui-checkbox" name="hair-cut" id="hair-cut" data-price="2500" data-time="0.5" data-name="Hair Cut">
-                            </div>
-                            <div class="option_item--bottom">
-                                <p>Service Description</p>
-                            </div>
-                        </div>
-                        <button class="accordion_CTA_button" onclick="SelectService()">Book Now</button>
-                    </div>
-                </div>
-            </div>
-
-            
-            <div class="accordion_item">
-                <div class="accordion_header">
-                    <div class="accordion_header_left">
-                        <h4>Perm</h4>
-                        <h4 class="accordion_header_info">$5,000 - $15,000</h4>
-                        <h4 class="accordion_header_info">1.5 - 3hrs</h4>
+                        <h4>Treat your Hair</h4>
                     </div>
                     <img src="media/small-down-arrow.png" alt="Arrow pointing down" class="accordion_down_icon" id="down-indicator">
                 </div>
@@ -274,9 +245,7 @@
             <div class="accordion_item">
                 <div class="accordion_header">
                     <div class="accordion_header_left">
-                        <h4>Wash and Style</h4>
-                        <h4 class="accordion_header_info">$3,500 - $9,000</h4>
-                        <h4 class="accordion_header_info">45mins - 2hrs</h4>
+                        <h4>Wash your Hair</h4>
                     </div>
                     <img src="media/small-down-arrow.png" alt="Arrow pointing down" class="accordion_down_icon" id="down-indicator">
                 </div>
@@ -286,36 +255,10 @@
                             <div class="option_item--top">
                                 <h5 style="margin-right: 20px;">Shampoo and Conditioning</h5>
                                 <div class="option_item--info">
-                                    <h5>$3,500</h5>
-                                    <h5>45mins</h5>
-                                </div>
-                                <input type="checkbox" class="ui-checkbox" name="shampoo-conditioning" id="shampoo-conditioning" data-price="3500" data-time="0.75" data-name="Shampoo and Conditioning">
-                            </div>
-                            <div class="option_item--bottom">
-                                <p>Service Description</p>
-                            </div>
-                        </div>
-                        <div class="option_item">
-                            <div class="option_item--top">
-                                <h5 style="margin-right: 20px;">Blow-dry & Flat Iron</h5>
-                                <div class="option_item--info">
                                     <h5>$5,000</h5>
-                                    <h5>1hr</h5>
+                                    <h5>1.5hrs</h5>
                                 </div>
-                                <input type="checkbox" class="ui-checkbox" name="blow-dry-flat-iron" id="blow-dry-flat-iron" data-price="5000" data-time="1" data-name="Blow-dry and Flat Iron">
-                            </div>
-                            <div class="option_item--bottom">
-                                <p>Service Description</p>
-                            </div>
-                        </div>
-                        <div class="option_item">
-                            <div class="option_item--top">
-                                <h5 style="margin-right: 20px;">Wash and Style</h5>
-                                <div class="option_item--info">
-                                    <h5>$6,000</h5>
-                                    <h5>2hrs</h5>
-                                </div>
-                                <input type="checkbox" class="ui-checkbox" name="wash-style" id="wash-style" data-price="6000" data-time="2" data-name="Wash and Style">
+                                <input type="checkbox" class="ui-checkbox" name="relaxer-touch-up" id="relaxer-touch-up" data-price="5000" data-time="1.5" data-name="Relaxer Touch-up">
                             </div>
                             <div class="option_item--bottom">
                                 <p>Service Description</p>
@@ -325,7 +268,6 @@
                     </div>
                 </div>
             </div>
-        </div>
 
         <!-- FACE SECTION -->   <!-- FACE SECTION -->   <!-- FACE SECTION -->   <!-- FACE SECTION -->
         <hr class="section_divider" id="face-divider">
@@ -339,9 +281,7 @@
             <div class="accordion_item">
                 <div class="accordion_header">
                     <div class="accordion_header_left">
-                        <h4>Makeup</h4>
-                        <h4 class="accordion_header_info">$6,000 - $12,000</h4>
-                        <h4 class="accordion_header_info">1 - 1.5hrs</h4>
+                        <h4>Glam your Makeup</h4>
                     </div>
                     <img src="media/small-down-arrow.png" alt="Arrow pointing down" class="accordion_down_icon" id="down-indicator">
                 </div>
@@ -383,9 +323,7 @@
             <div class="accordion_item">
                 <div class="accordion_header">
                     <div class="accordion_header_left">
-                        <h4>Microblading</h4>
-                        <h4 class="accordion_header_info">$25,000</h4>
-                        <h4 class="accordion_header_info">2.5hrs</h4>
+                        <h4>Perfect your Brows</h4>
                     </div>
                     <img src="media/small-down-arrow.png" alt="Arrow pointing down" class="accordion_down_icon" id="down-indicator">
                 </div>
@@ -414,8 +352,6 @@
                 <div class="accordion_header">
                     <div class="accordion_header_left">
                         <h4>Eyelash Extensions</h4>
-                        <h4 class="accordion_header_info">$8,500 - $12,500</h4>
-                        <h4 class="accordion_header_info">2 - 2.5hrs</h4>
                     </div>
                     <img src="media/small-down-arrow.png" alt="Arrow pointing down" class="accordion_down_icon" id="down-indicator">
                 </div>
@@ -456,9 +392,7 @@
             <div class="accordion_item">
                 <div class="accordion_header">
                     <div class="accordion_header_left">
-                        <h4>Facial</h4>
-                        <h4 class="accordion_header_info">$6,000 - $12,500</h4>
-                        <h4 class="accordion_header_info">1 - 1.5hrs</h4>
+                        <h4>Refresh your Skin</h4>
                     </div>
                     <img src="media/small-down-arrow.png" alt="Arrow pointing down" class="accordion_down_icon" id="down-indicator">
                 </div>
@@ -520,9 +454,7 @@
             <div class="accordion_item">
                 <div class="accordion_header">
                     <div class="accordion_header_left">
-                        <h4>Acrylic Nails</h4>
-                        <h4 class="accordion_header_info">$4,000 - $6,500</h4>
-                        <h4 class="accordion_header_info">1 - 2hrs</h4>
+                        <h4>Clean your Nails</h4>
                     </div>
                     <img src="media/small-down-arrow.png" alt="Arrow pointing down" class="accordion_down_icon" id="down-indicator">
                 </div>
@@ -562,9 +494,7 @@
             <div class="accordion_item">
                 <div class="accordion_header">
                     <div class="accordion_header_left">
-                        <h4>Manicure</h4>
-                        <h4 class="accordion_header_info">$3,000</h4>
-                        <h4 class="accordion_header_info">1hr</h4>
+                        <h4>Polish your Nails</h4>
                     </div>
                     <img src="media/small-down-arrow.png" alt="Arrow pointing down" class="accordion_down_icon" id="down-indicator">
                 </div>
@@ -591,9 +521,7 @@
             <div class="accordion_item">
                 <div class="accordion_header">
                     <div class="accordion_header_left">
-                        <h4>Pedicure</h4>
-                        <h4 class="accordion_header_info">$4,500</h4>
-                        <h4 class="accordion_header_info">1hr</h4>
+                        <h4>Pamper your Hands/Feet</h4>
                     </div>
                     <img src="media/small-down-arrow.png" alt="Arrow pointing down" class="accordion_down_icon" id="down-indicator">
                 </div>
@@ -617,7 +545,6 @@
                 </div>
             </div>
         </div>
-
         <!-- BODY SECTION -->   <!-- BODY SECTION -->   <!-- BODY SECTION -->   <!-- BODY SECTION -->
         <hr class="section_divider" id="body-divider">
         <div class="section_title">
@@ -629,9 +556,7 @@
             <div class="accordion_item">
                 <div class="accordion_header">
                     <div class="accordion_header_left">
-                        <h4>Body Waxing</h4>
-                        <h4 class="accordion_header_info">$5,000</h4>
-                        <h4 class="accordion_header_info">2hrs</h4>
+                        <h4>Relax with a Massage</h4>
                     </div>
                     <img src="media/small-down-arrow.png" alt="Arrow pointing down" class="accordion_down_icon" id="down-indicator">
                 </div>
@@ -658,9 +583,7 @@
             <div class="accordion_item">
                 <div class="accordion_header">
                     <div class="accordion_header_left">
-                        <h4>Vagina Therapy</h4>
-                        <h4 class="accordion_header_info">$10,000</h4>
-                        <h4 class="accordion_header_info">1hr</h4>
+                        <h4>Wax your Skin</h4>
                     </div>
                     <img src="media/small-down-arrow.png" alt="Arrow pointing down" class="accordion_down_icon" id="down-indicator">
                 </div>
@@ -700,9 +623,7 @@
             <div class="accordion_item">
                 <div class="accordion_header">
                     <div class="accordion_header_left">
-                        <h4>Laser Hair & Wart Removal</h4>
-                        <h4 class="accordion_header_info">$10,000 - $20,000</h4>
-                        <h4 class="accordion_header_info">45mins - 1.5hrs</h4>
+                        <h4>Remove Hair/Warts</h4>
                     </div>
                     <img src="media/small-down-arrow.png" alt="Arrow pointing down" class="accordion_down_icon" id="down-indicator">
                 </div>
@@ -738,44 +659,11 @@
                     </div>
                 </div>
             </div>
-
-            
+          
             <div class="accordion_item">
                 <div class="accordion_header">
                     <div class="accordion_header_left">
-                        <h4>Massage</h4>
-                        <h4 class="accordion_header_info">$8,500</h4>
-                        <h4 class="accordion_header_info">1.5hrs</h4>
-                    </div>
-                    <img src="media/small-down-arrow.png" alt="Arrow pointing down" class="accordion_down_icon" id="down-indicator">
-                </div>
-                <div class="accordion_info">
-                    <div class="service_options">
-                        <div class="option_item">
-                            <div class="option_item--top">
-                                <h5 style="margin-right: 20px;">Massage</h5>
-                                <div class="option_item--info">
-                                    <h5>$8,500</h5>
-                                    <h5>1.5hrs</h5>
-                                </div>
-                                <input type="checkbox" class="ui-checkbox" name="massage" id="massage" data-price="8500" data-time="1.5" data-name="Massage">
-                            </div>
-                            <div class="option_item--bottom">
-                                <p>Service Description</p>
-                            </div>
-                        </div>
-                        <button class="accordion_CTA_button" onclick="SelectService()">Book Now</button>
-                    </div>
-                </div>
-            </div>
-
-            
-            <div class="accordion_item">
-                <div class="accordion_header">
-                    <div class="accordion_header_left">
-                        <h4>Ultrasonic Cavitation</h4>
-                        <h4 class="accordion_header_info">$12,000</h4>
-                        <h4 class="accordion_header_info">1hr</h4>
+                        <h4>Get a Piercing</h4>
                     </div>
                     <img src="media/small-down-arrow.png" alt="Arrow pointing down" class="accordion_down_icon" id="down-indicator">
                 </div>
@@ -799,71 +687,10 @@
                 </div>
             </div>
 
-            
             <div class="accordion_item">
                 <div class="accordion_header">
                     <div class="accordion_header_left">
-                        <h4>Piercings</h4>
-                        <h4 class="accordion_header_info">$3,000</h4>
-                        <h4 class="accordion_header_info">30mins</h4>
-                    </div>
-                    <img src="media/small-down-arrow.png" alt="Arrow pointing down" class="accordion_down_icon" id="down-indicator">
-                </div>
-                <div class="accordion_info">
-                    <div class="service_options">
-                        <div class="option_item">
-                            <div class="option_item--top">
-                                <h5 style="margin-right: 20px;">Piercing</h5>
-                                <div class="option_item--info">
-                                    <h5>$3,000</h5>
-                                    <h5>30mins</h5>
-                                </div>
-                                <input type="checkbox" class="ui-checkbox" name="piercing" id="piercing" data-price="3000" data-time="0.5" data-name="Piercing">
-                            </div>
-                            <div class="option_item--bottom">
-                                <p>Service Description</p>
-                            </div>
-                        </div>
-                        <button class="accordion_CTA_button" onclick="SelectService()">Book Now</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion_item">
-                <div class="accordion_header">
-                    <div class="accordion_header_left">
-                        <h4>Vacuum Cupping Therapy</h4>
-                        <h4 class="accordion_header_info">$7,000</h4>
-                        <h4 class="accordion_header_info">1hr</h4>
-                    </div>
-                    <img src="media/small-down-arrow.png" alt="Arrow pointing down" class="accordion_down_icon" id="down-indicator">
-                </div>
-                <div class="accordion_info">
-                    <div class="service_options">
-                        <div class="option_item">
-                            <div class="option_item--top">
-                                <h5 style="margin-right: 20px;">Vacuum Cupping Therapy</h5>
-                                <div class="option_item--info">
-                                    <h5>$7,000</h5>
-                                    <h5>1hr</h5>
-                                </div>
-                                <input type="checkbox" class="ui-checkbox" name="vacuum-cupping-therapy" id="vacuum-cupping-therapy" data-price="7000" data-time="1" data-name="Vacuum Cupping Therapy">
-                            </div>
-                            <div class="option_item--bottom">
-                                <p>Service Description</p>
-                            </div>
-                        </div>
-                        <button class="accordion_CTA_button" onclick="SelectService()">Book Now</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion_item">
-                <div class="accordion_header">
-                    <div class="accordion_header_left">
-                        <h4>Body Scrub</h4>
-                        <h4 class="accordion_header_info">$8,000</h4>
-                        <h4 class="accordion_header_info">1hr</h4>
+                        <h4>Refresh your Skin</h4>
                     </div>
                     <img src="media/small-down-arrow.png" alt="Arrow pointing down" class="accordion_down_icon" id="down-indicator">
                 </div>
@@ -882,6 +709,19 @@
                                 <p>Service Description</p>
                             </div>
                         </div>
+                        <div class="option_item">
+                            <div class="option_item--top">
+                                <h5 style="margin-right: 20px;">Ultrasonic Cavitation</h5>
+                                <div class="option_item--info">
+                                    <h5>$12,000</h5>
+                                    <h5>1hr</h5>
+                                </div>
+                                <input type="checkbox" class="ui-checkbox" name="ultrasonic-cavitation" id="ultrasonic-cavitation" data-price="12000" data-time="1" data-name="Ultrasonic Cavitation">
+                            </div>
+                            <div class="option_item--bottom">
+                                <p>Service Description</p>
+                            </div>
+                        </div>
                         <button class="accordion_CTA_button" onclick="SelectService()">Book Now</button>
                     </div>
                 </div>
@@ -890,9 +730,7 @@
             <div class="accordion_item">
                 <div class="accordion_header">
                     <div class="accordion_header_left">
-                        <h4>Sauna Detox</h4>
-                        <h4 class="accordion_header_info">$4,500</h4>
-                        <h4 class="accordion_header_info">45mins</h4>
+                        <h4>Detox your Body</h4>
                     </div>
                     <img src="media/small-down-arrow.png" alt="Arrow pointing down" class="accordion_down_icon" id="down-indicator">
                 </div>
@@ -950,10 +788,6 @@
                     St. James
                 </address>
             </div> 
-            <div class="footer_divider divider1"></div>
-            <div class="footer_divider divider2"></div>
-            <div class="footer_divider divider3"></div>
-            <div class="footer_divider divider4"></div>
         </div>
     </footer>
     <script src="script.js"></script>

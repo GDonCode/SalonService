@@ -5,11 +5,18 @@ const scrollbuttons = document.getElementsByClassName("service_scroll_button");
 Array.from(scrollbuttons).forEach(button => {
     button.addEventListener('click', function() {
         const target = this.getAttribute('data-scroll-target');
-        document.getElementById(target).scrollIntoView({
+        const targetElement = document.getElementById(target);
+
+        // Calculate the position of the target element minus 120px
+        const offsetTop = targetElement.getBoundingClientRect().top + window.scrollY - 119.5;
+
+        // Scroll to the calculated position
+        window.scrollTo({
+            top: offsetTop,
             behavior: 'smooth'
-        })
-    })
-})
+        });
+    });
+});
 
 
 for (let i = 0; i < headers.length; i++) {

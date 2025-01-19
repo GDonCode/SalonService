@@ -11,7 +11,7 @@ body {
     color: #1f2937;
 }
 main {
-    padding-top: 5.625rem;
+    padding-top: 2.813rem;
 }
 
 
@@ -21,36 +21,52 @@ nav {
     width: 100%;
     min-width: 100%;
     align-items: center;
-    background: white;
-    padding: 50px 35px;
+    justify-content: space-around;
+    padding: 60px 35px;
     height: 5.625rem;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-
+    border-bottom: 1px solid gray;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 20000;
+    background: white;
+}
+.nav_logo--container {
+    position: absolute;
+    left: 36.626rem;
+}
+nav img {
+    width: 180px;
+    height: auto;
 }
 .nav_links {
     display: flex;
     gap: 2.5rem;
-    margin-left: auto;
     font-size: 1.2rem;
     font-weight: 500;
     text-align: center;
 }
 .nav_links a {
-    color: #0A9300;
+    color: black;
     text-decoration: none;
     font-family: "Montserrat", sans-serif;
     border-bottom: none;
+}
+.nav_links.left {
+    margin-left: 7.75rem;
+}
+.nav_links.right {
+    margin-right: 9rem;
 }
 .nav_link {
     text-decoration: none;
     position: relative;
     padding: 0.5rem 0;
+    transition: transform 0.3s ease;
 }
-
+.nav_link:hover {
+    transform: translateY(-4px);
+}
 .nav_link::after {
     content: '';
     position: absolute;
@@ -62,12 +78,8 @@ nav {
     transform: scaleX(0);
     transition: transform 0.2s ease;
 }
-
 .nav_link:hover::after {
     transform: scaleX(1);
-}
-.nav_links--right {
-    margin-left: auto;
 }
 .nav_links--right button {
     font-size: 1.35rem;
@@ -86,7 +98,6 @@ nav {
     background-color: #087500;
     font-size: 1.5rem;
 }
-
 .menu_button {
     background: none;
     margin-left: auto;
@@ -111,6 +122,7 @@ footer {
     padding: 20px 30px;
     background: transparent;
     border-top: 1px solid rgba(0, 0, 0, 0.05);
+    border-top: 1px solid gray;
 }
 .footer_info {
     display: flex;
@@ -187,24 +199,4 @@ footer p {
     border-top: 2px solid #087500;
 }
 
-.divider1 {
-    position: absolute;
-    left: 0;
-    min-width: 265px;
-}
-.divider2 {
-    position: absolute;
-    left: 420px;
-    min-width: 185px;
-}
-.divider3 {
-    position: absolute;
-    left: 743px;
-    min-width: 238px;
-}
-.divider4 {
-    position: absolute;
-    left: 1091px;
-    min-width: 258px;
-}
 /* FOOTER STYLING END */

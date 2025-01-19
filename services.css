@@ -2,7 +2,7 @@ body {
     font-family: "Montserrat", sans-serif;
 }
 main {
-    padding-bottom: 120px;
+    padding: 7.5rem 0;
 }
 .headline {
     margin-top: 40px;
@@ -141,13 +141,13 @@ main {
     /* height: 100%; */
     /* Add your background pattern here */
     background: linear-gradient(
-      -45deg,
-    #d4f7d1, /* Lighter green */
-    #f0fff0, /* Honeydew */
-    #dcfce7, /* Original light green */
-    #bdebb9, /* Soft mint green */
-    #a8e0a0, /* Fresh light green */
-    #A8E1A1
+        -45deg,
+        #A8E1A1,
+        #a8e0a0,
+        #bdebb9,
+        #dcfce7, 
+        #f0fff0,
+        #d4f7d1
     );
     background-size: 400% 400%;
     animation: gradient 30s ease infinite;

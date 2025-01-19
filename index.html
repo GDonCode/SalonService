@@ -28,13 +28,17 @@
 <body>
     <header class="header DESKTOP">
         <nav>
-            <a href="index.html"><img src="media/payetonlogo.png" alt="logo" width="150px" height="auto"></a>
-            <div class="nav_links">
+            <div class="nav_links left">
                 <a href="services.html" class="nav_link">Services</a>
                 <a href="gallery.html" class="nav_link">Gallery</a>
+            </div>
+            <div class="nav_logo--container">
+                <a href="index.html"><img src="media/payetonlogo.png" alt="logo"></a>
+            </div>
+            <div class="nav_links right">
                 <a href="reviews.html" class="nav_link">Reviews</a>
-                <a href="about.html" class="nav_link">About Us</a>
                 <a href="test.html" class="nav_link">Test</a>
+                <!-- <a href="about.html" class="nav_link">About Us</a> -->       
             </div>
             <button class="menu_button">
                 <img src="media/hamburger.png" alt="Menu" width="45px" height="auto">
@@ -56,11 +60,11 @@
                         <button onclick="window.location.href='services.html';">Services and Pricing</button>
                     </div>
                 </div> 
-                <div class="carousel--container DESKTOP">
+                <div class="carousel--container">
                     <!-- Slider main container -->
-                    <div class="swiper DESKTOP">
+                    <div class="swiper">
                         <!-- Additional required wrapper -->
-                        <div class="swiper-wrapper DESKTOP">
+                        <div class="swiper-wrapper">
                             <!-- Slides -->
                             <div class="swiper-slide DESKTOP"><img src="media/carouselmedia6.png" alt=""></div>
                             <div class="swiper-slide DESKTOP"><img src="media/carouselmedia2.png" alt=""></div>
@@ -83,7 +87,7 @@
 
         <section>
             <div class="testimonial_section DESKTOP">
-                <div class="testimonial_section--TOP DESKTOP">
+                <div class="testimonial_section--TOP">
                     <div class="testimonial_review DESKTOP" data-aos="fade-up">
                         <img src="media/five-stars.png">
                         <img src="media/google.png">
@@ -96,22 +100,24 @@
                     </div>
                 </div>
                 <div class="testimonial_section--BOTTOM">
-                    <div class="testimonial_quote DESKTOP">
-                        <p>" When you need to relax and be catered to, this is the place to be. Absolutely loved the environment and the service was excellent. We will definitely be back! "</p>
-                        <cite style="font-weight: 500;">—Judine Dawkins</cite>
+                    <div class="testimonial_quote--container">
+                        <div class="testimonial_quote DESKTOP">
+                            <p>" When you need to relax and be catered to, this is the place to be. Absolutely loved the environment and the service was excellent. We will definitely be back! "</p>
+                            <cite style="font-weight: 500;">—Judine Dawkins</cite>
+                        </div>
+                        <div class="testimonial_quote DESKTOP">
+                            <p>" The stylist did such a great job, I couldn't believe that was the same head of hair I walked in with! All in all, a true 5-star experience. "</p>
+                            <cite style="font-weight: 500;">—Kris W.</cite>
+                        </div>
+                        <div class="testimonial_quote DESKTOP">
+                            <p>" The team is so welcoming and warm, I enjoy every second. My nails look exceptional and I feel refreshed everytime. I 100% recommend them! "</p>
+                            <cite style="font-weight: 500;">—Kelsey Keane</cite>
+                        </div>
                     </div>
-                    <div class="testimonial_quote DESKTOP">
-                        <p>" The stylist did such a great job, I couldn't believe that was the same head of hair I walked in with! All in all, a true 5-star experience. "</p>
-                        <cite style="font-weight: 500;">—Kris W.</cite>
-                    </div>
-                    <div class="testimonial_quote DESKTOP">
-                        <p>" The team is so welcoming and warm, I enjoy every second. My nails look exceptional and I feel refreshed everytime. I 100% recommend them! "</p>
-                        <cite style="font-weight: 500;">—Kelsey Keane</cite>
+                    <div class="testimonial_section--CTA">
+                        <button onclick="window.location.href='reviews.html';">See More</button>
                     </div>
                 </div> 
-                <div class="testimonial_section--CTA">
-                    <button onclick="window.location.href='reviews.html';">See More</button>
-                </div>
             </div> 
         </section>
     </main>
@@ -149,10 +155,6 @@
                     St. James
                 </address>
             </div> 
-            <div class="footer_divider divider1"></div>
-            <div class="footer_divider divider2"></div>
-            <div class="footer_divider divider3"></div>
-            <div class="footer_divider divider4"></div>
         </div>
     </footer> 
     <audio src="media/"></audio>
