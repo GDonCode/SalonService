@@ -177,3 +177,18 @@ function toggleMenu() {
         menu_button.src = "media/hamburger.png";
     }
 }
+
+function expandCustomizer () {
+    const braids_checkbox = document.getElementById("braids");
+    const customizer = document.getElementById("braid-customizer");
+    const info_section = document.querySelector("accordion_info");
+
+    if (braids_checkbox.checked){
+        customizer.classList.add("expanded");
+        info_section.style.maxHeight = (info_section.scrollHeight + customizer.scrollHeight ) + "px";
+    }
+    else {
+        customizer.classList.remove("expanded");
+        customizer.style.maxHeight = "null";
+    }
+}

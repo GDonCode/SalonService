@@ -8,7 +8,7 @@ body {
     font-family: "Montserrat", serif;
     min-height: 100vh;
     line-height: 1.5;
-    color: #1f2937;
+    color: black;
 }
 main {
     padding-top: 2.813rem;
@@ -33,7 +33,7 @@ nav {
 }
 .nav_logo--container {
     position: absolute;
-    left: 36.626rem;
+    left: 44%;
 }
 nav img {
     width: 180px;
@@ -42,7 +42,7 @@ nav img {
 .nav_links {
     display: flex;
     gap: 2.5rem;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: 500;
     text-align: center;
 }
@@ -53,10 +53,12 @@ nav img {
     border-bottom: none;
 }
 .nav_links.left {
-    margin-left: 7.75rem;
+    position: absolute;
+    left: 26.5%;
 }
 .nav_links.right {
-    margin-right: 9rem;
+    position: absolute;
+    right: 23%;
 }
 .nav_link {
     text-decoration: none;

@@ -39,8 +39,7 @@
             </div>
             <div class="nav_links right">
                 <a href="reviews.html" class="nav_link">Reviews</a>
-                <a href="test.html" class="nav_link">Test</a>
-                <!-- <a href="about.html" class="nav_link">About Us</a> -->       
+                <a href="test.html" class="nav_link">Our Team</a>
             </div>
             <button class="menu_button">
                 <img src="media/hamburger.png" alt="Menu" width="45px" height="auto">
@@ -82,7 +81,7 @@
                 </button>
             </div>
         </div>
-        <img src="media/double-down.png" alt="Downward Arrow" width="70px" height="auto"; style="display: block;margin: 45px auto 0 auto;">
+        <img src="media/double-down.png" alt="Downward Arrow" width="70px" height="auto"; style="display: block;margin: 40px auto 0 auto;">
         
         <!-- HAIR SECTION -->   <!-- HAIR SECTION -->   <!-- HAIR SECTION -->   <!-- HAIR SECTION -->
         <hr class="section_divider" id="hair-divider">
@@ -103,41 +102,44 @@
                     <div class="service_options">
                         <div class="option_item">
                             <div class="option_item--top">
-                                <h5 style="margin-right: 20px;">Women's Cut</h5>
+                                <h4>Women's Cut</h4>
                                 <div class="option_item--info">
-                                    <h5>$2,500</h5>
+                                    <h5>$4,500</h5>
                                     <h5>30mins</h5>
                                 </div>
-                                <input type="checkbox" class="ui-checkbox" name="hair-cut" id="hair-cut" data-price="2500" data-time="0.5" data-name="Hair Cut">
+                                <input type="checkbox" class="ui-checkbox" name="womens-cut" id="womens-cut" data-price="4500" data-time="0.5" data-name="Women's Cut">
                             </div>
                             <div class="option_item--bottom">
-                                <p>Service Description</p>
+                                <p>Precision cuts that enhance your style and personality, from trims to transformations.</p>
                             </div>
                         </div>
+
                         <div class="option_item">
                             <div class="option_item--top">
-                                <h5 style="margin-right: 20px;">Men's Cut</h5>
+                                <h4>Women's Trim</h4>
                                 <div class="option_item--info">
-                                    <h5>$2,500</h5>
-                                    <h5>30mins</h5>
+                                    <h5>$2,000</h5>
+                                    <h5>15mins</h5>
                                 </div>
-                                <input type="checkbox" class="ui-checkbox" name="hair-cut" id="hair-cut" data-price="2500" data-time="0.5" data-name="Hair Cut">
+                                <input type="checkbox" class="ui-checkbox" name="womens-trim" id="womens-trim" data-price="2000" data-time="0.25" data-name="Women's Trim">
                             </div>
                             <div class="option_item--bottom">
-                                <p>Service Description</p>
+                                <p>Precision cuts that enhance your style and personality, from trims to transformations.</p>
                             </div>
                         </div>
+
+
                         <div class="option_item">
                             <div class="option_item--top">
-                                <h5 style="margin-right: 20px;">Children's Cut (under 12yrs)</h5>
+                                <h4>Men's Cut</h4>
                                 <div class="option_item--info">
                                     <h5>$2,500</h5>
                                     <h5>30mins</h5>
                                 </div>
-                                <input type="checkbox" class="ui-checkbox" name="hair-cut" id="hair-cut" data-price="2500" data-time="0.5" data-name="Hair Cut">
+                                <input type="checkbox" class="ui-checkbox" name="mens-cut" id="mens-cut" data-price="2500" data-time="0.5" data-name="Men's Cut">
                             </div>
                             <div class="option_item--bottom">
-                                <p>Service Description</p>
+                                <p>Tailored cuts for men, styled to perfection for a clean and polished look.</p>
                             </div>
                         </div>
                         <button class="accordion_CTA_button" onclick="SelectService()">Book Now</button>
@@ -156,12 +158,44 @@
                     <div class="service_options">
                         <div class="option_item">
                             <div class="option_item--top">
-                                <h5 style="margin-right: 20px;">Clip-ins</h5>
+                                <h4>Braids</h4>
                                 <div class="option_item--info">
                                     <h5>$7,500</h5>
-                                    <h5>1.5hrs</h5>
+                                    <h5>1 - 5hrs</h5>
                                 </div>
-                                <input type="checkbox" class="ui-checkbox" name="clip-ins" id="clip-ins" data-price="7500" data-time="1.5" data-name="Clip Ins">   
+                                <input type="checkbox" class="ui-checkbox" name="braids" id="braids" data-price="7500" data-time="1.5" data-name="Clip Ins" onchange="expandCustomizer()">   
+                            </div>
+                            <div class="option_item--bottom">
+                                <p>Creative and protective braiding styles tailored to your preference, from classic to intricate designs.</p>
+                            </div>
+                            <div class="option_item_customisation" id="braid-customizer">
+                                <h5>Braid Type</h5>
+                                <select required>
+                                    <option selected disabled>Select Braid Type</option>
+                                    <option value="box-braids">Box Braids</option>
+                                    <option value="knotless-braids">Knotless Braids</option>
+                                    <option value="boho-braids">Boho Braids</option>
+                                </select>
+                                <h5>Extensions Required?</h5>
+                                <input type="radio" id="yes" value="Yes" name="extensions" required>
+                                <label for="yes">Yes</label>
+                                <input type="radio" id="no" value="No" name="extensions">
+                                <label for="no">No</label>
+                                <h5>Extension Provider</h5>
+                                <input type="radio" id="customer-provided" value="Customer Provided" name="extension-provider" required>
+                                <label for="customer-provided">Customer Provided</label>
+                                <input type="radio" id="salon-provided" value="Salon Provided" name="extension-provider">
+                                <label for="salon-provided">Salon Provided</label>
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="option_item--top">
+                                <h4>Permanent Coloring</h4>
+                                <div class="option_item--info">
+                                    <h5>$9,000</h5>
+                                    <h5>1hr</h5>
+                                </div>
+                                <input type="checkbox" class="ui-checkbox" name="perm-coloring" id="perm-coloring" data-price="9000" data-time="1" data-name="Permanent Coloring">
                             </div>
                             <div class="option_item--bottom">
                                 <p>Service Description</p>
@@ -170,12 +204,93 @@
 
                         <div class="option_item">
                             <div class="option_item--top">
-                                <h5 style="margin-right: 20px;">Sew-ins</h5>
+                                <h4>Temporary Coloring</h4>
+                                <div class="option_item--info">
+                                    <h5>$3,500</h5>
+                                    <h5>30mins</h5>
+                                </div>
+                                <input type="checkbox" class="ui-checkbox" name="temp-coloring" id="temp-coloring" data-price="3500" data-time="0.5" data-name="Temporary Coloring">
+                            </div>
+                            <div class="option_item--bottom">
+                                <p>Service Description</p>
+                            </div>
+                        </div>
+
+                        <div class="option_item">
+                            <div class="option_item--top">
+                                <h4>Flat Iron</h4>
+                                <div class="option_item--info">
+                                    <h5>$3,000</h5>
+                                    <h5>1hr</h5>
+                                </div>
+                                <input type="checkbox" class="ui-checkbox" name="flat-iron" id="flat-iron" data-price="3000" data-time="1" data-name="Flat Iron">
+                            </div>
+                            <div class="option_item--bottom">
+                                <p>Service Description</p>
+                            </div>
+                        </div>
+                        <button class="accordion_CTA_button" onclick="SelectService()">Book Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion_item">
+                <div class="accordion_header">
+                    <div class="accordion_header_left">
+                        <h4>Weaves, Wigs and Extensions</h4>
+                    </div>
+                    <img src="media/small-down-arrow.png" alt="Arrow pointing down" class="accordion_down_icon" id="down-indicator">
+                </div>
+                <div class="accordion_info">
+                    <div class="service_options">
+                        <div class="option_item">
+                            <div class="option_item--top">
+                                <h4>Braids</h4>
+                                <div class="option_item--info">
+                                    <h5>$10,000 - $25,000</h5>
+                                    <h5>1.5hrs</h5>
+                                </div>
+                                <input type="checkbox" class="ui-checkbox" name="braids" id="braids" data-price="7500" data-time="1.5" data-name="Clip In Ex" onchange="expandCustomizer()">   
+                            </div>
+                            <div class="option_item--bottom">
+                                <p>Creative and protective braiding styles tailored to your preference, from classic to intricate designs.</p>
+                            </div>
+                            <div class="option_item_customisation" id="braid-customizer">
+                                <h5>Braid Type</h5>
+                                <select required>
+                                    <option selected disabled>Select Braid Type</option>
+                                    <option value="box-braids">Box Braids</option>
+                                    <option value="knotless-braids">Knotless Braids</option>
+                                    <option value="cornrows">Cornrows</option>
+                                </select>
+                                <h5>Hair Length</h5>
+                                <select required>
+                                    <option selected disabled>Select Length</option>
+                                    <option>Short (0 - 6 inches)</option>
+                                    <option>Medium (7 - 14 inches)</option>
+                                    <option>Long (15+ inches)</option>
+                                </select>
+                                <h5>Extensions Required?</h5>
+                                <input type="radio" id="yes" value="Yes" name="extensions" required>
+                                <label for="yes">Yes</label>
+                                <input type="radio" id="no" value="No" name="extensions">
+                                <label for="no">No</label>
+                                <h5>Extension Provider</h5>
+                                <input type="radio" id="customer-provided" value="Customer Provided" name="extension-provider" required>
+                                <label for="customer-provided">Customer Provided</label>
+                                <input type="radio" id="salon-provided" value="Salon Provided" name="extension-provider">
+                                <label for="salon-provided">Salon Provided</label>
+                            </div>
+                        </div>
+
+                        <div class="option_item">
+                            <div class="option_item--top">
+                                <h4>Sew-in Extensions</h4>
                                 <div class="option_item--info">
                                     <h5>$12,000</h5>
                                     <h5>3hrs</h5>
                                 </div>
-                                <input type="checkbox" class="ui-checkbox" name="sew-ins" id="sew-ins" data-price="12000" data-time="3" data-name="Sew-ins">
+                                <input type="checkbox" class="ui-checkbox" name="sew-ins" id="sew-ins" data-price="12000" data-time="3" data-name="Sew-in Extensions">
                             </div>
                             <div class="option_item--bottom">
                                 <p>Service Description</p>
@@ -184,12 +299,68 @@
 
                         <div class="option_item">
                             <div class="option_item--top">
-                                <h5 style="margin-right: 20px;">Tape-ins</h5>
+                                <h4>Tape-in Extensions</h4>
                                 <div class="option_item--info">
                                     <h5>$2,000</h5>
                                     <h5>2hrs</h5>
                                 </div>
-                                <input type="checkbox" class="ui-checkbox" name="tape-ins" id="tape-ins" data-price="2000" data-time="2" data-name="Tape-ins">
+                                <input type="checkbox" class="ui-checkbox" name="tape-ins" id="tape-ins" data-price="2000" data-time="2" data-name="Tape-in Extensions">
+                            </div>
+                            <div class="option_item--bottom">
+                                <p>Service Description</p>
+                            </div>
+                        </div>
+
+                        <div class="option_item">
+                            <div class="option_item--top">
+                                <h4>Clip-in Extensions</h4>
+                                <div class="option_item--info">
+                                    <h5>$6,500</h5>
+                                    <h5>2hrs</h5>
+                                </div>
+                                <input type="checkbox" class="ui-checkbox" name="clip-ins" id="clip-ins" data-price="6500" data-time="2" data-name="Clip-in Extensions">
+                            </div>
+                            <div class="option_item--bottom">
+                                <p>Service Description</p>
+                            </div>
+                        </div>
+
+                        <div class="option_item">
+                            <div class="option_item--top">
+                                <h4>Extension Removal</h4>
+                                <div class="option_item--info">
+                                    <h5>$2,500</h5>
+                                    <h5>1hr</h5>
+                                </div>
+                                <input type="checkbox" class="ui-checkbox" name="extension-removal" id="extension-removal" data-price="2500" data-time="1" data-name="Extension Removal">
+                            </div>
+                            <div class="option_item--bottom">
+                                <p>Service Description</p>
+                            </div>
+                        </div>
+
+                        <div class="option_item">
+                            <div class="option_item--top">
+                                <h4>Fronatl Wig Installation</h4>
+                                <div class="option_item--info">
+                                    <h5>$9,000</h5>
+                                    <h5>1hr 30mins</h5>
+                                </div>
+                                <input type="checkbox" class="ui-checkbox" name="frontal-wig" id="frontal-wig" data-price="9000" data-time="1.5" data-name="Frontal Wig Installation">
+                            </div>
+                            <div class="option_item--bottom">
+                                <p>Service Description</p>
+                            </div>
+                        </div>
+
+                        <div class="option_item">
+                            <div class="option_item--top">
+                                <h4>Closure Wig Installation</h4>
+                                <div class="option_item--info">
+                                    <h5>$7,500</h5>
+                                    <h5>1hr 15mins</h5>
+                                </div>
+                                <input type="checkbox" class="ui-checkbox" name="closure-wig" id="closure-wig" data-price="7500" data-time="1.25" data-name="Closure Wig Installation">
                             </div>
                             <div class="option_item--bottom">
                                 <p>Service Description</p>
@@ -212,28 +383,41 @@
                     <div class="service_options">
                         <div class="option_item">
                             <div class="option_item--top">
-                                <h5 style="margin-right: 20px;">Relaxer Touch-up</h5>
+                                <h4>Full Relaxer</h4>
                                 <div class="option_item--info">
-                                    <h5>$5,000</h5>
-                                    <h5>1.5hrs</h5>
+                                    <h5>$6,500</h5>
+                                    <h5>1hr 30mins</h5>
                                 </div>
-                                <input type="checkbox" class="ui-checkbox" name="relaxer-touch-up" id="relaxer-touch-up" data-price="5000" data-time="1.5" data-name="Relaxer Touch-up">
+                                <input type="checkbox" class="ui-checkbox" name="full-relaxer" id="full-relaxer" data-price="6500" data-time="1.5" data-name="Full Relaxer">
                             </div>
                             <div class="option_item--bottom">
-                                <p>Service Description</p>
+                                <p>Achieve straight, silky hair with a full relaxer treatment from roots to ends.</p>
                             </div>
                         </div>
                         <div class="option_item">
                             <div class="option_item--top">
-                                <h5 style="margin-right: 20px;">Full Relaxer</h5>
+                                <h4>Relaxer Touch-up</h4>
                                 <div class="option_item--info">
-                                    <h5>$15,000</h5>
-                                    <h5>3hrs</h5>
+                                    <h5>$2,000</h5>
+                                    <h5>1hr</h5>
                                 </div>
-                                <input type="checkbox" class="ui-checkbox" name="full-relaxer" id="full-relaxer" data-price="15000" data-time="3" data-name="Full Relaxer">
+                                <input type="checkbox" class="ui-checkbox" name="relaxer-touch-up" id="relaxer-touch-up" data-price="2000" data-time="1" data-name="Relaxer Touch-up">
                             </div>
                             <div class="option_item--bottom">
-                                <p>Service Description</p>
+                                <p>Smooth out regrowth areas with a touch-up for a seamless, sleek finish.</p>
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="option_item--top">
+                                <h4>Keratin Treatment</h4>
+                                <div class="option_item--info">
+                                    <h5>$20,000</h5>
+                                    <h5>2hrs</h5>
+                                </div>
+                                <input type="checkbox" class="ui-checkbox" name="keratin" id="keratin" data-price="20000" data-time="2" data-name="Keratin Treatment">
+                            </div>
+                            <div class="option_item--bottom">
+                                <p>Smooth and strengthen your hair with a keratin-infused treatment for frizz-free, glossy results.</p>
                             </div>
                         </div>
                         <button class="accordion_CTA_button" onclick="SelectService()">Book Now</button>
@@ -253,15 +437,15 @@
                     <div class="service_options">
                         <div class="option_item">
                             <div class="option_item--top">
-                                <h5 style="margin-right: 20px;">Shampoo and Conditioning</h5>
+                                <h4>Shampoo and Conditioning</h4>
                                 <div class="option_item--info">
-                                    <h5>$5,000</h5>
-                                    <h5>1.5hrs</h5>
+                                    <h5>$2,500</h5>
+                                    <h5>30mins</h5>
                                 </div>
-                                <input type="checkbox" class="ui-checkbox" name="relaxer-touch-up" id="relaxer-touch-up" data-price="5000" data-time="1.5" data-name="Relaxer Touch-up">
+                                <input type="checkbox" class="ui-checkbox" name="shampoo" id="shampoo" data-price="2500" data-time="0.5" data-name="Shampoo and Conditioning">
                             </div>
                             <div class="option_item--bottom">
-                                <p>Service Description</p>
+                                <p>Refresh your hair with a deep cleanse and nourishing conditioning for soft, healthy strands.</p>
                             </div>
                         </div>
                         <button class="accordion_CTA_button" onclick="SelectService()">Book Now</button>
@@ -289,29 +473,29 @@
                     <div class="service_options">
                         <div class="option_item">
                             <div class="option_item--top">
-                                <h5 style="margin-right: 20px;">Natural Look</h5>
+                                <h4>Natural Look</h4>
                                 <div class="option_item--info">
-                                    <h5>$6,000</h5>
+                                    <h5>$7,000</h5>
                                     <h5>1hr</h5>
                                 </div>
-                                <input type="checkbox" class="ui-checkbox" name="natural-look" id="natural-look" data-price="6000" data-time="1" data-name="Natural Look">
+                                <input type="checkbox" class="ui-checkbox" name="natural-look" id="natural-look" data-price="7000" data-time="1" data-name="Natural Look">
                             </div>
                             <div class="option_item--bottom">
-                                <p>Service Description</p>
+                                <p>Subtle, minimalist styling to enhance your features and showcase natural beauty.</p>
                             </div>
                         </div>
 
                         <div class="option_item">
                             <div class="option_item--top">
-                                <h5 style="margin-right: 20px;">Full Glam</h5>
+                                <h4>Full Glam</h4>
                                 <div class="option_item--info">
-                                    <h5>$12,000</h5>
-                                    <h5>1.5hrs</h5>
+                                    <h5>$8,500</h5>
+                                    <h5>1hr 20mins</h5>
                                 </div>
-                                <input type="checkbox" class="ui-checkbox" name="full-glam" id="full-glam" data-price="12000" data-time="1.5" data-name="Full Glam">
+                                <input type="checkbox" class="ui-checkbox" name="full-glam" id="full-glam" data-price="8500" data-time="1.33" data-name="Full Glam">
                             </div>
                             <div class="option_item--bottom">
-                                <p>Service Description</p>
+                                <p>Bold and dramatic makeup for special occasions or when you want to make a statement.</p>
                             </div>
                         </div>
                         <button class="accordion_CTA_button" onclick="SelectService()">Book Now</button>
@@ -331,15 +515,57 @@
                     <div class="service_options">
                         <div class="option_item">
                             <div class="option_item--top">
-                                <h5 style="margin-right: 20px;">Microblading</h5>
+                                <h4>Microblading</h4>
                                 <div class="option_item--info">
-                                    <h5>$25,000</h5>
-                                    <h5>2.5hrs</h5>
+                                    <h5>$55,000</h5>
+                                    <h5>2hrs</h5>
                                 </div>
-                                <input type="checkbox" class="ui-checkbox" name="microblading" id="microblading" data-price="25000" data-time="2.5" data-name="Microblading">
+                                <input type="checkbox" class="ui-checkbox" name="microblading" id="microblading" data-price="55000" data-time="2" data-name="Microblading">
                             </div>
                             <div class="option_item--bottom">
-                                <p>Service Description</p>
+                                <p>Semi-permanent eyebrow enhancement for fuller, perfectly shaped brows.</p>
+                            </div>
+                        </div>
+
+                        <div class="option_item">
+                            <div class="option_item--top">
+                                <h4>Brow Lamination</h4>
+                                <div class="option_item--info">
+                                    <h5>$8,000</h5>
+                                    <h5>40mins</h5>
+                                </div>
+                                <input type="checkbox" class="ui-checkbox" name="brow-lamination" id="brow-lamination" data-price="8000" data-time="0.67" data-name="Brow Lamination">
+                            </div>
+                            <div class="option_item--bottom">
+                                <p>Semi-permanent eyebrow enhancement for fuller, perfectly shaped brows.</p>
+                            </div>
+                        </div>
+
+                        <div class="option_item">
+                            <div class="option_item--top">
+                                <h4>Brow Tinting</h4>
+                                <div class="option_item--info">
+                                    <h5>$2,500</h5>
+                                    <h5>20mins</h5>
+                                </div>
+                                <input type="checkbox" class="ui-checkbox" name="brow-tinting" id="brow-tinting" data-price="2500" data-time="0.33" data-name="Brow Tinting">
+                            </div>
+                            <div class="option_item--bottom">
+                                <p>Semi-permanent eyebrow enhancement for fuller, perfectly shaped brows.</p>
+                            </div>
+                        </div>
+
+                        <div class="option_item">
+                            <div class="option_item--top">
+                                <h4>Brow Waxing</h4>
+                                <div class="option_item--info">
+                                    <h5>$2,500</h5>
+                                    <h5>15mins</h5>
+                                </div>
+                                <input type="checkbox" class="ui-checkbox" name="brow-waxing" id="brow-waxing" data-price="2500" data-time=".25" data-name="Brow Waxing">
+                            </div>
+                            <div class="option_item--bottom">
+                                <p>Semi-permanent eyebrow enhancement for fuller, perfectly shaped brows.</p>
                             </div>
                         </div>
                         <button class="accordion_CTA_button" onclick="SelectService()">Book Now</button>
@@ -359,28 +585,54 @@
                     <div class="service_options">
                         <div class="option_item">   
                             <div class="option_item--top">
-                                <h5 style="margin-right: 20px;">Classic Set</h5>
+                                <h4>Classic Set</h4>
                                 <div class="option_item--info">
                                     <h5>$8,500</h5>
-                                    <h5>2hrs</h5>
+                                    <h5>2hrs 30mins</h5>
                                 </div>
-                                <input type="checkbox" class="ui-checkbox" name="classic-set" id="classic-set" data-price="8500" data-time="2" data-name="Classic Set">
+                                <input type="checkbox" class="ui-checkbox" name="classic-set" id="classic-set" data-price="8500" data-time="2.5" data-name="Classic Set">
                             </div>
                             <div class="option_item--bottom">
-                                <p>Service Description</p>
+                                <p>Natural, lightweight lashes for added length and subtle volume.</p>
                             </div>
                         </div>
                         <div class="option_item">
                             <div class="option_item--top">
-                                <h5 style="margin-right: 20px;">High-Volume Set</h5>
+                                <h4>Hybrid Set</h4>
                                 <div class="option_item--info">
-                                    <h5>$12,500</h5>
-                                    <h5>2.5hrs</h5>
+                                    <h5>$9,000</h5>
+                                    <h5>2hrs 30mins</h5>
                                 </div>
-                                <input type="checkbox" class="ui-checkbox" name="high-volume-set" id="high-volume-set" data-price="12500" data-time="2.5" data-name="High-Volume Set">
+                                <input type="checkbox" class="ui-checkbox" name="hybrid-set" id="hybrid-set" data-price="9000" data-time="2.5" data-name="Hybrid Set">
                             </div>
                             <div class="option_item--bottom">
-                                <p>Service Description</p>
+                                <p>Dramatic, fuller lashes for a bold and striking appearance.</p>
+                            </div>  
+                        </div>
+                        <div class="option_item">
+                            <div class="option_item--top">
+                                <h4>High-Volume Set</h4>
+                                <div class="option_item--info">
+                                    <h5>$11,500</h5>
+                                    <h5>2hrs 30mins</h5>
+                                </div>
+                                <input type="checkbox" class="ui-checkbox" name="high-volume-set" id="high-volume-set" data-price="11500" data-time="2.5" data-name="High-Volume Set">
+                            </div>
+                            <div class="option_item--bottom">
+                                <p>Dramatic, fuller lashes for a bold and striking appearance.</p>
+                            </div>  
+                        </div>
+                        <div class="option_item">
+                            <div class="option_item--top">
+                                <h4>Lash Removal</h4>
+                                <div class="option_item--info">
+                                    <h5>$1,500</h5>
+                                    <h5>30mins</h5>
+                                </div>
+                                <input type="checkbox" class="ui-checkbox" name="lash-removal" id="lash-removal" data-price="1500" data-time="0.5" data-name="Lash Removal">
+                            </div>
+                            <div class="option_item--bottom">
+                                <p>Dramatic, fuller lashes for a bold and striking appearance.</p>
                             </div>  
                         </div>
                         <button class="accordion_CTA_button" onclick="SelectService()">Book Now</button>
@@ -400,7 +652,7 @@
                     <div class="service_options">
                         <div class="option_item">
                             <div class="option_item--top">
-                                <h5 style="margin-right: 20px;">Basic Facial</h5>
+                                <h4>Basic Facial</h4>
                                 <div class="option_item--info">
                                     <h5>$6,000</h5>
                                     <h5>1hr</h5>
@@ -408,12 +660,12 @@
                                 <input type="checkbox" class="ui-checkbox" name="basic-facial" id="basic-facial" data-price="6000" data-time="1" data-name="Basic Facial">
                             </div>
                             <div class="option_item--bottom">
-                                <p>Service Description</p>
+                                <p>A quick and refreshing treatment to cleanse, tone, and hydrate your skin.</p>
                             </div>
                         </div>
                         <div class="option_item">
                             <div class="option_item--top">
-                                <h5 style="margin-right: 20px;">Deep Cleansing Facial</h5>
+                                <h4>Deep Cleansing Facial</h4>
                                 <div class="option_item--info">
                                     <h5>$8,500</h5>
                                     <h5>1.5hrs</h5>
@@ -421,12 +673,12 @@
                                 <input type="checkbox" class="ui-checkbox" name="deep-cleansing-facial" id="deep-cleansing-facial" data-price="8500" data-time="1.5" data-name="Deep Cleansing Facial">
                             </div>
                             <div class="option_item--bottom">
-                                <p>Service Description</p>
+                                <p>Thorough pore cleansing to remove impurities, leaving your skin glowing and rejuvenated.</p>
                             </div>
                         </div>
                         <div class="option_item">
                             <div class="option_item--top">
-                                <h5 style="margin-right: 20px;">Anti-Aging Facial</h5>
+                                <h4>Anti-Aging Facial</h4>
                                 <div class="option_item--info">
                                     <h5>$12,500</h5>
                                     <h5>2hrs</h5>
@@ -434,7 +686,7 @@
                                 <input type="checkbox" class="ui-checkbox" name="anti-aging-facial" id="anti-aging-facial" data-price="12500" data-time="2" data-name="Anti-Aging Facial">
                             </div>
                             <div class="option_item--bottom">
-                                <p>Service Description</p>
+                                <p>Specialized facial targeting fine lines and wrinkles to promote a youthful appearance.ion</p>
                             </div>
                         </div>
                         <button class="accordion_CTA_button" onclick="SelectService()">Book Now</button>
@@ -454,46 +706,6 @@
             <div class="accordion_item">
                 <div class="accordion_header">
                     <div class="accordion_header_left">
-                        <h4>Clean your Nails</h4>
-                    </div>
-                    <img src="media/small-down-arrow.png" alt="Arrow pointing down" class="accordion_down_icon" id="down-indicator">
-                </div>
-                <div class="accordion_info">
-                    <div class="service_options">
-                        <div class="option_item">
-                            <div class="option_item--top">
-                                <h5 style="margin-right: 20px;">Full Set</h5>
-                                <div class="option_item--info">
-                                    <h5>$6,500</h5>
-                                    <h5>2hrs</h5>
-                                </div>
-                                <input type="checkbox" class="ui-checkbox" name="full-set" id="full-set" data-price="6500" data-time="2" data-name="Full Set">
-                            </div>
-                            <div class="option_item--bottom">
-                                <p>Service Description</p>
-                            </div>
-                        </div>
-                        <div class="option_item">
-                            <div class="option_item--top">
-                                <h5 style="margin-right: 20px;">Refill</h5>
-                                <div class="option_item--info">
-                                    <h5>$4,000</h5>
-                                    <h5>1hr</h5>
-                                </div>
-                                <input type="checkbox" class="ui-checkbox" name="refill" id="refill" data-price="4000" data-time="1" data-name="Refill">
-                            </div>
-                            <div class="option_item--bottom">
-                                <p>Service Description</p>
-                            </div>
-                        </div>
-                        <button class="accordion_CTA_button" onclick="SelectService()">Book Now</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion_item">
-                <div class="accordion_header">
-                    <div class="accordion_header_left">
                         <h4>Polish your Nails</h4>
                     </div>
                     <img src="media/small-down-arrow.png" alt="Arrow pointing down" class="accordion_down_icon" id="down-indicator">
@@ -502,42 +714,43 @@
                     <div class="service_options">
                         <div class="option_item">
                             <div class="option_item--top">
-                                <h5 style="margin-right: 20px;">Manicure</h5>
+                                <h4>Manicure</h4>
                                 <div class="option_item--info">
-                                    <h5>$3,000</h5>
-                                    <h5>1hr</h5>
+                                    <h5>$2,000</h5>
+                                    <h5>30mins</h5>
                                 </div>
-                                <input type="checkbox" class="ui-checkbox" name="manicure" id="manicure" data-price="3000" data-time="1" data-name="Manicure">
+                                <input type="checkbox" class="ui-checkbox" name="manicure" id="manicure" data-price="2000" data-time="0.5" data-name="Manicure">
                             </div>
                             <div class="option_item--bottom">
-                                <p>Service Description</p>
+                                <p>Detailed nail shaping, cuticle care, and polish for beautiful, well-groomed hands.</p>
                             </div>
                         </div>
-                        <button class="accordion_CTA_button" onclick="SelectService()">Book Now</button>
-                    </div>
-                </div>
-            </div>
 
-            <div class="accordion_item">
-                <div class="accordion_header">
-                    <div class="accordion_header_left">
-                        <h4>Pamper your Hands/Feet</h4>
-                    </div>
-                    <img src="media/small-down-arrow.png" alt="Arrow pointing down" class="accordion_down_icon" id="down-indicator">
-                </div>
-                <div class="accordion_info">
-                    <div class="service_options">
                         <div class="option_item">
                             <div class="option_item--top">
-                                <h5 style="margin-right: 20px;">Pedicure</h5>
+                                <h4>Pedicure</h4>
                                 <div class="option_item--info">
-                                    <h5>$4,500</h5>
-                                    <h5>1hr</h5>
+                                    <h5>$3,500</h5>
+                                    <h5>45mins</h5>
                                 </div>
-                                <input type="checkbox" class="ui-checkbox" name="pedicure" id="pedicure" data-price="4500" data-time="1" data-name="Pedicure">
+                                <input type="checkbox" class="ui-checkbox" name="pedicure" id="pedicure" data-price="3500" data-time="0.75" data-name="Pedicure">
                             </div>
                             <div class="option_item--bottom">
-                                <p>Service Description</p>
+                                <p>Foot pampering with exfoliation, nail care, and polish for soft, refreshed feet.</p>
+                            </div>
+                        </div>
+
+                        <div class="option_item">
+                            <div class="option_item--top">
+                                <h4>Mani-Pedi</h4>
+                                <div class="option_item--info">
+                                    <h5>$5,500</h5>
+                                    <h5>1hr 30mins</h5>
+                                </div>
+                                <input type="checkbox" class="ui-checkbox" name="mani-pedi" id="mani-pedi" data-price="5500" data-time="1.5" data-name="Mani-Pedi">
+                            </div>
+                            <div class="option_item--bottom">
+                                <p>Foot pampering with exfoliation, nail care, and polish for soft, refreshed feet.</p>
                             </div>
                         </div>
                         <button class="accordion_CTA_button" onclick="SelectService()">Book Now</button>
@@ -564,15 +777,15 @@
                     <div class="service_options">
                         <div class="option_item">
                             <div class="option_item--top">
-                                <h5 style="margin-right: 20px;">Body Waxing</h5>
+                                <h4>Massage</h4>
                                 <div class="option_item--info">
-                                    <h5>$5,000</h5>
-                                    <h5>2hrs</h5>
+                                    <h5>$10,000</h5>
+                                    <h5>1hr 30mins</h5>
                                 </div>
-                                <input type="checkbox" class="ui-checkbox" name="body-waxing" id="body-waxing" data-price="5000" data-time="2" data-name="Body Waxing">
+                                <input type="checkbox" class="ui-checkbox" name="massage" id="massage" data-price="10000" data-time="1.5" data-name="Massage">
                             </div>
                             <div class="option_item--bottom">
-                                <p>Service Description</p>
+                                <p>Relax your body and mind with therapeutic techniques to ease tension and stress.</p>
                             </div>
                         </div>
                         <button class="accordion_CTA_button" onclick="SelectService()">Book Now</button>
@@ -591,28 +804,28 @@
                     <div class="service_options">
                         <div class="option_item">
                             <div class="option_item--top">
-                                <h5 style="margin-right: 20px;">"Vagifacial"</h5>
+                                <h4>Body Waxing</h4>
                                 <div class="option_item--info">
-                                    <h5>$10,000</h5>
-                                    <h5>1hr</h5>
+                                    <h5>$5,500</h5>
+                                    <h5>30mins</h5>
                                 </div>
-                                <input type="checkbox" class="ui-checkbox" name="vagifacial" id="vagifacial" data-price="10000" data-time="1" data-name="Vagifacial">
+                                <input type="checkbox" class="ui-checkbox" name="body-waxing" id="body-waxing" data-price="5500" data-time="0.5" data-name="Body Waxing">
                             </div>
                             <div class="option_item--bottom">
-                                <p>Service Description</p>
+                                <p>Smooth, hair-free skin with waxing for any part of the body.</p>
                             </div>
                         </div>
                         <div class="option_item">
                             <div class="option_item--top">
-                                <h5 style="margin-right: 20px;">Vagina Waxing</h5>
+                                <h4>Vagina Waxing</h4>
                                 <div class="option_item--info">
-                                    <h5>$6,500</h5>
-                                    <h5>1hr</h5>
+                                    <h5>$5,000</h5>
+                                    <h5>20mins</h5>
                                 </div>
-                                <input type="checkbox" class="ui-checkbox" name="vagina-waxing" id="vagina-waxing" data-price="6500" data-time="1" data-name="Vagina Waxing">
+                                <input type="checkbox" class="ui-checkbox" name="vagina-waxing" id="vagina-waxing" data-price="5000" data-time="0.33" data-name="Vagina Waxing">
                             </div>
                             <div class="option_item--bottom">
-                                <p>Service Description</p>
+                                <p>Specialized waxing and skincare treatment for intimate areas, leaving skin smooth and nourished.</p>
                             </div>
                         </div>
                         <button class="accordion_CTA_button" onclick="SelectService()">Book Now</button>
@@ -631,20 +844,20 @@
                     <div class="service_options">
                         <div class="option_item">
                             <div class="option_item--top">
-                                <h5 style="margin-right: 20px;">Laser Hair Removal</h5>
+                                <h4>Laser Hair Removal</h4>
                                 <div class="option_item--info">
                                     <h5>$20,000</h5>
-                                    <h5>1.5hrs</h5>
+                                    <h5>1hr</h5>
                                 </div>
-                                <input type="checkbox" class="ui-checkbox" name="laser-hair-removal" id="laser-hair-removal" data-price="20000" data-time="1.5" data-name="Laser Hair Removal">
+                                <input type="checkbox" class="ui-checkbox" name="laser-hair-removal" id="laser-hair-removal" data-price="20000" data-time="1" data-name="Laser Hair Removal">
                             </div>
                             <div class="option_item--bottom">
-                                <p>Service Description</p>
+                                <p>Effective, long-lasting hair removal using advanced laser technology.</p>
                             </div>
                         </div>
                         <div class="option_item">
                             <div class="option_item--top">
-                                <h5 style="margin-right: 20px;">Laser Wart Removal</h5>
+                                <h4>Laser Wart Removal</h4>
                                 <div class="option_item--info">
                                     <h5>$10,000</h5>
                                     <h5>45mins</h5>
@@ -652,7 +865,7 @@
                                 <input type="checkbox" class="ui-checkbox" name="laser-wart-removal" id="laser-wart-removal" data-price="10000" data-time="0.75" data-name="Laser Wart Removal">
                             </div>
                             <div class="option_item--bottom">
-                                <p>Service Description</p>
+                                <p>Safe and precise laser treatment to remove warts with minimal discomfort.</p>
                             </div>
                         </div>
                         <button class="accordion_CTA_button" onclick="SelectService()">Book Now</button>
@@ -671,15 +884,15 @@
                     <div class="service_options">
                         <div class="option_item">
                             <div class="option_item--top">
-                                <h5 style="margin-right: 20px;">Ultrasonic Cavitation</h5>
+                                <h4>Piercing</h4>
                                 <div class="option_item--info">
-                                    <h5>$12,000</h5>
-                                    <h5>1hr</h5>
+                                    <h5>$1,000 <i>per piercing</i></h5>
+                                    <h5>20mins</h5>
                                 </div>
-                                <input type="checkbox" class="ui-checkbox" name="ultrasonic-cavitation" id="ultrasonic-cavitation" data-price="12000" data-time="1" data-name="Ultrasonic Cavitation">
+                                <input type="checkbox" class="ui-checkbox" name="piercing" id="piercing" data-price="1000" data-time="0.33" data-name="Piercing">
                             </div>
                             <div class="option_item--bottom">
-                                <p>Service Description</p>
+                                <p>Professional piercing services with safe, hygienic techniques for any style.</p>
                             </div>
                         </div>
                         <button class="accordion_CTA_button" onclick="SelectService()">Book Now</button>
@@ -698,28 +911,28 @@
                     <div class="service_options">
                         <div class="option_item">
                             <div class="option_item--top">
-                                <h5 style="margin-right: 20px;">Body Scrub</h5>
+                                <h4>Body Scrub</h4>
                                 <div class="option_item--info">
-                                    <h5>$8,000</h5>
-                                    <h5>1hr</h5>
+                                    <h5>$7,500</h5>
+                                    <h5>40mins</h5>
                                 </div>
-                                <input type="checkbox" class="ui-checkbox" name="body-scrub" id="body-scrub" data-price="8000" data-time="1" data-name="Body Scrub">
+                                <input type="checkbox" class="ui-checkbox" name="body-scrub" id="body-scrub" data-price="7500" data-time="0.67" data-name="Body Scrub">
                             </div>
                             <div class="option_item--bottom">
-                                <p>Service Description</p>
+                                <p>Exfoliate and polish your skin with a rejuvenating body scrub treatment.</p>
                             </div>
                         </div>
                         <div class="option_item">
                             <div class="option_item--top">
-                                <h5 style="margin-right: 20px;">Ultrasonic Cavitation</h5>
+                                <h4>Ultrasonic Cavitation</h4>
                                 <div class="option_item--info">
-                                    <h5>$12,000</h5>
+                                    <h5>$10,000</h5>
                                     <h5>1hr</h5>
                                 </div>
-                                <input type="checkbox" class="ui-checkbox" name="ultrasonic-cavitation" id="ultrasonic-cavitation" data-price="12000" data-time="1" data-name="Ultrasonic Cavitation">
+                                <input type="checkbox" class="ui-checkbox" name="ultrasonic-cavitation" id="ultrasonic-cavitation" data-price="10000" data-time="1" data-name="Ultrasonic Cavitation">
                             </div>
                             <div class="option_item--bottom">
-                                <p>Service Description</p>
+                                <p>Non-invasive fat reduction treatment using ultrasound waves for body sculpting.</p>
                             </div>
                         </div>
                         <button class="accordion_CTA_button" onclick="SelectService()">Book Now</button>
@@ -738,7 +951,7 @@
                     <div class="service_options">
                         <div class="option_item">
                             <div class="option_item--top">
-                                <h5 style="margin-right: 20px;">Sauna Detox</h5>
+                                <h4>Sauna Detox</h4>
                                 <div class="option_item--info">
                                     <h5>$4,500</h5>
                                     <h5>45mins</h5>
@@ -746,7 +959,20 @@
                                 <input type="checkbox" class="ui-checkbox" name="sauna-detox" id="sauna-detox" data-price="4500" data-time="0.75" data-name="Sauna Detox">
                             </div>
                             <div class="option_item--bottom">
-                                <p>Service Description</p>
+                                <p>Relax in a sauna to detoxify, improve circulation, and promote overall well-being.</p>
+                            </div>
+                        </div>
+                        <div class="option_item">
+                            <div class="option_item--top">
+                                <h4>Vacuum Cupping Therapy</h4>
+                                <div class="option_item--info">
+                                    <h5>$8,000</h5>
+                                    <h5>45mins</h5>
+                                </div>
+                                <input type="checkbox" class="ui-checkbox" name="vacuum-cupping" id="vacuum-cupping" data-price="8000" data-time="0.75" data-name="Vacuum Cupping">
+                            </div>
+                            <div class="option_item--bottom">
+                                <p>Enhance circulation and relieve tension with therapeutic suction techniques to rejuvenate your body.</p>
                             </div>
                         </div>
                         <button class="accordion_CTA_button" onclick="SelectService()">Book Now</button>
