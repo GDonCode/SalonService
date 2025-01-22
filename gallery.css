@@ -14,7 +14,6 @@ footer {
     position: absolute;
     right: 130px;
     top: 360px;
-    background-color: black;
     border-radius: 50%;
 }
 .section_selector_container {
@@ -26,11 +25,10 @@ footer {
     position: absolute;
     left: 130px;
     top: 360px;
-    background-color: black;
     border-radius: 50%;
 }
 .section_selector_container2 img, .section_selector_container img {
-    width: 40px;
+    width: 60px;
     height: auto;
     pointer-events: none;
 }

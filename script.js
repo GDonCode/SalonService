@@ -152,17 +152,17 @@ function confirmBooking() {
         form.reportValidity();  // This triggers the tooltips
     }
     
-    //Booking.FirstName = document.getElementById("first-name").value;
-    //Booking.LastName = document.getElementById("last-name").value;
-   // Booking.Email = document.getElementById("email").value;
-    //Booking.Phone = document.getElementById("phone").value;
-    //Booking.Date = document.getElementById("date").value;
-    //Booking.Time = document.getElementById("time").value;
-    //Booking.Notes = document.getElementById("message").value;
-    //Booking.BookingID = Math.floor(Math.random() * 100000);
+    Booking.FirstName = document.getElementById("first-name").value;
+    Booking.LastName = document.getElementById("last-name").value;
+    Booking.Email = document.getElementById("email").value;
+    Booking.Phone = document.getElementById("phone").value;
+    Booking.Date = document.getElementById("date").value;
+    Booking.Time = document.getElementById("time").value;
+    Booking.Notes = document.getElementById("message").value;
+    Booking.BookingID = Math.floor(Math.random() * 100000);
 
     console.log(Booking);
-    //localStorage.setItem("Booking", JSON.stringify(Booking));
+    localStorage.setItem("Booking", JSON.stringify(Booking));
 }
 
 

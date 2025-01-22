@@ -28,6 +28,7 @@ main {
     width: 100%;
     height: fit-content;
     padding-bottom: 80px;
+    padding-top: 7.5rem;
 }
 main button {
     display: block;
@@ -72,7 +73,7 @@ main button:hover {
     padding: 5px 40px;
     outline: none;
     position: sticky; 
-    top: 60px;
+    top: 140px;
     margin-top: 14px;
     width: 100%;
 }
