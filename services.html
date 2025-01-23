@@ -94,7 +94,7 @@
             <div class="accordion_item">
                 <div class="accordion_header">
                     <div class="accordion_header_left">
-                        <h4 style="margin-right: 20px;">Cut your Hair</h4>
+                        <h4 style="margin-right: 20px;">Haircuts and Trims</h4>
                     </div>
                     <img src="media/small-down-arrow.png" alt="Arrow pointing down" class="accordion_down_icon" id="down-indicator">
                 </div>
@@ -102,44 +102,29 @@
                     <div class="service_options">
                         <div class="option_item">
                             <div class="option_item--top">
-                                <h4>Women's Cut</h4>
-                                <div class="option_item--info">
-                                    <h5>$4,500</h5>
-                                    <h5>30mins</h5>
-                                </div>
-                                <input type="checkbox" class="ui-checkbox" name="womens-cut" id="womens-cut" data-price="4500" data-time="0.5" data-name="Women's Cut">
-                            </div>
-                            <div class="option_item--bottom">
-                                <p>Precision cuts that enhance your style and personality, from trims to transformations.</p>
-                            </div>
-                        </div>
-
-                        <div class="option_item">
-                            <div class="option_item--top">
-                                <h4>Women's Trim</h4>
-                                <div class="option_item--info">
-                                    <h5>$2,000</h5>
-                                    <h5>15mins</h5>
-                                </div>
-                                <input type="checkbox" class="ui-checkbox" name="womens-trim" id="womens-trim" data-price="2000" data-time="0.25" data-name="Women's Trim">
-                            </div>
-                            <div class="option_item--bottom">
-                                <p>Precision cuts that enhance your style and personality, from trims to transformations.</p>
-                            </div>
-                        </div>
-
-
-                        <div class="option_item">
-                            <div class="option_item--top">
-                                <h4>Men's Cut</h4>
+                                <h4>Hair Cut</h4>
                                 <div class="option_item--info">
                                     <h5>$2,500</h5>
                                     <h5>30mins</h5>
                                 </div>
-                                <input type="checkbox" class="ui-checkbox" name="mens-cut" id="mens-cut" data-price="2500" data-time="0.5" data-name="Men's Cut">
+                                <input type="checkbox" class="ui-checkbox" name="hair-cut" id="hair-cut" data-price="2500" data-time="0.5" data-name="Hair Cut">
                             </div>
                             <div class="option_item--bottom">
-                                <p>Tailored cuts for men, styled to perfection for a clean and polished look.</p>
+                                <p>Precision cuts that enhance your style and personality, from trims to transformations.</p>
+                            </div>
+                        </div>
+
+                        <div class="option_item">
+                            <div class="option_item--top">
+                                <h4>Hair Trim</h4>
+                                <div class="option_item--info">
+                                    <h5>$1,000</h5>
+                                    <h5>1hr</h5>
+                                </div>
+                                <input type="checkbox" class="ui-checkbox" name="hair-trim" id="hair-trim" data-price="1000" data-time="1" data-name="Hair Trim">
+                            </div>
+                            <div class="option_item--bottom">
+                                <p>A quick and precise trim to maintain your hair's shape and health, perfect for keeping your style fresh.</p>
                             </div>
                         </div>
                         <button class="accordion_CTA_button" onclick="SelectService()">Book Now</button>
@@ -150,52 +135,21 @@
             <div class="accordion_item">
                 <div class="accordion_header">
                     <div class="accordion_header_left">
-                        <h4>Style your Hair</h4>
+                        <h4>Locs and Braids</h4>
                     </div>
                     <img src="media/small-down-arrow.png" alt="Arrow pointing down" class="accordion_down_icon" id="down-indicator">
                 </div>
                 <div class="accordion_info">
                     <div class="service_options">
+                        
                         <div class="option_item">
                             <div class="option_item--top">
-                                <h4>Braids</h4>
+                                <h4>Crochet Locs</h4>
                                 <div class="option_item--info">
-                                    <h5>$7,500</h5>
-                                    <h5>1 - 5hrs</h5>
+                                    <h5>$15,000</h5>
+                                    <h5>4hrs</h5>
                                 </div>
-                                <input type="checkbox" class="ui-checkbox" name="braids" id="braids" data-price="7500" data-time="1.5" data-name="Clip Ins" onchange="expandCustomizer()">   
-                            </div>
-                            <div class="option_item--bottom">
-                                <p>Creative and protective braiding styles tailored to your preference, from classic to intricate designs.</p>
-                            </div>
-                            <div class="option_item_customisation" id="braid-customizer">
-                                <h5>Braid Type</h5>
-                                <select required>
-                                    <option selected disabled>Select Braid Type</option>
-                                    <option value="box-braids">Box Braids</option>
-                                    <option value="knotless-braids">Knotless Braids</option>
-                                    <option value="boho-braids">Boho Braids</option>
-                                </select>
-                                <h5>Extensions Required?</h5>
-                                <input type="radio" id="yes" value="Yes" name="extensions" required>
-                                <label for="yes">Yes</label>
-                                <input type="radio" id="no" value="No" name="extensions">
-                                <label for="no">No</label>
-                                <h5>Extension Provider</h5>
-                                <input type="radio" id="customer-provided" value="Customer Provided" name="extension-provider" required>
-                                <label for="customer-provided">Customer Provided</label>
-                                <input type="radio" id="salon-provided" value="Salon Provided" name="extension-provider">
-                                <label for="salon-provided">Salon Provided</label>
-                            </div>
-                        </div>
-                        <div class="option_item">
-                            <div class="option_item--top">
-                                <h4>Permanent Coloring</h4>
-                                <div class="option_item--info">
-                                    <h5>$9,000</h5>
-                                    <h5>1hr</h5>
-                                </div>
-                                <input type="checkbox" class="ui-checkbox" name="perm-coloring" id="perm-coloring" data-price="9000" data-time="1" data-name="Permanent Coloring">
+                                <input type="checkbox" class="ui-checkbox" name="crochet-locs" id="crochet-locs" data-price="15000" data-time="4" data-name="Crochet Locs">
                             </div>
                             <div class="option_item--bottom">
                                 <p>Service Description</p>
@@ -204,12 +158,12 @@
 
                         <div class="option_item">
                             <div class="option_item--top">
-                                <h4>Temporary Coloring</h4>
+                                <h4>Butterfly Locs</h4>
                                 <div class="option_item--info">
-                                    <h5>$3,500</h5>
-                                    <h5>30mins</h5>
+                                    <h5>$20,000</h5>
+                                    <h5>4hrs</h5>
                                 </div>
-                                <input type="checkbox" class="ui-checkbox" name="temp-coloring" id="temp-coloring" data-price="3500" data-time="0.5" data-name="Temporary Coloring">
+                                <input type="checkbox" class="ui-checkbox" name="butterfly-locs" id="butterfly-locs" data-price="20000" data-time="4" data-name="Butterfly Locs">
                             </div>
                             <div class="option_item--bottom">
                                 <p>Service Description</p>
@@ -218,9 +172,9 @@
 
                         <div class="option_item">
                             <div class="option_item--top">
-                                <h4>Flat Iron</h4>
+                                <h4>Spring Twists</h4>
                                 <div class="option_item--info">
-                                    <h5>$3,000</h5>
+                                    <h5>$12,000</h5>
                                     <h5>1hr</h5>
                                 </div>
                                 <input type="checkbox" class="ui-checkbox" name="flat-iron" id="flat-iron" data-price="3000" data-time="1" data-name="Flat Iron">
@@ -409,7 +363,7 @@
                         </div>
                         <div class="option_item">
                             <div class="option_item--top">
-                                <h4>Keratin Treatment</h4>
+                                <h4>Keratin Brazilian Blowout</h4>
                                 <div class="option_item--info">
                                     <h5>$20,000</h5>
                                     <h5>2hrs</h5>
@@ -1017,6 +971,41 @@
         </div>
     </footer>
     <script src="script.js"></script>
+
+
+
+    <!-- <div class="option_item">
+                            <div class="option_item--top">
+                                <h4>Braids</h4>
+                                <div class="option_item--info">
+                                    <h5>$7,500</h5>
+                                    <h5>1 - 5hrs</h5>
+                                </div>
+                                <input type="checkbox" class="ui-checkbox" name="braids" id="braids" data-price="7500" data-time="1.5" data-name="Clip Ins" onchange="expandCustomizer()">   
+                            </div>
+                            <div class="option_item--bottom">
+                                <p>Creative and protective braiding styles tailored to your preference, from classic to intricate designs.</p>
+                            </div>
+                            <div class="option_item_customisation" id="braid-customizer">
+                                <h5>Braid Type</h5>
+                                <select required>
+                                    <option selected disabled>Select Braid Type</option>
+                                    <option value="box-braids">Box Braids</option>
+                                    <option value="knotless-braids">Knotless Braids</option>
+                                    <option value="boho-braids">Boho Braids</option>
+                                </select>
+                                <h5>Extensions Required?</h5>
+                                <input type="radio" id="yes" value="Yes" name="extensions" required>
+                                <label for="yes">Yes</label>
+                                <input type="radio" id="no" value="No" name="extensions">
+                                <label for="no">No</label>
+                                <h5>Extension Provider</h5>
+                                <input type="radio" id="customer-provided" value="Customer Provided" name="extension-provider" required>
+                                <label for="customer-provided">Customer Provided</label>
+                                <input type="radio" id="salon-provided" value="Salon Provided" name="extension-provider">
+                                <label for="salon-provided">Salon Provided</label>
+                            </div>
+                        </div> -->
 </body>
 
 </html>
