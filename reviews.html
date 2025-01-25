@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review</title>
+    <link href="common.css" rel="stylesheet">
+    <link href="reviews.css" rel="stylesheet">
+
+    <!-- SWIPER -->
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <!-- SWIPER -->
+</head>
+<body>
+    <header class="header DESKTOP">
+        <nav>
+            <div class="nav_links left">
+                <a href="services.html" class="nav_link">Services</a>
+                <a href="gallery.html" class="nav_link">Gallery</a>
+            </div>
+            <div class="nav_logo--container">
+                <a href="index.html"><img src="media/payetonlogo.png" alt="logo"></a>
+            </div>
+            <div class="nav_links right">
+                <a href="reviews.html" class="nav_link">Reviews</a>
+                <a href="test2.html" class="nav_link">Our Team</a>
+            </div>
+            <button class="menu_button">
+                <img src="media/hamburger.png" alt="Menu" width="45px" height="auto">
+            </button>  
+        </nav>
+    </header>
+    <main>
+        <div class="reviews_main">
+            <div class="carousel--container">
+                <!-- Slider main container -->
+                <div class="swiper">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                        <!-- Slides -->
+                        <div class="swiper-slide DESKTOP"><video src="media/vid1.mp4" alt="" autoplay="true" loop="true" muted></div>
+                        <div class="swiper-slide DESKTOP"><video src="media/vid2.mp4" alt="" autoplay="true" loop="true" muted></div>
+                        <div class="swiper-slide DESKTOP"><video src="media/vid3.mp4" alt="" autoplay="true" loop="true" muted></div>
+                        <div class="swiper-slide DESKTOP"><video src="media/vid4.mp4" alt="" autoplay="true" loop="true" muted></div>
+                        <div class="swiper-slide DESKTOP"><video src="media/vid5.mp4" alt="" autoplay="true" loop="true" muted></div>
+                        <div class="swiper-slide DESKTOP"><video src="media/vid6.mp4" alt="" autoplay="true" loop="true" muted></div>
+                    </div>
+                
+                    <!-- If we need navigation buttons -->
+                    <div class="swiper-button-prev DESKTOP"></div>
+                    <div class="swiper-button-next DESKTOP"></div>
+                
+                    <!-- If we need scrollbar -->
+                    <div class="swiper-scrollbar DESKTOP"></div>
+                </div>
+            </div>
+            <div class="carousel--container">
+                <!-- Slider main container -->
+                <div class="swiper">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                        <!-- Slides -->
+                        <div class="swiper-slide DESKTOP"><img src="media/img1.jpg" alt=""></div>
+                        <div class="swiper-slide DESKTOP"><img src="media/img2.jpg" alt=""></div>
+                        <div class="swiper-slide DESKTOP"><img src="media/img3.jpg" alt=""></div>
+                        <div class="swiper-slide DESKTOP"><img src="media/img4.jpg" alt=""></div>
+                        <div class="swiper-slide DESKTOP"><img src="media/img5.jpg" alt=""></div>
+                    </div>
+                
+                    <!-- If we need navigation buttons -->
+                    <div class="swiper-button-prev DESKTOP"></div>
+                    <div class="swiper-button-next DESKTOP"></div>
+                
+                    <!-- If we need scrollbar -->
+                    <div class="swiper-scrollbar DESKTOP"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer_info">
+            <div class="footer_contact">
+                <h2>Contact Us</h2>
+                <div class="footer_contact_inner">
+                    <img src="media/telephone.png" alt="Telephone Symbol">
+                    <p>Phone: </p>
+                    <div class="footer_contact_inner_numbers">
+                        <p>+1 876 842 0641</p>
+                    </div>
+                </div>
+                <div class="footer_contact_inner">
+                    <img src="media/email.png" alt="Email Symbol"><p>Email: </p>
+                    <p>support@payeton.com</p>
+                </div>
+            </div>
+            <div class="footer_social">
+                <h2>Follow Us</h2>
+                <div class="footer_social_inner">
+                    <a href="https://www.facebook.com/p/Payetons-Place-of-Beauty-100063628267769/"><img src="media/facebook.png" alt="Facebook Logo"></a>
+                    <a href="https://www.tiktok.com/@payetonsplaceofbeauty03"><img src="media/tik-tok.png" alt="TikTok Logo"></a>
+                    <a href="https://www.instagram.com/payetonplace_ofbeauty/"><img src="media/instagram.png" alt="Instagram Logo"></a>
+                </div>
+            </div>
+            <div class="footer_location">
+                <h2>Find Us</h2>
+                <address>
+                    Suite 8 & 9 <br>
+                    Catherine Hall Plaza <br>
+                    Fairfield Ave, Montego Bay <br>
+                    St. James
+                </address>
+            </div> 
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+    const swiper = new Swiper('.swiper', {
+        // Optional parameters
+        direction: 'horizontal',
+        loop: true,
+
+        // If we need pagination
+        pagination: {
+          el: '.swiper-pagination',
+        },
+      
+        // Navigation arrows
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      
+        // And if we need scrollbar
+        scrollbar: {
+          el: '.swiper-scrollbar',
+        },
+      });
+    </script>
+</body>
+</html>
