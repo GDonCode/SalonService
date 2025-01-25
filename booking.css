@@ -5,24 +5,6 @@ body {
     display: flex;
     flex-direction: column;
 }
-.nav_links {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    gap: 80px;
-    font-size: 1.25rem;
-    font-weight: 500;
-}
-.nav_links a {
-    color: #0A9300;
-    text-decoration: none;
-    font-family: "Montserrat", sans-serif;
-}
-.nav_links a:hover {
-    filter: drop-shadow(0 0 0.75rem black);
-}
-
 main {
     background-color: #d3d3d3;
     width: 100%;

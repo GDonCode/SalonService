@@ -2,8 +2,45 @@ body {
     font-family: "Montserrat", sans-serif;
 }
 main {
-    padding: 7.5rem 0;
+    padding: 7.5rem 0 3.75rem 0;
+    position: relative;
 }
+.sticky_total {
+    min-width: 30%;
+    max-width: 30%;
+    z-index: 300000;
+}
+.total--container {
+    border-radius: 5px;
+    border: 2px solid black;
+    background-color: white;
+    box-shadow: 4px 4px black;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 5px 40px;
+    outline: none;
+    margin-top: 14px;
+    width: 30%;
+    position: fixed;
+    top: 140px;
+    right: 20px;
+}
+.total--container--inner {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    text-align: center;
+    font-size: 1rem;
+}
+.total--container--inner h2, .total--container--inner p {
+    margin: 0;
+}
+#total_cost, #service_duration {
+    font-size: 1rem;
+    margin-left: 10px;
+}
+
+
 .headline {
     margin-top: 40px;
 }
@@ -30,6 +67,7 @@ main {
     padding: 20px;
     width: 80%;
     margin: 40px auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 .service_icon {
     display: flex;
@@ -63,13 +101,14 @@ main {
 }
 
 .section_divider {
-    margin: 55px 0px 20px 0px;
+    margin: 40px 0px 0px 0px;
     border-color: #087500;
 }
 .service_accordion {
     display: flex;
     flex-direction: column;
     gap: 60px;
+    margin-bottom: 40px;
 }
 
 
@@ -99,6 +138,7 @@ main {
     padding: 5px 60px;
     font-size: 1.2rem;
     cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 .accordion_header {
     /* STOP BLUE OVERLAY WHEN CLICKING */
@@ -168,7 +208,7 @@ main {
     }
 }
 .accordion_info.expanded {
-    max-height: 1000px; 
+    max-height: 1500px; 
     padding: 10px 60px 40px 60px;
     border: 2px solid #087500;
     border-top: 0px;

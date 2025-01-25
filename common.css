@@ -30,6 +30,7 @@ nav {
     left: 0;
     z-index: 20000;
     background: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 .nav_logo--container {
     position: absolute;
@@ -58,7 +59,7 @@ nav img {
 }
 .nav_links.right {
     position: absolute;
-    right: 23%;
+    right: 19.5%;
 }
 .nav_link {
     text-decoration: none;

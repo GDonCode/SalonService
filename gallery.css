@@ -1,5 +1,6 @@
 main {
     padding-top: 10.625rem;
+    display: flex;
 }
 footer {
     margin-top: 40px;
@@ -10,11 +11,11 @@ footer {
     justify-content: center;
     align-items: center;
     width: fit-content;
-    padding: 20px;
+    height: fit-content;
     position: absolute;
-    right: 130px;
-    top: 360px;
-    border-radius: 50%;
+    right: 160px;
+    top: 420px;
+    z-index: 10000;
 }
 .section_selector_container {
     display: flex;
@@ -22,39 +23,20 @@ footer {
     justify-content: center;
     align-items: center;
     width: fit-content;
+    height: fit-content;
     position: absolute;
-    left: 130px;
-    top: 360px;
-    border-radius: 50%;
+    left: 160px;
+    top: 420px;
+    z-index: 10000;
 }
 .section_selector_container2 img, .section_selector_container img {
     width: 60px;
     height: auto;
-    pointer-events: none;
+    transition: transform 0.3s ease;
 }
 .section_selector_container2 img:hover, .section_selector_container img:hover {
     transform: scale(1.1);
 }
-.up-navigator {
-    background: none;
-    border: none;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-    background: transparent;
-}
-.up-navigator img{
-    pointer-events: none;
-
-}
-.down-navigator {
-    background: none;
-    border: none;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-    background: transparent;
-}
-
-
 
 
 

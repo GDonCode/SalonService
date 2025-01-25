@@ -45,7 +45,7 @@ const checkboxes = document.querySelectorAll('.ui-checkbox');
 
 function SelectService() {
     // Create Booking Object
-    Booking = {
+    let Booking = JSON.parse(sessionStorage.getItem("Booking")) || {
         FirstName: "",
         LastName: "",
         Email: "",
@@ -57,7 +57,7 @@ function SelectService() {
         TotalCost: 0,
         TotalDuration: 0,
         BookingID: ""
-    }
+    };
 
     checkboxes.forEach(checkbox => {
         if (checkbox.checked) {
@@ -85,7 +85,7 @@ function SelectService() {
     }
 
     // Store Booking Object in Local Storage
-    localStorage.setItem("Booking", JSON.stringify(Booking));
+    sessionStorage.setItem("Booking", JSON.stringify(Booking));
     window.location.href = "booking.html"; 
 }
 
@@ -94,7 +94,8 @@ function SelectService() {
 // BOOKING PAGE LOGIC   BOOKING PAGE LOGIC  BOOKING PAGE LOGIC  BOOKING PAGE LOGIC  BOOKING PAGE LOGIC BOOKING PAGE LOGIC 
 
 window.onload = function() {
-    const Booking = JSON.parse(localStorage.getItem("Booking")) || {};
+    if (window.location.pathname === "/booking.html") {
+    const Booking = JSON.parse(sessionStorage.getItem("Booking")) || {};
     const service_duration = document.getElementById("service_duration");
     const total_cost = document.getElementById("total_cost");
 
@@ -130,18 +131,18 @@ window.onload = function() {
    
 
 // Remove Service Function
-function RmvService() {
-    document.querySelectorAll('.remove--service').forEach(button => {
-        button.addEventListener('click', function() {
-            serviceDiv = this.parentElement;
-            serviceDiv.style.display = 'none';
+    function RmvService() {
+        document.querySelectorAll('.remove--service').forEach(button => {
+            button.addEventListener('click', function() {
+                serviceDiv = this.parentElement;
+                serviceDiv.style.display = 'none';
+            })
         })
-    })
-}
+    }
+    }
 }
 
 function confirmBooking() {
-    //const Booking = JSON.parse(localStorage.getItem("Booking")) || {};
 
     const form = document.querySelector('.form');
     if (form.checkValidity()) {
@@ -162,7 +163,7 @@ function confirmBooking() {
     Booking.BookingID = Math.floor(Math.random() * 100000);
 
     console.log(Booking);
-    localStorage.setItem("Booking", JSON.stringify(Booking));
+    sessionStorage.setItem("Booking", JSON.stringify(Booking));
 }
 
 

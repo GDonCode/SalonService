@@ -210,7 +210,7 @@ main h1 {
     box-shadow: hsl(125, 80%, 20%) 0px 7px 0px 0px;
 }
 .hero_section--CTA button:hover {
-    transform: scale(1.05)
+    transform: scale(1.05);
 }
 .carousel--container {
     display: flex;
