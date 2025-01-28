@@ -33,12 +33,26 @@ footer {
     width: 60px;
     height: auto;
     transition: transform 0.3s ease;
+    background: transparent;
 }
 .section_selector_container2 img:hover, .section_selector_container img:hover {
     transform: scale(1.1);
 }
 
-
+/* Keyframes for the bounce */
+@keyframes subtleBounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px); /* Adjust height of the bounce */
+    }
+  }
+  
+  /* Apply animation to the element */
+  .bounce {
+    animation: subtleBounce 2s ease-in-out infinite; /* Adjust duration and easing */
+  }
 
 /* From Uiverse.io by ilkhoeri */ 
 .wrapper {

@@ -40,131 +40,95 @@ function service_dropdown_function() {
     }
 }
 
+
+
 // SERVICES PAGE LOGIC  SERVICES PAGE LOGIC  SERVICES PAGE LOGIC  SERVICES PAGE LOGIC  SERVICES PAGE LOGIC SERVICES PAGE LOGIC
-const checkboxes = document.querySelectorAll('.ui-checkbox');
+let Booking;
 
-function SelectService() {
-    // Create Booking Object
-    let Booking = JSON.parse(sessionStorage.getItem("Booking")) || {
-        FirstName: "",
-        LastName: "",
-        Email: "",
-        Phone: "",
-        Services: [],
-        Date: "",
-        Time: "",
-        Notes: "",
-        TotalCost: 0,
-        TotalDuration: 0,
-        BookingID: ""
-    };
+window.onload = function () {
+    if (window.location.pathname === "/services.html") { 
+        // Create blank booking object or get booking object if it is already made
+        let Booking = JSON.parse(sessionStorage.getItem("Booking")) || {
+            FirstName: "",
+            LastName: "",
+            Email: "",
+            Phone: "",
+            Services: [],
+            Date: "",
+            Time: "",
+            Message: "",
+            TotalCost: 0,
+            TotalDuration: 0,
+            BookingID: ""
+        };
 
-    checkboxes.forEach(checkbox => {
-        if (checkbox.checked) {
-            const service = {
-                name: checkbox.dataset.name,
-                price: checkbox.dataset.price,
-                time: checkbox.dataset.time
-            };
-            Booking.Services.push(service);
-            Booking.TotalCost += parseFloat(service.price);
-            Booking.TotalDuration += parseFloat(service.time);
-        }
-    });
-
-    // Console Logs for Testing
-    Booking.Services.forEach(service => {
-        console.log(`Service booked: ${service.name}`);
-    });
-    console.log(`Total Cost: $${Booking.TotalCost.toLocaleString()}`);
-    if (Booking.TotalDuration > 1) {
-        console.log(`Total Time: ${Booking.TotalDuration} Hours`);
+        // Add or Remove service name, price and duration to Booking object if checked or unchecked
+        const checkboxes = Array.from(document.getElementsByClassName("ui-checkbox"));
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener("change", function() {
+                if(checkbox.checked){
+                    Booking.Services.push(checkbox.dataset.name);
+                    Booking.TotalDuration += parseFloat(checkbox.dataset.time);
+                    Booking.TotalCost += parseFloat(checkbox.dataset.price);
+                }else {
+                    // Remove data when unchecked
+                    const index = Booking.Services.indexOf(checkbox.dataset.name);
+                    if (index > -1) {
+                        Booking.Services.splice(index, 1); // Remove service
+                    }
+                    Booking.TotalDuration -= parseFloat(checkbox.dataset.time);
+                    Booking.TotalCost -= parseFloat(checkbox.dataset.price);
+                }
+                sessionStorage.setItem("Booking", JSON.stringify(Booking));
+                console.log(Booking);
+            });
+        });
     }
-    else {
-        console.log(`Total Time: ${Booking.TotalDuration} Hour`);
-    }
+    if(window.location.pathname === "/booking.html"){
+        let Booking = JSON.parse(sessionStorage.getItem("Booking"));
+        console.log(Booking);
 
-    // Store Booking Object in Local Storage
+        document.getElementById("service_duration").innerHTML = Booking.TotalDuration + " Hour/s";
+        document.getElementById("total_cost").innerHTML = Booking.TotalCost.toLocaleString("en-US", {style:"currency", currency:"USD"});
+    }
+};
+
+
+
+//'Book Now' button on Services Page
+function BookNowbutton(){
+    //get booking item
+    let Booking = JSON.parse(sessionStorage.getItem("Booking"));
     sessionStorage.setItem("Booking", JSON.stringify(Booking));
-    window.location.href = "booking.html"; 
+    window.location.href="booking.html";
 }
 
 
 
-// BOOKING PAGE LOGIC   BOOKING PAGE LOGIC  BOOKING PAGE LOGIC  BOOKING PAGE LOGIC  BOOKING PAGE LOGIC BOOKING PAGE LOGIC 
 
-window.onload = function() {
-    if (window.location.pathname === "/booking.html") {
-    const Booking = JSON.parse(sessionStorage.getItem("Booking")) || {};
-    const service_duration = document.getElementById("service_duration");
-    const total_cost = document.getElementById("total_cost");
+//Confirm Booking 
+function confirmBooking(){
+    let Booking = JSON.parse(sessionStorage.getItem("Booking"));
 
-    // Update Service Duration
-    let mins = Booking.TotalDuration * 60;
-    if (Booking.TotalDuration < 1){
-        service_duration.textContent = `${mins} Minutes`;
-    }
-    else if (Booking.TotalDuration === 1){
-        service_duration.textContent = `${Booking.TotalDuration} Hour`;
-    }
-    else {
-        service_duration.textContent = `${Booking.TotalDuration} Hours`;
-    }
-
-    // Update Total Cost
-    total_cost.textContent = `$${Booking.TotalCost.toLocaleString()}`;
-
-    console.log(Booking);  // Log the saved booking object
-
-    //Update Selected Services 
-    const ul = document.querySelector('ul');
-    Booking.Services.forEach(service => {
-        const li = document.createElement('li');
-        li.innerHTML = `<strong>Service Name:</strong> ${service.name} &nbsp; <strong>Service Price:</strong> $${service.price.toLocaleString()} &nbsp; <strong>Service Duration:</strong> ${service.time}hr/s`;
-        ul.appendChild(li);;
-    });
-    // DIV HEIGHT CALCULATIONS
-    const main = document.getElementsByTagName("main");
-    const sticky_totalDiv = document.querySelector(".sticky_total");
-    const booking_container = document.querySelector(".booking_container");
-    const form = document.querySelector('form');
-   
-
-// Remove Service Function
-    function RmvService() {
-        document.querySelectorAll('.remove--service').forEach(button => {
-            button.addEventListener('click', function() {
-                serviceDiv = this.parentElement;
-                serviceDiv.style.display = 'none';
-            })
-        })
-    }
-    }
-}
-
-function confirmBooking() {
-
-    const form = document.querySelector('.form');
-    if (form.checkValidity()) {
-        // Proceed with booking confirmation logic
-        alert('Form is valid, proceed with submission!');
-    } else {
-        // Trigger the browser's default validation
-        form.reportValidity();  // This triggers the tooltips
-    }
-    
     Booking.FirstName = document.getElementById("first-name").value;
     Booking.LastName = document.getElementById("last-name").value;
     Booking.Email = document.getElementById("email").value;
     Booking.Phone = document.getElementById("phone").value;
     Booking.Date = document.getElementById("date").value;
     Booking.Time = document.getElementById("time").value;
-    Booking.Notes = document.getElementById("message").value;
-    Booking.BookingID = Math.floor(Math.random() * 100000);
+    Booking.Message = document.getElementById("message").value;
+    Booking.BookingID = Math.floor(100000 + Math.random() * 900000);
 
-    console.log(Booking);
     sessionStorage.setItem("Booking", JSON.stringify(Booking));
+    console.log(Booking);
 }
+//Reset Booking
+function resetBooking(){
+    sessionStorage.removeItem("Booking");
+    window.location.href = "services.html";
+}
+
+
 
 
 
@@ -193,3 +157,4 @@ function expandCustomizer () {
         customizer.style.maxHeight = "null";
     }
 }
+
