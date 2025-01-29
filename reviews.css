@@ -56,3 +56,13 @@ body {
     display: flex;
     justify-content: space-around;
 }
+
+@media (max-width: 768px) {
+    .reviews_main {
+        flex-direction: column;
+        padding-bottom: 40px;
+    }
+    .carousel--container {
+        width: 100%;
+    }
+}

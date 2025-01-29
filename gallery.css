@@ -157,3 +157,21 @@ footer {
 /* GALLERY CARDS FROM UIVERSE */
 
 /* GALLERY CARDS FROM UIVERSE */  
+
+@media (max-width: 768px) {
+  .inner {
+    --w: 180px;
+    --h: 260px;
+  }
+  main {
+    padding-top: 9.375rem;
+  }
+  .section_selector_container {
+    left: 60px;
+    top: 555px;
+  }
+  .section_selector_container2 {
+    right: 60px;
+    top: 555px;
+  }
+}

@@ -201,3 +201,36 @@ footer p {
 }
 
 /* FOOTER STYLING END */
+
+
+@media (max-width: 768px) {
+    .nav_links {
+        display: none;
+    }
+    .nav_logo--container {
+        left: 40px;
+    }
+    .menu_button {
+        display: block;
+        position: absolute;
+        right: 40px;
+        border: none;
+        cursor: pointer;
+    }
+    .menu_button img{
+        width: 45px;
+    }
+    .footer_info {
+        flex-direction: column;
+        gap: 40px;
+    }
+    .footer_info h2 {
+        text-align: left;
+    }
+    .footer_social {
+        margin-left: 0;
+    }
+    .footer_social_inner {
+        justify-content: left;
+    }
+}

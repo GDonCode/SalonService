@@ -88,8 +88,31 @@ window.onload = function () {
         let Booking = JSON.parse(sessionStorage.getItem("Booking"));
         console.log(Booking);
 
+        // Sticky Div
         document.getElementById("service_duration").innerHTML = Booking.TotalDuration + " Hour/s";
         document.getElementById("total_cost").innerHTML = Booking.TotalCost.toLocaleString("en-US", {style:"currency", currency:"USD"});
+
+        // Populate the Services List
+        const ul = document.getElementById("services_list");
+        Booking.Services.forEach(serviceName => {
+            const li = document.createElement('li');
+
+            // Find the checkbox element to get the price and time
+            const checkbox = document.querySelector(`.ui-checkbox[data-name="${serviceName}"]`);
+            console.log(checkbox);
+            if (checkbox) {
+                const price = parseFloat(checkbox.dataset.price).toLocaleString("en-US", { style: "currency", currency: "USD" });
+                const time = checkbox.dataset.time + " mins";
+
+                // Set the text content of the <li> element
+                li.textContent = `Service Name: ${serviceName}, Price = ${price}, Time = ${time}`;
+            } else {
+                // Fallback in case the checkbox is not found
+                li.textContent = `Service Name: ${serviceName}`;
+            }
+
+            ul.appendChild(li);
+        });
     }
 };
 
