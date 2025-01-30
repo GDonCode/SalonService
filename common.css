@@ -100,12 +100,38 @@ nav img {
     background-color: #087500;
     font-size: 1.5rem;
 }
+
+
 .menu_button {
     background: none;
     margin-left: auto;
     display: none;
 }
+.MOBILE_nav-links{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 120px;
+    right: 0;
+    font-size: 1.4rem;
+    font-weight: 550;
+    background-color: white;
+    padding: 20px;
+    gap: 40px;
 
+    transform: translateX(100%); /* Hide menu off-screen */
+    transition: transform 0.3s ease;
+}
+.MOBILE_nav-links.active {
+    transform: translateX(0); 
+}
+.MOBILE_nav-links a {
+    color: black;
+    text-decoration: none;
+    font-family: "Montserrat", sans-serif;
+}
 /* NAV STYLING END */
 
 /* FOOTER STYLING START */

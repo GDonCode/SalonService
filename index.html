@@ -39,9 +39,15 @@
                 <a href="test.html" class="nav_link">Our Team</a>
                 <a href="reviews.html" class="nav_link">Help Center</a>   
             </div>
-            <button class="menu_button">
-                <img src="media/hamburger.png" alt="Menu" width="45px" height="auto">
-            </button>  
+            <button class="menu_button" id="hamburger">
+                <img src="media/hamburger.png" alt="Menu" width="45px" height="auto" id="MenuIMG">
+            </button> 
+            <div class="MOBILE_nav-links">
+                <a href="services.html" class="nav_link">Services</a>
+                <a href="gallery.html" class="nav_link">Gallery</a>
+                <a href="test.html" class="nav_link">Our Team</a>
+                <a href="reviews.html" class="nav_link">Help Center</a>
+            </div> 
         </nav>
     </header>
     <main>
@@ -65,20 +71,20 @@
                         <!-- Additional required wrapper -->
                         <div class="swiper-wrapper">
                             <!-- Slides -->
-                            <div class="swiper-slide DESKTOP"><img src="media/carouselmedia6.png" alt=""></div>
-                            <div class="swiper-slide DESKTOP"><img src="media/carouselmedia2.png" alt=""></div>
-                            <div class="swiper-slide DESKTOP"><img src="media/carouselmedia5.png" alt=""></div>
-                            <div class="swiper-slide DESKTOP"><img src="media/carouselmedia3.png" alt=""></div>
-                            <div class="swiper-slide DESKTOP"><img src="media/carouselmedia4.png" alt=""></div>
-                            <div class="swiper-slide DESKTOP"><video src="media/carouselmedia7.mp4" alt="" autoplay="true" muted="true" loop="true"></div>
+                            <div class="swiper-slide"><img src="media/carouselmedia6.png" alt=""></div>
+                            <div class="swiper-slide"><img src="media/carouselmedia2.png" alt=""></div>
+                            <div class="swiper-slide"><img src="media/carouselmedia5.png" alt=""></div>
+                            <div class="swiper-slide"><img src="media/carouselmedia3.png" alt=""></div>
+                            <div class="swiper-slide"><img src="media/carouselmedia4.png" alt=""></div>
+                            <div class="swiper-slide"><video src="media/carouselmedia7.mp4" alt="" autoplay muted loop style="pointer-events: none;"></div>
                         </div>
                     
                         <!-- If we need navigation buttons -->
-                        <div class="swiper-button-prev DESKTOP"></div>
-                        <div class="swiper-button-next DESKTOP"></div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
                     
                         <!-- If we need scrollbar -->
-                        <div class="swiper-scrollbar DESKTOP"></div>
+                        <div class="swiper-scrollbar"></div>
                     </div>
                 </div>
             </div>
@@ -142,8 +148,6 @@
                             <cite style="font-weight: 500;">—Kelsey Keane</cite>
                         </div>
                     </div>
-                    ...
-                    </div>
                 
                     <!-- If we need scrollbar -->
                     <div class="swiper-scrollbar"></div>
@@ -159,7 +163,7 @@
                 <div class="footer_contact_inner">
                     <img src="media/telephone.png" alt="Telephone Symbol">
                     <p>Phone: </p>
-                    <a href="wa.link/zrzzu2">
+                    <a href="http://wa.link/zrzzu2">
                         <div class="footer_contact_inner_numbers">
                             <p>+1 876 842 0641</p>
                         </div>

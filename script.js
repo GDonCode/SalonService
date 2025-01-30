@@ -153,18 +153,22 @@ function resetBooking(){
 
 
 
-
-
-function toggleMenu() {
-    const menu_button = document.getElementById('menu_button');
-
-    if (menu_button.src.includes("hamburger.png")){
-        menu_button.src = "media/cancel.png";
+//TOGGLE MOBILE MENU 
+const menu_button = document.getElementById('hamburger');
+menu_button.addEventListener('click', () => {
+    const img = document.getElementById('MenuIMG');
+    if (img.src.includes("hamburger.png")){
+        img.src = "media/cancel.png";
     }
     else {
-        menu_button.src = "media/hamburger.png";
+        img.src = "media/hamburger.png";
     }
-}
+
+    const nav = document.querySelector('.MOBILE_nav-links');
+    nav.classList.toggle('active');
+});
+
+
 
 function expandCustomizer () {
     const braids_checkbox = document.getElementById("braids");
