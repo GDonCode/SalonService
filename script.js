@@ -1,5 +1,3 @@
-import flatpickr from "flatpickr";
-
 const headers = document.getElementsByClassName("accordion_header");
 const scrollbuttons = document.getElementsByClassName("service_scroll_button");
 
@@ -192,53 +190,53 @@ function expandCustomizer () {
 }
 
 
-
-
-
-// FLATPICKR
-
-flatpickr("#booking-date", {
+const DatePickr = flatpickr("#booking-date", {
+    enableTime: false,
+    altInput: true,
+    altFormat: "F j, Y",
     dateFormat: "Y-m-d",
-    minDate: "today", // Prevent past dates
-    disable: async (date) => {
-        const disabledDates = await fetchUnavailableDates();
-        return disabledDates.includes(date.toISOString().split("T")[0]);
-    },
-    onChange: function(selectedDates) {
-        if (selectedDates.length) {
-            loadAvailableTimeSlots(selectedDates[0]);
+    minDate: "today", 
+    disable: [
+        function(date){
+            return(date.getDay() ===  0);
         }
+    ], 
+    onChange: function(selectedDates) {
+        // Adjust time picker based on the selected date
+        updateTimePicker(selectedDates[0]);
     }
 });
 
-async function loadAvailableTimeSlots(date) {
-    const selectedDate = date.toISOString().split("T")[0];
-    const unavailableTimes = await fetchUnavailableTimes(selectedDate);
+const TimePickr = flatpickr("#booking-time", {
+    enableTime: true,
+    noCalendar: true,
+    dateFormat: "h:i K",
+    minTime: "9:00",
+    maxTime: "18:30",
+    time_24hr: false,
+})
 
-    const timeSlotsContainer = document.getElementById("time-slots");
-    timeSlotsContainer.innerHTML = ""; // Clear previous slots
-
-    const startHour = 9, endHour = 18;
-    for (let h = startHour; h < endHour; h++) {
-        for (let m = 0; m < 60; m += 30) {
-            let time = `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`;
-            let button = document.createElement("button");
-            button.textContent = time;
-            button.classList.add("time-slot");
-            if (unavailableTimes.includes(time)) {
-                button.disabled = true;
-                button.classList.add("disabled");
-            } else {
-                button.addEventListener("click", () => selectTime(time));
+// Function to update time picker based on the selected date
+function updateTimePicker(date) {
+    if (date.getDay() === 6) { // Saturday
+        // Set minTime to 10:00 for Saturday
+        TimePickr.set("minTime", "10:00");
+        // Reset the time if the selected time is less than the new minTime
+        if (TimePickr.selectedDates && TimePickr.selectedDates[0]) {
+            let selectedTime = TimePickr.selectedDates[0].toTimeString().slice(0, 5); // Extract hour:minute
+            if (selectedTime < "10:00") {
+                TimePickr.setDate("10:00", true); // Reset time to 10:00 if it's less than the new minTime
             }
-            timeSlotsContainer.appendChild(button);
+        }
+    } else {
+        // Set minTime to 9:00 for other days
+        TimePickr.set("minTime", "9:00");
+        // Reset the time if the selected time is less than the new minTime
+        if (TimePickr.selectedDates && TimePickr.selectedDates[0]) {
+            let selectedTime = TimePickr.selectedDates[0].toTimeString().slice(0, 5);
+            if (selectedTime < "09:00") {
+                TimePickr.setDate("09:00", true); // Reset time to 9:00 if it's less than the new minTime
+            }
         }
     }
 }
-
-function selectTime(time) {
-    document.querySelectorAll(".time-slot").forEach(btn => btn.classList.remove("selected"));
-    event.target.classList.add("selected");
-    document.getElementById("selected-time").value = time;
-}
-

@@ -13,6 +13,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <!-- MONTSERRAT & LIBRE BASKERVILLE FONT --> 
+
+    <!-- Flatpickr -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/material_green.css">
 </head>
 <body>
     <header class="header DESKTOP">
@@ -53,6 +58,9 @@
                 </div>
                 <div class="appointment_details--container">
                     <h2>Appointment Details</h2>
+                    <input id="booking-date" type="text" placeholder="Select Date..">
+
+                    <input id="booking-time" type="text" placeholder="Select Time..">
                     <!--
                     <div class="date--container">
                         <input type="date" name="date" id="date" required>
