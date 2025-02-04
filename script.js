@@ -1,3 +1,4 @@
+import flatpickr from "flatpickr";
 
 const headers = document.getElementsByClassName("accordion_header");
 const scrollbuttons = document.getElementsByClassName("service_scroll_button");
@@ -119,11 +120,16 @@ window.onload = function () {
 
 
 //'Book Now' button on Services Page
-function BookNowbutton(){
+function BookNowbutton(){ 
     //get booking item
     let Booking = JSON.parse(sessionStorage.getItem("Booking"));
-    sessionStorage.setItem("Booking", JSON.stringify(Booking));
-    window.location.href="booking.html";
+    if (Booking != null){
+        sessionStorage.setItem("Booking", JSON.stringify(Booking));
+        window.location.href="booking.html";
+    }
+    else {
+        window.alert("Please select a service before proceeding with Booking.");
+    }
 }
 
 
@@ -183,5 +189,56 @@ function expandCustomizer () {
         customizer.classList.remove("expanded");
         customizer.style.maxHeight = "null";
     }
+}
+
+
+
+
+
+// FLATPICKR
+
+flatpickr("#booking-date", {
+    dateFormat: "Y-m-d",
+    minDate: "today", // Prevent past dates
+    disable: async (date) => {
+        const disabledDates = await fetchUnavailableDates();
+        return disabledDates.includes(date.toISOString().split("T")[0]);
+    },
+    onChange: function(selectedDates) {
+        if (selectedDates.length) {
+            loadAvailableTimeSlots(selectedDates[0]);
+        }
+    }
+});
+
+async function loadAvailableTimeSlots(date) {
+    const selectedDate = date.toISOString().split("T")[0];
+    const unavailableTimes = await fetchUnavailableTimes(selectedDate);
+
+    const timeSlotsContainer = document.getElementById("time-slots");
+    timeSlotsContainer.innerHTML = ""; // Clear previous slots
+
+    const startHour = 9, endHour = 18;
+    for (let h = startHour; h < endHour; h++) {
+        for (let m = 0; m < 60; m += 30) {
+            let time = `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`;
+            let button = document.createElement("button");
+            button.textContent = time;
+            button.classList.add("time-slot");
+            if (unavailableTimes.includes(time)) {
+                button.disabled = true;
+                button.classList.add("disabled");
+            } else {
+                button.addEventListener("click", () => selectTime(time));
+            }
+            timeSlotsContainer.appendChild(button);
+        }
+    }
+}
+
+function selectTime(time) {
+    document.querySelectorAll(".time-slot").forEach(btn => btn.classList.remove("selected"));
+    event.target.classList.add("selected");
+    document.getElementById("selected-time").value = time;
 }
 

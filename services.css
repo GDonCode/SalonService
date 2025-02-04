@@ -224,14 +224,13 @@ main {
 .option_item {
     color: black;
 }
-.option_item--top {
+.option_item--top, .option_title-and-price {
     display: flex;
     align-items: center;
 }
-.option_item--top h4 {
+.option_title-and-price h4 {
     font-size: 1.2rem;
     margin-right: 20px;
-    margin-bottom: 20px;
 }
 .option_item--bottom p {
     font-weight: 520;
@@ -458,17 +457,42 @@ main {
 /* CHECKBOX FROM UIVERSE */
 
 @media (max-width: 768px) {
+    .headline {
+        margin-top: 20px;
+    }
     .service_selector {
-        width: 90%;
-        gap: 15px;
+        width: 85%;
+        gap: 50px;
+        margin-top: 30px;
+    }
+    .service_icon img {
+        width: 40px;
+    }.service_icon h3 {
+        color: black;
+        font-size: 1rem;
     }
     .accordion_item {
-        padding: 0 40px;
+        padding: 0 20px;
     }
     .accordion_header {
         padding: 5px 40px;
     }
     .accordion_info.expanded {
-        padding: 10px 40px 40px 40px;
+        padding: 10px 20px 40px 20px;
+    }
+    .ui-checkbox {
+        margin-top: -45px;
+        --checkbox-diameter: 25px;
+    }
+    .option_title-and-price {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .option_title-and-price h4 {
+        margin-right: 10px;
+        margin-bottom: 0;
+    }
+    .option_title-and-price h5 {
+        margin-top: 10px;
     }
 }
