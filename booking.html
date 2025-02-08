@@ -58,21 +58,16 @@
                 </div>
                 <div class="appointment_details--container">
                     <h2>Appointment Details</h2>
-                    <input id="booking-date" type="text" placeholder="Select Date..">
-
-                    <input id="booking-time" type="text" placeholder="Select Time..">
-                    <!--
-                    <div class="date--container">
-                        <input type="date" name="date" id="date" required>
-                        <input type="time" name="time" id="time" required>
-                    </div>
-                    <div class="service--container">
-                        <h2>Selected Services</h2>
-                        <div class="service--container--inner">
-                            <ul id="services-list"></ul>
-                        </div>
-                    </div>-->
+                    <input id="booking-date" type="text" placeholder="Select Date.." class="date-time_input">
+                    <input id="booking-time" type="text" placeholder="Select Time.." class="date-time_input">
+                </div>
+                <div class="message_container">
+                    <h2>Message</h2>
                     <textarea name="message" id="message" rows="6" placeholder="Have any specific requests?"></textarea>
+                </div>
+                <div class="selected_service--container">
+                    <h2>Selected Services</h2>
+                    <ul id="services_list"></ul>
                 </div>
             </form>
             <div class="sticky_total">
@@ -88,7 +83,7 @@
                 </div>
             </div> 
         </div>
-        <button type="submit" onclick="confirmBooking()">Confirm Booking</button>
+        <button onclick="confirmBooking()">Confirm Booking</button>
         <button class="reset_button" onclick="resetBooking()">Reset Booking</button>
     </main>
     <footer>
@@ -132,6 +127,6 @@
             <div class="footer_divider divider4"></div>
         </div>
     </footer>
-    <script  type="module" src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

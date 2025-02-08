@@ -94,26 +94,26 @@ window.onload = function () {
         // Populate the Services List
         const ul = document.getElementById("services_list");
         Booking.Services.forEach(serviceName => {
-            const li = document.createElement('li');
-
-            // Find the checkbox element to get the price and time
-            const checkbox = document.querySelector(`.ui-checkbox[data-name="${serviceName}"]`);
-            console.log(checkbox);
-            if (checkbox) {
-                const price = parseFloat(checkbox.dataset.price).toLocaleString("en-US", { style: "currency", currency: "USD" });
-                const time = checkbox.dataset.time + " mins";
-
-                // Set the text content of the <li> element
-                li.textContent = `Service Name: ${serviceName}, Price = ${price}, Time = ${time}`;
-            } else {
-                // Fallback in case the checkbox is not found
-                li.textContent = `Service Name: ${serviceName}`;
+            let li = document.createElement("li");
+            let found = false;
+            
+            // Retrieve the stored checkbox data
+            let storedService = sessionStorage.getItem(serviceName);
+            if (storedService) {
+                storedService = JSON.parse(storedService);
+                console.log("Service data found:", storedService);  // Debugging
+                li.textContent = `Service Name: ${storedService.name} Price: ${storedService.price} Time: ${storedService.time}`;
+                found = true;
             }
 
-            ul.appendChild(li);
+            if (!found) {
+                console.log(`No match found for ${serviceName}`);
+                li.textContent = `Service Name: not found Price: not found Time: not found`;
+            }
+                ul.appendChild(li);
         });
-    }
-};
+    };
+}
 
 
 
@@ -134,20 +134,32 @@ function BookNowbutton(){
 
 
 //Confirm Booking 
-function confirmBooking(){
+async function confirmBooking(){
     let Booking = JSON.parse(sessionStorage.getItem("Booking"));
 
     Booking.FirstName = document.getElementById("first-name").value;
     Booking.LastName = document.getElementById("last-name").value;
     Booking.Email = document.getElementById("email").value;
     Booking.Phone = document.getElementById("phone").value;
-    Booking.Date = document.getElementById("date").value;
-    Booking.Time = document.getElementById("time").value;
+    Booking.Date = document.getElementById("booking-date").value;
+    Booking.Time = document.getElementById("booking-time").value;
     Booking.Message = document.getElementById("message").value;
     Booking.BookingID = Math.floor(100000 + Math.random() * 900000);
 
+    // Create servicesString by joining service names from Booking.Services
+    Booking.servicesString = Booking.Services.join(", ");
     sessionStorage.setItem("Booking", JSON.stringify(Booking));
-    console.log(Booking);
+
+    const response = await fetch('http://localhost:8080/save', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(Booking)
+      });
+
+      const result = await response.text();
+      console.log(result);
 }
 //Reset Booking
 function resetBooking(){
@@ -240,3 +252,4 @@ function updateTimePicker(date) {
         }
     }
 }
+

@@ -150,7 +150,7 @@ main button:hover {
     flex-direction: column;
     gap: 30px;
 }
-.personal_details--container h2, .appointment_details--container h2 {
+.personal_details--container h2, .appointment_details--container h2, .message_container h2 {
     text-decoration: underline;
 }
 .appointment_details--container {
@@ -163,7 +163,7 @@ main button:hover {
     flex-direction: column;
     gap: 30px;
 } 
-.name--container > input, .personal_details--container > input, .date--container > input, .appointment_details--container select {
+.name--container > input, .personal_details--container > input, .date--container > input, .appointment_details--container input {
     width: 100%;
     height: 50px;
     border-radius: 5px;
@@ -175,7 +175,7 @@ main button:hover {
     padding: 5px 10px;
     outline: none;
 }
-.appointment_details--container textarea {
+.message_container textarea {
     width: 100%;
     border-radius: 5px;
     border: 2px solid black;
@@ -230,6 +230,10 @@ main button:hover {
 }
 .time-slot.selected {
     background: #28a745;
+}
+.date-time_input {
+    width: 300px;
+    height: 40px;
 }
 
 
