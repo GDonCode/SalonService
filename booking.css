@@ -6,42 +6,14 @@ body {
     flex-direction: column;
 }
 main {
-    background: linear-gradient(
-    -45deg,
-    #A8E1A1,
-    #a8e0a0,
-    #bdebb9,
-    #dcfce7, 
-    #f0fff0,
-    #d4f7d1
-    );
-    background-size: 400% 400%;
-    animation: gradient 30s ease infinite;
+    background-color: rgba(0,128,0,0.05);
     height: 200%;
     width: 100%;
     height: fit-content;
     padding-bottom: 80px;
     padding-top: 7.5rem;
 }
-
-@keyframes gradient {
-    0% {
-    background-position: 0% 50%;
-    }
-    25% {
-    background-position: 50% 100%;
-    }
-    50% {
-    background-position: 100% 50%;
-    }
-    75% {
-    background-position: 50% 0%;
-    }
-    100% {
-    background-position: 0% 50%;
-    }
-}
-main button {
+.confirm_button {
     display: block;
     margin: /* 60px 160px */60px auto 0 auto;
     font-size: 1.35rem;
@@ -56,7 +28,7 @@ main button {
     transition: background-color 0.3s ease, font-size 0.3s ease, transform 0.3s ease;
     width: 280px;
 }
-main button:hover {
+.confirm_button:hover {
     background-color: #087500;
     transform: scale(1.05);
 }
@@ -82,20 +54,8 @@ main button:hover {
 .booking_container {
     display: flex;
     justify-content: center;
-    background: linear-gradient(
-    -45deg,
-    #A8E1A1,
-    #a8e0a0,
-    #bdebb9,
-    #dcfce7, 
-    #f0fff0,
-    #d4f7d1
-    );
-    background-size: 400% 400%;
-    animation: gradient 30s ease infinite;
     height: 200%;
     width: 100%;
-    border-radius: 5px;
     height: fit-content;
     padding: 10px 80px;
     gap: 40px;
@@ -206,10 +166,25 @@ main button:hover {
     display: block;
     margin-left: 0 auto;
 }
+ul#services-list {
+    list-style-type: none;
+}
 #services-list {
     display: flex;
     flex-direction: column;
     gap: 20px;
+}
+.service_remove-button {
+    background-color: #ff4d4d; /* Red background */
+    color: white; /* White text */
+    border: none; /* Remove border */
+    padding: 5px 10px; /* Add padding */
+    margin-left: 10px; /* Add margin */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+.service_remove-button:hover {
+    background-color: #cc0000; /* Darker red on hover */
 }
 
 
@@ -240,30 +215,34 @@ main button:hover {
 
 @media (max-width: 768px) {
     .booking_container {
-        padding: 10px 40px;
+        padding: 10px 25px;
         width: 100%;
         justify-content: flex-start;
     }
     .sticky_total {
         position: fixed;
         top: 140px;
-        min-width: 80%;
+        min-width: 90%;
     }
     .total--container {
         display: flex;
         padding: 10px 20px;
-        gap: 20px;
+        gap: 40px;
+        margin-top: 0;
+        margin-left: -10px;
     }
     .total--container--inner {
         flex-direction: column;
-        font-size: 1rem;
+    }
+    .total--container--inner h2 {
+        font-size: 1.3rem;
     }
     .total--container--inner h2, .total--container--inner p {
         margin: 0;
     }
     .form {
         padding: 0px;
-        padding-top: 140px;
+        padding-top: 120px;
         min-width: 100%;
         gap: 40px;
     }

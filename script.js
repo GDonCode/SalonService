@@ -1,3 +1,5 @@
+//SERVICE SELECTOR LOGIC  SERVICE SELECTOR LOGIC  SERVICE SELECTOR LOGIC  SERVICE SELECTOR LOGIC  SERVICE SELECTOR LOGIC  SERVICE SELECTOR LOGIC
+
 const headers = document.getElementsByClassName("accordion_header");
 const scrollbuttons = document.getElementsByClassName("service_scroll_button");
 
@@ -17,7 +19,7 @@ Array.from(scrollbuttons).forEach(button => {
     });
 });
 
-
+// SERVICE ACCORDION LOGIC
 for (let i = 0; i < headers.length; i++) {
     headers[i].onclick = service_dropdown_function;
 }
@@ -41,11 +43,8 @@ function service_dropdown_function() {
 
 
 
-// SERVICES PAGE LOGIC  SERVICES PAGE LOGIC  SERVICES PAGE LOGIC  SERVICES PAGE LOGIC  SERVICES PAGE LOGIC SERVICES PAGE LOGIC
-let Booking;
-
 window.onload = function () {
-    if (window.location.pathname === "/services.html") { 
+    if (window.location.pathname.includes("services.html")) { 
         // Create blank booking object or get booking object if it is already made
         let Booking = JSON.parse(sessionStorage.getItem("Booking")) || {
             FirstName: "",
@@ -60,60 +59,103 @@ window.onload = function () {
             TotalDuration: 0,
             BookingID: ""
         };
-
-        // Add or Remove service name, price and duration to Booking object if checked or unchecked
-        const checkboxes = Array.from(document.getElementsByClassName("ui-checkbox"));
-        checkboxes.forEach(checkbox => {
-            checkbox.addEventListener("change", function() {
-                if(checkbox.checked){
-                    Booking.Services.push(checkbox.dataset.name);
-                    Booking.TotalDuration += parseFloat(checkbox.dataset.time);
-                    Booking.TotalCost += parseFloat(checkbox.dataset.price);
-                }else {
-                    // Remove data when unchecked
-                    const index = Booking.Services.indexOf(checkbox.dataset.name);
-                    if (index > -1) {
-                        Booking.Services.splice(index, 1); // Remove service
-                    }
-                    Booking.TotalDuration -= parseFloat(checkbox.dataset.time);
-                    Booking.TotalCost -= parseFloat(checkbox.dataset.price);
-                }
-                sessionStorage.setItem("Booking", JSON.stringify(Booking));
-                console.log(Booking);
+        console.log(Booking);
+        document.querySelectorAll('.ui-checkbox').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                updateBooking(this);
             });
         });
+
+        // Add or Remove service name, price and duration to Booking object if checked or unchecked
+        function updateBooking(checkbox) {
+            const serviceName = checkbox.getAttribute("data-name");
+            const servicePrice = parseFloat(checkbox.getAttribute("data-price"));
+            const serviceDuration = parseFloat(checkbox.getAttribute("data-time"));
+        
+            if (checkbox.checked) {
+                // Add the service to the Booking object
+                Booking.Services.push({
+                    name: serviceName,
+                    price: servicePrice,
+                    duration: serviceDuration
+                });
+                Booking.TotalCost += servicePrice;
+                Booking.TotalDuration += serviceDuration;
+            } else {
+                // Remove the service from the Booking object
+                Booking.Services = Booking.Services.filter(service => service.name !== serviceName);
+                Booking.TotalCost -= servicePrice;
+                Booking.TotalDuration -= serviceDuration;
+            }
+            sessionStorage.setItem("Booking", JSON.stringify(Booking));
+        }
     }
-    if(window.location.pathname === "/booking.html"){
-        let Booking = JSON.parse(sessionStorage.getItem("Booking"));
+    
+    if(window.location.pathname.includes("booking.html")){
+        // Retrieve the Booking object from sessionStorage
+        let Booking = JSON.parse(sessionStorage.getItem("Booking")) || {
+            TotalCost: 0,
+            TotalDuration: 0,
+            Services: []
+        };
         console.log(Booking);
+        // Update the Total Duration
+        const serviceDurationElement = document.getElementById("service_duration");
+        if (serviceDurationElement) {
+            serviceDurationElement.textContent = `${Booking.TotalDuration} hours`;
+        }
 
-        // Sticky Div
-        document.getElementById("service_duration").innerHTML = Booking.TotalDuration + " Hour/s";
-        document.getElementById("total_cost").innerHTML = Booking.TotalCost.toLocaleString("en-US", {style:"currency", currency:"USD"});
+        // Update the Total Cost
+        const totalCostElement = document.getElementById("total_cost");
+        if (totalCostElement) {
+            totalCostElement.textContent = `$${Booking.TotalCost.toFixed(2)}`;
+        }
+        updateServicesList();
+        // Update the list of selected services
+        function updateServicesList() {
+            const servicesListElement = document.getElementById("services_list");
+            servicesListElement.innerHTML = ""; // Clear the list before updating
+        
+            Booking.Services.forEach((service, index) => {
+                const listItem = document.createElement("li");
+                listItem.innerHTML = `<strong>${service.name}</strong> - $${service.price.toFixed(2)} (${service.duration} hours)`;
+        
+                const removeButton = document.createElement("button");
+                removeButton.textContent = "Remove";
+                removeButton.classList.add("service_remove-button");
+                removeButton.type = "button";
+        
+                // Correct removal function
+                removeButton.addEventListener("click", () => {
+                    console.log(`Removing service: ${service.name}`);
+        
+                    // Remove the service at the correct index
+                    Booking.Services.splice(index, 1);
+        
+                    // Update totals
+                    Booking.TotalCost = Booking.Services.reduce((sum, s) => sum + s.price, 0);
+                    Booking.TotalDuration = Booking.Services.reduce((sum, s) => sum + s.duration, 0);
+        
+                    // Save updated Booking object
+                    sessionStorage.setItem("Booking", JSON.stringify(Booking));
+        
+                    console.log("Updated Booking:", Booking);
+        
+                    // Refresh the UI
+                    updateServicesList();
+                });
+        
+                listItem.appendChild(removeButton);
+                servicesListElement.appendChild(listItem);
+            });
+        
+            // Update totals in UI
+            document.getElementById("service_duration").textContent = `${Booking.TotalDuration} hours`;
+            document.getElementById("total_cost").textContent = `$${Booking.TotalCost.toFixed(2)}`;
+        }
+    }
+};
 
-        // Populate the Services List
-        const ul = document.getElementById("services_list");
-        Booking.Services.forEach(serviceName => {
-            let li = document.createElement("li");
-            let found = false;
-            
-            // Retrieve the stored checkbox data
-            let storedService = sessionStorage.getItem(serviceName);
-            if (storedService) {
-                storedService = JSON.parse(storedService);
-                console.log("Service data found:", storedService);  // Debugging
-                li.textContent = `Service Name: ${storedService.name} Price: ${storedService.price} Time: ${storedService.time}`;
-                found = true;
-            }
-
-            if (!found) {
-                console.log(`No match found for ${serviceName}`);
-                li.textContent = `Service Name: not found Price: not found Time: not found`;
-            }
-                ul.appendChild(li);
-        });
-    };
-}
 
 
 
@@ -124,6 +166,7 @@ function BookNowbutton(){
     if (Booking != null){
         sessionStorage.setItem("Booking", JSON.stringify(Booking));
         window.location.href="booking.html";
+        console.log(Booking);
     }
     else {
         window.alert("Please select a service before proceeding with Booking.");
@@ -201,32 +244,6 @@ function expandCustomizer () {
     }
 }
 
-
-const DatePickr = flatpickr("#booking-date", {
-    enableTime: false,
-    altInput: true,
-    altFormat: "F j, Y",
-    dateFormat: "Y-m-d",
-    minDate: "today", 
-    disable: [
-        function(date){
-            return(date.getDay() ===  0);
-        }
-    ], 
-    onChange: function(selectedDates) {
-        // Adjust time picker based on the selected date
-        updateTimePicker(selectedDates[0]);
-    }
-});
-
-const TimePickr = flatpickr("#booking-time", {
-    enableTime: true,
-    noCalendar: true,
-    dateFormat: "h:i K",
-    minTime: "9:00",
-    maxTime: "18:30",
-    time_24hr: false,
-})
 
 // Function to update time picker based on the selected date
 function updateTimePicker(date) {
