@@ -118,7 +118,7 @@ window.onload = function () {
         
             Booking.Services.forEach((service, index) => {
                 const listItem = document.createElement("li");
-                listItem.innerHTML = `<strong>${service.name}</strong> - $${service.price.toFixed(2)} (${service.duration} hours)`;
+                listItem.innerHTML = `<strong>${service.name}</strong>  ($${service.price.toFixed(2)}) (${service.duration} hr/s)`;
         
                 const removeButton = document.createElement("button");
                 removeButton.textContent = "Remove";
