@@ -133,5 +133,45 @@
         </div>
     </footer>
     <script src="script.js"></script>
+    <script>
+         const datePicker = flatpickr("#booking-date", {
+            enableTime: false, // Disables time selection
+            disable: [
+                function(date) {
+                    // Disable Sundays (0 is Sunday in JavaScript)
+                    return date.getDay() === 0;
+                }
+            ],
+            minDate: "today",
+            onChange: function(selectedDates) {
+                // When the date changes, update the minTime for the time picker
+                const selectedDate = selectedDates[0];
+                const timePicker = document.querySelector("#booking-time")._flatpickr;
+
+                if (selectedDate.getDay() === 6) { // Saturday
+                    timePicker.set("minTime", "10:00");
+                } else { // Weekdays (Monday to Friday)
+                    timePicker.set("minTime", "09:00");
+                }
+
+                // Clear the selected time if the date changes
+                timePicker.clear();
+            }
+        });
+
+        const timePicker = flatpickr("#booking-time", {
+            enableTime: true,
+            noCalendar: true,
+            dateFormat: "h:i K",
+            minTime: "09:00", // Default minTime for weekdays
+            maxTime: "18:30",
+            disable: [
+                function(date) {
+                    // Disable Sundays
+                    return date.getDay() === 0;
+                }
+            ]
+        });
+    </script>
 </body>
 </html>

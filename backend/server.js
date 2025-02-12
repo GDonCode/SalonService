@@ -1,53 +1,110 @@
 const express = require('express');
-const bodyparser = require('body-parser');
+const mysql = require('mysql2');
 const cors = require('cors');
-const mysql = require('mysql');
 
 const app = express();
 const port = 8080;
 
-//Middleware
-app.use(cors());
-app.use(bodyparser.json());
+// Middleware
+const corsOptions = {
+    origin: '*',  // Allow all origins for testing
+    methods: ['GET', 'POST'],
+};
+app.use(cors(corsOptions));
 
-//MySQL Connection
+app.use(express.json());
+
+// MySQL Connection
 const db = mysql.createConnection({
     host: 'localhost',
-    user: 'root',
-    password: 'RAnthonyMG#8',
-    database: 'payetontest'
+    user: 'root', // Replace with your MySQL username
+    password: 'RAnthonyMG#8', // Replace with your MySQL password
+    database: 'payetontest' // Replace with your database name
 });
 
 db.connect((err) => {
     if (err) {
-        console.error('Error connecting to MySQL', err);
+        throw err;
     }
-    else {
-        console.log('Connected to MySQL database');
-    }
+    console.log('MySQL Connected...');
 });
 
-//Start the server
-app.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}`);
-});
+// Save Booking Endpoint
+app.post('/save', (req, res) => {
+    const Booking = req.body;
+    console.log('Booking data received:', Booking);
 
-//Endpoint to save data
-app.post('/save', (req,res) => {
-    const { BookingID, FirstName, LastName, Email, Phone, servicesString, Date, Time, Message, TotalCost, TotalDuration } = req.body;
+    // Convert Date to YYYY-MM-DD format
+    if (!Booking.Date) {
+        console.error('Date is required');
+        res.status(400).send('Date is required');
+        return;
+    }
+    const formattedDate = new Date(Booking.Date).toISOString().split('T')[0]; // Convert to YYYY-MM-DD format
 
+    // Convert Time to 24-hour format
+    let time = Booking.Time;
 
-    // INSERT Query 
-    const query = `
-            INSERT INTO bookings (
-                BookingID, FirstName, LastName, Email, Phone, Services, Date, Time, Message, TotalCost, TotalDuration
-                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+    // Check if time is in 12-hour format (e.g., '12:00 PM')
+    if (time && (time.includes('AM') || time.includes('PM'))) {
+        const [timeStr, period] = time.split(' '); // Split '12:00 PM' into ['12:00', 'PM']
+        let [hour, minute] = timeStr.split(':'); // Split time into hours and minutes
+        hour = parseInt(hour, 10);
 
-    db.query(query, [BookingID, FirstName, LastName, Email, Phone, servicesString, Date, Time, Message, TotalCost, TotalDuration], (err, result) => {
-        if (err) {
-            console.error('Error saving booking:', err);
-            return res.status(500).send('Error saving booking');
+        // Convert 12-hour time to 24-hour format
+        if (period === 'AM' && hour === 12) {
+            hour = 0; // Midnight is 00:00
+        } else if (period === 'PM' && hour < 12) {
+            hour += 12; // Convert PM hours (except 12 PM) to 24-hour format
         }
-        res.status(200).send('Booking saved successfully');
+
+        // Format time to 24-hour HH:MM format
+        time = `${hour.toString().padStart(2, '0')}:${minute}`;
+    }
+
+    // Validate Time: If not in proper format, return error
+    if (!/^\d{2}:\d{2}$/.test(time)) {
+        console.error('Invalid time format');
+        res.status(400).send('Invalid time format');
+        return;
+    }
+
+    // Store services as a string
+    const serviceNames = Booking.Services.map(service => service.name).join(', ');
+
+    const sql = `INSERT INTO bookings (BookingID, FirstName, LastName, Email, Phone, Services, Date, Time, Message, TotalCost, TotalDuration) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+    const values = [
+        Booking.BookingID,
+        Booking.FirstName,
+        Booking.LastName,
+        Booking.Email,
+        Booking.Phone,
+        serviceNames, // Store services as JSON string
+        formattedDate, // Use formatted Date
+        time, // Store Time as string
+        Booking.Message,
+        Booking.TotalCost,
+        Booking.TotalDuration
+    ];
+
+    db.query(sql, values, (err, result) => {
+        if (err) {
+            console.error('Error occurred:', err);  // Log the error for debugging
+            res.status(500).send('Error saving booking');
+            return;
+        }
+        res.send('Booking saved successfully');
     });
+});
+
+
+
+app.get('/test', (req, res) => {
+    res.send('Server is working!');
+});
+
+
+// Start the server
+app.listen(port, () => {
+    console.log(`Server running on port ${port}`);
 });

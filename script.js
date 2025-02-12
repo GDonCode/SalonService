@@ -65,7 +65,23 @@ window.onload = function () {
                 updateBooking(this);
             });
         });
+        // Select all service checkboxes
+        const checkboxes = document.querySelectorAll(".ui-checkbox");
 
+        // Restore checkbox states from storage
+        checkboxes.forEach((checkbox) => {
+            const storedState = sessionStorage.getItem(checkbox.id);
+            if (storedState === "true") {
+                checkbox.checked = true;
+            }
+        });
+
+        // Add event listener to store checkbox states on change
+        checkboxes.forEach((checkbox) => {
+            checkbox.addEventListener("change", () => {
+                sessionStorage.setItem(checkbox.id, checkbox.checked);
+            });
+        });
         // Add or Remove service name, price and duration to Booking object if checked or unchecked
         function updateBooking(checkbox) {
             const serviceName = checkbox.getAttribute("data-name");
@@ -189,20 +205,18 @@ async function confirmBooking(){
     Booking.Message = document.getElementById("message").value;
     Booking.BookingID = Math.floor(100000 + Math.random() * 900000);
 
-    // Create servicesString by joining service names from Booking.Services
-    Booking.servicesString = Booking.Services.join(", ");
     sessionStorage.setItem("Booking", JSON.stringify(Booking));
 
-    const response = await fetch('http://localhost:8080/save', {
+    const response = await fetch('http://192.168.0.2:8080/save', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(Booking)
-      });
+    });
 
-      const result = await response.text();
-      console.log(result);
+    const result = await response.text();
+    console.log(result);
 }
 //Reset Booking
 function resetBooking(){
@@ -245,28 +259,5 @@ function expandCustomizer () {
 }
 
 
-// Function to update time picker based on the selected date
-function updateTimePicker(date) {
-    if (date.getDay() === 6) { // Saturday
-        // Set minTime to 10:00 for Saturday
-        TimePickr.set("minTime", "10:00");
-        // Reset the time if the selected time is less than the new minTime
-        if (TimePickr.selectedDates && TimePickr.selectedDates[0]) {
-            let selectedTime = TimePickr.selectedDates[0].toTimeString().slice(0, 5); // Extract hour:minute
-            if (selectedTime < "10:00") {
-                TimePickr.setDate("10:00", true); // Reset time to 10:00 if it's less than the new minTime
-            }
-        }
-    } else {
-        // Set minTime to 9:00 for other days
-        TimePickr.set("minTime", "9:00");
-        // Reset the time if the selected time is less than the new minTime
-        if (TimePickr.selectedDates && TimePickr.selectedDates[0]) {
-            let selectedTime = TimePickr.selectedDates[0].toTimeString().slice(0, 5);
-            if (selectedTime < "09:00") {
-                TimePickr.setDate("09:00", true); // Reset time to 9:00 if it's less than the new minTime
-            }
-        }
-    }
-}
+
 
