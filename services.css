@@ -2,11 +2,10 @@ body {
     font-family: "Montserrat", sans-serif;
 }
 main {
-    padding: 7.5rem 0 0rem 0;
+    padding: 1.25rem 0 0rem 0;
     position: relative;
 }
 .hero {
-    background-color: rgba(0,128,0,0.05);
     padding: 40px;
 }
 .headline h1 {

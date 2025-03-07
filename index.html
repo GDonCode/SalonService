@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#0A9300">
     <title>Payeton's Beauty Place</title>
     <link href="common.css" rel="stylesheet">
-    <link href="home.css" rel="stylesheet">
+    <link href="index.css" rel="stylesheet">
 
     <!-- MONTSERRAT & LIBRE BASKERVILLE FONT --> 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,11 +24,10 @@
     <!-- AOS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
     <!-- AOS -->
-
 </head>
-<body>
+<body id="body">
     <header class="header DESKTOP">
-        <nav>
+        <nav id="nav">
             <div class="nav_links left">
                 <a href="services.html" class="nav_link">Services</a>
                 <a href="gallery.html" class="nav_link">Gallery</a>
@@ -51,9 +50,9 @@
             </div> 
         </nav>
     </header>
-    <main>
+    <main id="main">
         <section>
-            <div class="hero_section">
+            <div class="hero_section" id="hero_section">
                 <div class="hero_section--text">
                     <h1>Your Complete Beauty Experience Under One Roof</h1>
                     <h3>From stunning hair transformations to luxurious skincare and flawless nails, experience expert care in our modern salon.</h3>
@@ -108,12 +107,12 @@
                 <div class="testimonial_section--BOTTOM">
                     <div class="testimonial_quote--container">
                         <div class="testimonial_quote">
-                            <p>" When you need to relax and be catered to, this is the place to be. Absolutely loved the environment and the service was excellent. We will definitely be back! "</p>
-                            <cite style="font-weight: 500;">—Judine Dawkins</cite>
-                        </div>
-                        <div class="testimonial_quote">
                             <p>" The stylist did such a great job, I couldn't believe that was the same head of hair I walked in with! All in all, a true 5-star experience. "</p>
                             <cite style="font-weight: 500;">—Kris W.</cite>
+                        </div>
+                        <div class="testimonial_quote">
+                            <p>" When you need to relax and be catered to, this is the place to be. Absolutely loved the environment and the service was excellent. We will definitely be back! "</p>
+                            <cite style="font-weight: 500;">—Judine Dawkins</cite>
                         </div>
                         <div class="testimonial_quote">
                             <p>" The team is so welcoming and warm, I enjoy every second. My nails look exceptional and I feel refreshed everytime. I 100% recommend them! "</p>
@@ -154,7 +153,7 @@
         </section>
     </main>
 
-    <footer>
+    <footer id="footer">
         <div class="footer_info">
             <div class="footer_contact">
                 <h2>Contact Us</h2>
@@ -192,6 +191,7 @@
         </div>
     </footer> 
     <audio src="media/"></audio>
+    <script src="scripts/index.js"></script>
     <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
@@ -224,6 +224,6 @@
             easing: 'ease-out',
             once: true // Only animate once
         });
-    </script>    
+    </script> 
 </body>
 </html>

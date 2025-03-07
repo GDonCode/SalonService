@@ -2,7 +2,7 @@ const express = require('express');
 const mysql = require('mysql2');
 const cors = require('cors');
 
-const app = express();
+const EXPapp = express();
 const port = 8080;
 
 // Middleware
@@ -10,9 +10,9 @@ const corsOptions = {
     origin: '*',  // Allow all origins for testing
     methods: ['GET', 'POST'],
 };
-app.use(cors(corsOptions));
+EXPapp.use(cors(corsOptions));
 
-app.use(express.json());
+EXPapp.use(express.json());
 
 // MySQL Connection
 const db = mysql.createConnection({
@@ -29,8 +29,8 @@ db.connect((err) => {
     console.log('MySQL Connected...');
 });
 
-// Save Booking Endpoint
-app.post('/save', (req, res) => {
+// Booking Endpoint
+EXPapp.post('/save', (req, res) => {
     const Booking = req.body;
     console.log('Booking data received:', Booking);
 
@@ -40,7 +40,9 @@ app.post('/save', (req, res) => {
         res.status(400).send('Date is required');
         return;
     }
-    const formattedDate = new Date(Booking.Date).toISOString().split('T')[0]; // Convert to YYYY-MM-DD format
+    const formattedDate = new Date(Booking.Date).toISOString().slice(0, 10);
+    
+    res.json(formattedDate); // Convert to YYYY-MM-DD format
 
     // Convert Time to 24-hour format
     let time = Booking.Time;
@@ -99,12 +101,39 @@ app.post('/save', (req, res) => {
 
 
 
-app.get('/test', (req, res) => {
+EXPapp.get('/test', (req, res) => {
     res.send('Server is working!');
 });
 
 
+
+EXPapp.get('/booking-dates', (req, res) => {
+    const getBookingDates = 'SELECT * FROM bookings';
+    db.query(getBookingDates, (err, result) => {
+        if (err) {
+            console.error('Error occurred:', err);
+            res.status(500).send('Error fetching booking dates');
+            return;
+        }
+        res.json(result);
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Start the server
-app.listen(port, () => {
+EXPapp.listen(port, () => {
     console.log(`Server running on port ${port}`);
 });
+

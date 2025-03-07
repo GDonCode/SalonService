@@ -1,9 +1,5 @@
 
 /* DESKTOP STYLING START    DESKTOP STYLING START   DESKTOP STYLING START   DESKTOP STYLING START   DESKTOP STYLING START   DESKTOP STYLING START */
-
-main {
-    background: transparent;
-}
 main h1 {
     font-family: "Montserrat", serif;
     font-size: 2.2rem;
@@ -17,9 +13,10 @@ main h1 {
     justify-content: space-around;
     gap: 30px;
     font-family: "Montserrat", serif;
-    background-color: rgba(0,128,0,0.05);
-    padding: 4rem 70px 2rem 70px;
+    background: transparent;
+    padding: 0px 70px 2rem 70px;
     border-radius: 0 0 20px 20px; 
+    background: transparent;
 }
 .hero_section--text {
     width: 45%;
@@ -131,7 +128,7 @@ main h1 {
     display: flex;
     justify-content: space-between;
     padding: 40px 225px;
-    background-color: white;
+    background: transparent;
     border: none;
 }
 .testimonial_section--BOTTOM {
@@ -139,15 +136,15 @@ main h1 {
     flex-direction: column;
     padding: 2.5rem 60px;
     height: fit-content;
-    background: linear-gradient(135deg, rgba(0,128,0,0.05) 0%, rgba(0,128,0,0.1) 100%);
+    background: transparent;
 }
 .testimonial_quote--container {
     display: flex;
     gap: 2rem;
 }
 .testimonial_review img {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
 }
 .testimonial_review {
     display: flex;
@@ -253,6 +250,7 @@ main h1 {
     }
     .testimonial_section--BOTTOM {
         display: none;
+        background: transparent;
     }
     .MOBILE_testimonial_section {
         display: block;

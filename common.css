@@ -5,16 +5,18 @@ body {
     padding: 0;
     margin: 0;
     position: relative;
+    display: flex;
+    flex-direction: column;
     font-family: "Montserrat", serif;
     min-height: 100vh;
     line-height: 1.5;
     color: black;
-    background-color: rgba(0,128,0,0.05);
+    border: 2px solid #0A9300;
+    background-color: white;
 }
 main {
-    padding-top: 2.813rem;
-    border: 2px solid #0A9300;
     border-bottom: none;
+    background-color: rgba(0,128,0,0.05);
 }
 
 
@@ -25,17 +27,13 @@ nav {
     min-width: 100%;
     align-items: center;
     justify-content: space-around;
-    padding: 60px 35px;
+    padding: 60px 35px 60px 35px;
     height: 5.625rem;
-    position: fixed;
     top: 0;
     left: 0;
     z-index: 20000;
-    background: white;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-top: 2px solid #0A9300;
-    border-left: 2px solid #0A9300;
-    border-right: 2px solid #0A9300;
+    background-color: white;
+    border-bottom: 2px solid #E0E0E0;
 }
 .nav_logo--container {
     position: absolute;
@@ -147,10 +145,6 @@ nav img {
 /* FOOTER STYLING START */
 
 footer {
-    position: absolute;
-    top: 100%;
-    width: 100%;
-    min-width: 100%;
     height: fit-content;
     background-color: #242424;
     display: flex;
@@ -160,9 +154,7 @@ footer {
     padding: 20px 30px;
     background: white;
     box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-    border-bottom: 2px solid #0A9300;
-    border-left: 2px solid #0A9300;
-    border-right: 2px solid #0A9300;
+    border-top: 2px solid #E0E0E0;
 }
 .footer_info {
     display: flex;

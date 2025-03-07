@@ -206,6 +206,7 @@ async function confirmBooking(){
     Booking.BookingID = Math.floor(100000 + Math.random() * 900000);
 
     sessionStorage.setItem("Booking", JSON.stringify(Booking));
+    console.log(sessionStorage.getItem("Booking"));
 
     const response = await fetch('http://192.168.0.2:8080/save', {
         method: 'POST',

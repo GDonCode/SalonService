@@ -5,13 +5,16 @@ body {
     display: flex;
     flex-direction: column;
 }
+nav {
+    background-color: rgba(0,128,0,0.05);
+}
 main {
     background-color: rgba(0,128,0,0.05);
     height: 200%;
     width: 100%;
     height: fit-content;
     padding-bottom: 80px;
-    padding-top: 7.5rem;
+    padding-top: 1.3rem;
 }
 .confirm_button {
     display: block;
